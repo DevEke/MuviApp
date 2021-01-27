@@ -6,9 +6,7 @@ import MainView from './components/MainView/mainview';
 class MooviesApp extends Component {
     render() {
         return (
-            <Container>
-                <MainView/>
-            </Container> 
+            <MainView/>
         )
     }
 }

@@ -31913,32 +31913,21 @@ var MainView = /*#__PURE__*/function (_Component) {
       });
       return _react.default.createElement("div", {
         className: "main-view"
-      }, selectedMovie ? _react.default.createElement(Row, {
-        className: "justify-content-md-center"
-      }, _react.default.createElement(Col, {
-        md: 8,
-        style: {
-          border: "1px solid black"
-        }
-      }, _react.default.createElement(_movieview.default, {
+      }, selectedMovie ? _react.default.createElement(_movieview.default, {
         movie: selectedMovie,
         onClick: function onClick() {
           return _this3.goBack();
         }
-      }))) : _react.default.createElement(Row, {
-        className: "justify-content-md-center"
-      }, movies.map(function (movie) {
-        return _react.default.createElement(Col, {
-          md: 3
-        }, _react.default.createElement(_moviecard.default, {
+      }) : movies.map(function (movie) {
+        return _react.default.createElement(_moviecard.default, {
           className: "moviecard",
           key: movie._id,
           movie: movie,
           onClick: function onClick(movie) {
             return _this3.onMovieClick(movie);
           }
-        }));
-      })));
+        });
+      }));
     }
   }]);
 
@@ -32000,7 +31989,7 @@ var MooviesApp = /*#__PURE__*/function (_Component) {
   _createClass(MooviesApp, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(Container, null, _react.default.createElement(_mainview.default, null));
+      return _react.default.createElement(_mainview.default, null);
     }
   }]);
 
