@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import MainView from './components/MainView/mainview';
 
-class MooviesApp extends React.Component {
+class MooviesApp extends Component {
     render() {
         return (
-            <div className="moovies-app">
-                <div>Good Morning</div>
-            </div>
+            <MainView/>
         )
     }
 }
