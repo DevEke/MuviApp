@@ -1,5 +1,77 @@
-.moovies-app {
-  color: steelblue;
+.app-container {
+  background-color: black;
+}
+.ctn {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Raleway", sans-serif;
+}
+.ctn .logo-text {
+  font-family: "Oswald", sans-serif;
+  color: white;
+}
+.ctn form {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  min-width: 300px;
+  font-family: "Raleway", sans-serif;
+}
+.ctn form input {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: background-color 0.3s;
+  border-bottom: 1px solid white;
+}
+.ctn form input::placeholder {
+  color: white;
+}
+.ctn form input:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+.ctn form input:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.ctn form .form-btn {
+  padding: 10px 10px;
+  border-radius: 5px;
+  min-width: 100px;
+  border: none;
+  color: white;
+}
+.ctn form .btn-filled {
+  background: #1B52F5;
+  transition: background-color 0.3s, border 0.3s;
+  border: 1px solid #1B52F5;
+  margin-top: 30px;
+}
+.ctn form .btn-filled:hover {
+  cursor: pointer;
+  background: #4c77f7;
+  border: 1px solid #4c77f7;
+}
+.ctn form .btn-open {
+  border: 1px solid white;
+  background: none;
+  transition: color 0.3s, background-color 0.3s;
+  margin-top: 15px;
+}
+.ctn form .btn-open:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MovieCard from '../MovieCard/moviecard';
 import MovieView from '../MovieView/movieview';
+import LoginView from '../LoginView/loginview';
+import RegisterView from '../RegisterView/registerview';
 
 
 
@@ -10,17 +12,19 @@ class MainView extends Component {
         super();
         this.state = {
             movies: null,
-            selectedMovie: null
+            selectedMovie: null,
+            user: null,
+            newUser: false
         }
     }
 
     componentDidMount() {
         axios.get('https://moovies-app-0088.herokuapp.com/movies')
-        .then(response => {
+        .then((response) => {
             this.setState({
                 movies: response.data
             })
-            .catch(function(error) {
+            .catch((error) => {
                 console.log(error);
             });
         })
@@ -38,9 +42,39 @@ class MainView extends Component {
         });
     }
 
+    onLoggedIn(user) {
+        this.setState({
+            user: user
+        })
+    }
+
+    onRegistered(user) {
+        this.setState({
+            user: user,
+            newUser: false
+        })
+    }
+
+    toRegister() {
+        this.setState({
+            newUser: true
+        })
+    }
+
+    toLogin() {
+        this.setState({
+            newUser: false
+        })
+    }
+
     render() {
-        const { movies, selectedMovie } = this.state;
-        if (!movies) return <div className="mainview"/>
+        const { movies, selectedMovie, newUser, user } = this.state;
+        if (!movies) return <div className="mainview"/>;
+        
+        if (newUser) return <RegisterView onRegistered={user => this.onRegistered(user)} toLogin={() => this.toLogin()}/>;
+
+        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} toRegister={() => this.toRegister()}/>;
+
         return (
             <div className="main-view">
                 {selectedMovie 
@@ -53,5 +87,6 @@ class MainView extends Component {
         );
     }
 }
+
 
 export default MainView;
