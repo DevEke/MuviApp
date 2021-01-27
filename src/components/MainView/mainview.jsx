@@ -44,7 +44,13 @@ class MainView extends Component {
         return (
             <div className="main-view">
                 {selectedMovie 
-                    ? <MovieView movie={selectedMovie} onClick={() => this.goBack()}/> 
+                    ? (
+                        <Row className="justify-content-md-center">
+                            <Col md={8}>
+                                <MovieView movie={selectedMovie} onClick={() => this.goBack()}/>
+                            </Col>
+                        </Row>  
+                    ) 
                     : movies.map(movie => (
                         <MovieCard className="moviecard" key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
                     ))
