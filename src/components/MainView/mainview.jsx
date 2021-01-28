@@ -44,10 +44,29 @@ class MainView extends Component {
         });
     }
 
-    onLoggedIn(user) {
+    onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user: user
+            user: authData.user.Username
+        });
+
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
+    }
+
+    getMovies(token) {
+        axios.get('https://moovies-app-0088.herokuapp.com/movies', {
+            headers: {Authorization: `Bearer ${token}`}
         })
+        .then((response) => {
+            this.setState({
+                movies: response.data
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }
 
     onRegistered(user) {

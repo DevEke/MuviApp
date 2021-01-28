@@ -33120,6 +33120,8 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _axios = _interopRequireDefault(require("axios"));
+
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 require("./loginview.scss");
@@ -33156,7 +33158,16 @@ function LoginView(props) {
   var attemptLogin = function attemptLogin(e) {
     e.preventDefault();
     console.log(username, password);
-    props.onLoggedIn(username);
+
+    _axios.default.post('https://moovies-app-0088.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    }).then(function (response) {
+      var data = response.data;
+      props.onLoggedIn(data);
+    }).catch(function (error) {
+      alert('Username or Password is incorrect.');
+    });
   };
 
   return _react.default.createElement("div", {
@@ -33202,7 +33213,7 @@ LoginView.propTypes = {
 };
 var _default = LoginView;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss"}],"components/RegisterView/registerview.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss"}],"components/RegisterView/registerview.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33416,9 +33427,30 @@ var MainView = /*#__PURE__*/function (_Component) {
     }
   }, {
     key: "onLoggedIn",
-    value: function onLoggedIn(user) {
+    value: function onLoggedIn(authData) {
+      console.log(authData);
       this.setState({
-        user: user
+        user: authData.user.Username
+      });
+      localStorage.setItem('token', authData.token);
+      localStorage.setItem('user', authData.user.Username);
+      this.getMovies(authData.token);
+    }
+  }, {
+    key: "getMovies",
+    value: function getMovies(token) {
+      var _this3 = this;
+
+      _axios.default.get('https://moovies-app-0088.herokuapp.com/movies', {
+        headers: {
+          Authorization: "Bearer ".concat(token)
+        }
+      }).then(function (response) {
+        _this3.setState({
+          movies: response.data
+        });
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }, {
@@ -33453,7 +33485,7 @@ var MainView = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var _this$state = this.state,
           movies = _this$state.movies,
@@ -33465,18 +33497,18 @@ var MainView = /*#__PURE__*/function (_Component) {
       });
       if (newUser) return _react.default.createElement(_registerview.default, {
         onRegistered: function onRegistered(user) {
-          return _this3.onRegistered(user);
+          return _this4.onRegistered(user);
         },
         toLogin: function toLogin() {
-          return _this3.toLogin();
+          return _this4.toLogin();
         }
       });
       if (!user) return _react.default.createElement(_loginview.default, {
         onLoggedIn: function onLoggedIn(user) {
-          return _this3.onLoggedIn(user);
+          return _this4.onLoggedIn(user);
         },
         toRegister: function toRegister() {
-          return _this3.toRegister();
+          return _this4.toRegister();
         }
       });
       return _react.default.createElement("div", {
@@ -33490,7 +33522,7 @@ var MainView = /*#__PURE__*/function (_Component) {
         alt: "profile icon"
       })), _react.default.createElement("button", {
         onClick: function onClick() {
-          return _this3.onSignOut();
+          return _this4.onSignOut();
         },
         className: "signout btn"
       }, "Sign Out"))), _react.default.createElement("div", {
@@ -33498,7 +33530,7 @@ var MainView = /*#__PURE__*/function (_Component) {
       }, selectedMovie ? _react.default.createElement(_movieview.default, {
         movie: selectedMovie,
         onClick: function onClick() {
-          return _this3.goBack();
+          return _this4.goBack();
         }
       }) : movies.map(function (movie) {
         return _react.default.createElement(_moviecard.default, {
@@ -33506,7 +33538,7 @@ var MainView = /*#__PURE__*/function (_Component) {
           key: movie._id,
           movie: movie,
           onClick: function onClick(movie) {
-            return _this3.onMovieClick(movie);
+            return _this4.onMovieClick(movie);
           }
         });
       })));
@@ -33609,7 +33641,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64434" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50873" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
