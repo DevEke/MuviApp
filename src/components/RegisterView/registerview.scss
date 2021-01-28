@@ -1,4 +1,6 @@
 $primary-color: #1B52F5;
+$secondary-color: rgba(255,255,255,0.1);
+$tertiary-color: rgba(255,255,255,0.3);
 
 .ctn {
     height: 100vh;
@@ -11,73 +13,61 @@ $primary-color: #1B52F5;
     font-family: 'Raleway', sans-serif;
 
     .logo-text {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Quicksand', sans-serif;
         color: white;
     }
 
     form {
         display: flex;
         flex-direction: column;
-        background-color: black;
         min-width: 300px;
         font-family: 'Raleway', sans-serif;
 
         input {
-            box-sizing: border-box;
             padding: 10px 20px;
             margin: 10px 0;
             border-radius: 5px;
             border: none;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: $secondary-color;
             color: white;
             transition: background-color 0.3s;
-            border-bottom: 1px solid white;
+            cursor: pointer;
 
             &::placeholder {
                 color: white;
             }
 
-            &:focus {
-                background-color: rgba(255,255,255,.5);
+            &:hover, &:focus {
+                background: $tertiary-color;
                 outline: none;
-            }
-
-            &:hover {
-                cursor: pointer;
-                background-color: rgba(255,255,255,.5);
             }
         }
 
         .form-btn {
             padding: 10px 10px;
             border-radius: 5px;
-            min-width: 100px;
             border: none;
             color: white;
+            cursor: pointer;
         }
 
         .btn-filled {
             background: $primary-color;
             transition: background-color 0.3s, border 0.3s;
-            border: 1px solid $primary-color;
             margin-top: 30px;
 
             &:hover {
-                cursor: pointer;
                 background: lighten($primary-color, 10%);
-                border: 1px solid lighten($primary-color, 10%);
             }
         }
         .btn-open {
-            border: 1px solid white;
-            background: none;
+            border: none;
+            background: $secondary-color;
             transition: color 0.3s, background-color 0.3s;
             margin-top: 15px;
 
             &:hover {
-                cursor: pointer;
-                background-color: white;
-                color: black;
+                background: $tertiary-color;
             }
         }
         

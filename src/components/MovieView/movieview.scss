@@ -1,0 +1,110 @@
+$primary-color: #1B52F5;
+$secondary-color: rgba(255,255,255,0.1);
+$tertiary-color: rgba(255,255,255,0.3);
+
+.movie-view {
+    display: flex;
+    width: 100vw;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+
+    .movie-poster {
+        height: 700px;
+        width: auto;
+        border-radius: 10px;
+    }
+
+    .movie-info {
+        padding: 20px 50px;
+        font-family: 'Raleway', sans-serif; 
+        color: white;
+
+        h1 {
+            color: white;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    
+        p {
+            font-size: 24px;
+            width: 70%;
+            margin-top: 20px;
+        }
+    
+        small {
+            color: $primary-color;
+            font-size: 16px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+        }
+
+    }
+
+    .btn {
+        height: 50px;
+        width: 50px;
+        background-color: $secondary-color;
+        transition: background-color 0.3s;
+        border-radius: 50px;
+        color: white;
+        cursor: pointer;
+        margin: 20px 0;
+        font-size: 12px;
+        flex-shrink: 0;
+        align-self: flex-start;
+    }
+
+    .back {
+        margin-right: 30px;
+        &:hover {
+            background-color: $tertiary-color;
+        }
+    }
+
+    .fav {
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+
+    
+
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .movie-view {
+
+        flex-direction: column;
+
+        .movie-poster {
+            width: 270px;
+            height: auto;
+        }
+        .movie-info {
+            padding: 10px;
+            margin-top: 50px;
+
+            p {
+                width: 100%;
+            }
+        }
+
+    }
+    
+}
+
+@media only screen and (max-width: 1024px) {
+    .movie-view {
+        flex-direction: column;
+        
+        .movie-info {
+            margin-top: 50px;
+        }
+    }
+}

@@ -13,7 +13,7 @@ function LoginView(props) {
 
     return (
         <div className="ctn">
-            <h1 className="logo-text">Moovies</h1>
+            <h1 className="logo-text">MUVI</h1>
             <p>Sign In</p>
             <form>
                 <label className="label sr-only" htmlFor="username">Username</label>

@@ -4,6 +4,8 @@ import MovieCard from '../MovieCard/moviecard';
 import MovieView from '../MovieView/movieview';
 import LoginView from '../LoginView/loginview';
 import RegisterView from '../RegisterView/registerview';
+import profile from '../../img/user.svg';
+import './mainview.scss';
 
 
 
@@ -13,7 +15,7 @@ class MainView extends Component {
         this.state = {
             movies: null,
             selectedMovie: null,
-            user: null,
+            user: 'user',
             newUser: false
         }
     }
@@ -55,6 +57,12 @@ class MainView extends Component {
         })
     }
 
+    onSignOut() {
+        this.setState({
+            user: null
+        })
+    }
+
     toRegister() {
         this.setState({
             newUser: true
@@ -69,7 +77,7 @@ class MainView extends Component {
 
     render() {
         const { movies, selectedMovie, newUser, user } = this.state;
-        if (!movies) return <div className="mainview"/>;
+        if (!movies) return <div className="main-view"/>;
         
         if (newUser) return <RegisterView onRegistered={user => this.onRegistered(user)} toLogin={() => this.toLogin()}/>;
 
@@ -77,12 +85,23 @@ class MainView extends Component {
 
         return (
             <div className="main-view">
-                {selectedMovie 
-                    ? <MovieView movie={selectedMovie} onClick={() => this.goBack()}/> 
-                    : movies.map(movie => (
-                        <MovieCard className="moviecard" key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
-                    ))
-                }
+                <div className="nav">
+                    <h1>MUVI</h1>
+                    <div>
+                        <button className="account btn">
+                            <img src={profile} alt="profile icon"/>
+                        </button>
+                        <button onClick={() => this.onSignOut()} className="signout btn">Sign Out</button>
+                    </div>
+                </div>
+                <div className="movie-grid">
+                    {selectedMovie 
+                        ? <MovieView movie={selectedMovie} onClick={() => this.goBack()}/> 
+                        : movies.map(movie => (
+                            <MovieCard className="moviecard" key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
+                        ))
+                    }
+                </div>         
             </div>
         );
     }
