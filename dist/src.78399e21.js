@@ -33381,7 +33381,7 @@ var MainView = /*#__PURE__*/function (_Component) {
     _this.state = {
       movies: null,
       selectedMovie: null,
-      user: 'user',
+      user: null,
       newUser: false
     };
     return _this;
