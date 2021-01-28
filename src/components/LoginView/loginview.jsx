@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import './loginview.scss';
 
@@ -9,7 +10,15 @@ function LoginView(props) {
     const attemptLogin = (e) => {
         e.preventDefault();
         console.log(username, password);
-        props.onLoggedIn(username);
+        axios.post('https://moovies-app-0088.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((response) => {
+            const data = response.data;
+            props.onLoggedIn(data)
+        }).catch((error) => {
+            console.log('No Such User')
+        })
     };
 
     return (
