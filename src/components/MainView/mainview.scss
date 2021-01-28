@@ -1,0 +1,77 @@
+$primary-color: #1B52F5;
+$secondary-color: rgba(255,255,255,0.1);
+$tertiary-color: rgba(255,255,255,0.3);
+
+.main-view {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 100vw;
+
+
+    .nav {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 16px;
+        color: white;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+
+        p {
+            font-family: 'Raleway', sans-serif;   
+        }
+
+        .btn {
+            background-color: $secondary-color;
+            border: none;
+            color: white;
+            font-family: 'Raleway', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+            flex-shrink: 1 0 auto;
+
+            &:hover, &:focus {
+                background-color: $tertiary-color;
+                outline: none;  
+            }
+        }
+
+        .account {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .signout {
+            min-width: 100px;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-left: 20px;
+        }
+    }
+
+    .movie-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .nav {
+        h1 {
+            font-size: 24px;
+        }
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .nav {
+        h1 {
+            font-size: 16px;
+        }
+    }
+
+}

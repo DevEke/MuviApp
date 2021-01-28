@@ -1,0 +1,76 @@
+$primary-color: #1B52F5;
+$secondary-color: rgba(255,255,255,0.1);
+$tertiary-color: rgba(255,255,255,0.3);
+
+.ctn {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+
+    .logo-text {
+        font-family: 'Quicksand', sans-serif;
+        color: white;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        font-family: 'Raleway', sans-serif;
+
+        input {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background-color: $secondary-color;
+            color: white;
+            transition: background-color 0.3s;
+            cursor: pointer;
+
+            &::placeholder {
+                color: white;
+            }
+
+            &:hover, &:focus {
+                background: $tertiary-color;
+                outline: none;
+            }
+        }
+
+        .form-btn {
+            padding: 10px 10px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-filled {
+            background: $primary-color;
+            transition: background-color 0.3s, border 0.3s;
+            margin-top: 30px;
+
+            &:hover {
+                background: lighten($primary-color, 10%);
+            }
+        }
+        .btn-open {
+            border: none;
+            background: $secondary-color;
+            transition: color 0.3s, background-color 0.3s;
+            margin-top: 15px;
+
+            &:hover {
+                background: $tertiary-color;
+            }
+        }
+        
+    }
+}
+

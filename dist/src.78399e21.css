@@ -1,5 +1,257 @@
-.moovies-app {
-  color: steelblue;
+body {
+  background-color: black;
+}
+.movie-card {
+  margin: 50px;
+  width: 300px;
+  height: 441.76px;
+  cursor: pointer;
+}
+.movie-card .img-sizer {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+.movie-card .movie-overlay {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  transition: opacity 0.3s, box-shadow 0.3s;
+  width: 100%;
+  height: 50%;
+  position: relative;
+  bottom: 50%;
+  z-index: 999;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+.movie-card .movie-overlay h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+.movie-card .movie-overlay small {
+  color: #1B52F5;
+  font-size: 12px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+}
+.movie-card .movie-overlay p {
+  font-family: "Raleway", sans-serif;
+  margin-top: 10px;
+}
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .movie-card .movie-overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+.movie-view {
+  display: flex;
+  width: 100vw;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.movie-view .movie-poster {
+  height: 700px;
+  width: auto;
+  border-radius: 10px;
+}
+.movie-view .movie-info {
+  padding: 20px 50px;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+.movie-view .movie-info h1 {
+  color: white;
+  font-weight: 700;
+}
+.movie-view .movie-info h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.movie-view .movie-info p {
+  font-size: 24px;
+  width: 70%;
+  margin-top: 20px;
+}
+.movie-view .movie-info small {
+  color: #1B52F5;
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+}
+.movie-view .btn {
+  height: 50px;
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  margin: 20px 0;
+  font-size: 12px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+.movie-view .back {
+  margin-right: 30px;
+}
+.movie-view .back:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.movie-view .fav:hover {
+  background-color: #1B52F5;
+}
+
+@media only screen and (max-width: 767px) {
+  .movie-view {
+    flex-direction: column;
+  }
+  .movie-view .movie-poster {
+    width: 270px;
+    height: auto;
+  }
+  .movie-view .movie-info {
+    padding: 10px;
+    margin-top: 50px;
+  }
+  .movie-view .movie-info p {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .movie-view {
+    flex-direction: column;
+  }
+  .movie-view .movie-info {
+    margin-top: 50px;
+  }
+}
+.ctn {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Raleway", sans-serif;
+}
+.ctn .logo-text {
+  font-family: "Quicksand", sans-serif;
+  color: white;
+}
+.ctn form {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  font-family: "Raleway", sans-serif;
+}
+.ctn form input {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.ctn form input::placeholder {
+  color: white;
+}
+.ctn form input:hover, .ctn form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+.ctn form .form-btn {
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.ctn form .btn-filled {
+  background: #1B52F5;
+  transition: background-color 0.3s, border 0.3s;
+  margin-top: 30px;
+}
+.ctn form .btn-filled:hover {
+  background: #4c77f7;
+}
+.ctn form .btn-open {
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  transition: color 0.3s, background-color 0.3s;
+  margin-top: 15px;
+}
+.ctn form .btn-open:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.main-view {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 100vw;
+}
+.main-view .nav {
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+.main-view .nav p {
+  font-family: "Raleway", sans-serif;
+}
+.main-view .nav .btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  flex-shrink: 1 0 auto;
+}
+.main-view .nav .btn:hover, .main-view .nav .btn:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+.main-view .nav .account {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.main-view .nav .signout {
+  min-width: 100px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-left: 20px;
+}
+.main-view .movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .nav h1 {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 280px) {
+  .nav h1 {
+    font-size: 16px;
+  }
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */

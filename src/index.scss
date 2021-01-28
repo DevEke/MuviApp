@@ -1,5 +1,7 @@
-$color: steelblue;
+$primary-color: #1B52F5;
+$secondary-color: rgba(255,255,255,0.1);
+$tertiary-color: rgba(255,255,255,0.3);
 
-.moovies-app {
-    color: $color;
+body {
+    background-color: black;
 }
