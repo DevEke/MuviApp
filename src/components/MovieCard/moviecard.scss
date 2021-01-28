@@ -49,3 +49,12 @@ $tertiary-color: rgba(255,255,255,0.3);
         opacity: 1;
     }
 }
+
+@media (hover: none) {
+    .movie-card {
+        .movie-overlay {
+            opacity: 1;
+            background-color: rgba(0,0,0,.7);
+        }
+    }
+}

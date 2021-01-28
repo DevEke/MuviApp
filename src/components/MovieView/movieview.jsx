@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './movieview.scss';
 import back from '../../img/back.svg';
 import heart from '../../img/heart.svg';
 import plus from '../../img/plus.svg';
+import { propTypes } from 'react-bootstrap/esm/Image';
 
 class MovieView extends Component {
     constructor() {
@@ -41,5 +43,22 @@ class MovieView extends Component {
         )
     }
 }
+
+MovieView.propTypes = {
+    movie: PropTypes.shape({
+        Title: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+        ImageURL: PropTypes.string.isRequired,
+        Director: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Bio: PropTypes.string,
+        }),
+        Genre: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Description: PropTypes.string
+        }),
+    }).isRequired,
+    onClick: PropTypes.func.isRequired
+};
 
 export default MovieView;

@@ -32700,7 +32700,15 @@ MovieCard.propTypes = {
   movie: _propTypes.default.shape({
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
-    ImageURL: _propTypes.default.string.isRequired
+    ImageURL: _propTypes.default.string.isRequired,
+    Director: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Bio: _propTypes.default.string
+    }).isRequired,
+    Genre: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Description: _propTypes.default.string
+    }).isRequired
   }).isRequired,
   onClick: _propTypes.default.func.isRequired
 };
@@ -32717,7 +32725,255 @@ module.exports = "/back.8885959e.svg";
 module.exports = "/heart.8b87f66a.svg";
 },{}],"img/plus.svg":[function(require,module,exports) {
 module.exports = "/plus.f3e11ee5.svg";
-},{}],"components/MovieView/movieview.jsx":[function(require,module,exports) {
+},{}],"../node_modules/@babel/runtime/helpers/esm/extends.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _extends;
+
+function _extends() {
+  exports.default = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+},{}],"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _objectWithoutPropertiesLoose;
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+},{}],"../node_modules/classnames/index.js":[function(require,module,exports) {
+var define;
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+		// register as 'classnames', consistent with npm package name
+		define('classnames', [], function () {
+			return classNames;
+		});
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+},{}],"../node_modules/react-bootstrap/esm/ThemeProvider.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useBootstrapPrefix = useBootstrapPrefix;
+exports.createBootstrapComponent = createBootstrapComponent;
+exports.default = exports.ThemeConsumer = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ThemeContext = /*#__PURE__*/_react.default.createContext({});
+
+var Consumer = ThemeContext.Consumer,
+    Provider = ThemeContext.Provider;
+exports.ThemeConsumer = Consumer;
+
+function ThemeProvider(_ref) {
+  var prefixes = _ref.prefixes,
+      children = _ref.children;
+  var copiedPrefixes = (0, _react.useMemo)(function () {
+    return (0, _extends2.default)({}, prefixes);
+  }, [prefixes]);
+  return /*#__PURE__*/_react.default.createElement(Provider, {
+    value: copiedPrefixes
+  }, children);
+}
+
+function useBootstrapPrefix(prefix, defaultPrefix) {
+  var prefixes = (0, _react.useContext)(ThemeContext);
+  return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+
+function createBootstrapComponent(Component, opts) {
+  if (typeof opts === 'string') opts = {
+    prefix: opts
+  };
+  var isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
+
+  var _opts = opts,
+      prefix = _opts.prefix,
+      _opts$forwardRefAs = _opts.forwardRefAs,
+      forwardRefAs = _opts$forwardRefAs === void 0 ? isClassy ? 'ref' : 'innerRef' : _opts$forwardRefAs;
+
+  var Wrapped = /*#__PURE__*/_react.default.forwardRef(function (_ref2, ref) {
+    var props = (0, _extends2.default)({}, _ref2);
+    props[forwardRefAs] = ref;
+    var bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
+    return /*#__PURE__*/_react.default.createElement(Component, (0, _extends2.default)({}, props, {
+      bsPrefix: bsPrefix
+    }));
+  });
+
+  Wrapped.displayName = "Bootstrap(" + (Component.displayName || Component.name) + ")";
+  return Wrapped;
+}
+
+var _default = ThemeProvider;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/esm/Image.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.propTypes = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var propTypes = {
+  /**
+   * @default 'img'
+   */
+  bsPrefix: _propTypes.default.string,
+
+  /**
+   * Sets image as fluid image.
+   */
+  fluid: _propTypes.default.bool,
+
+  /**
+   * Sets image shape as rounded.
+   */
+  rounded: _propTypes.default.bool,
+
+  /**
+   * Sets image shape as circle.
+   */
+  roundedCircle: _propTypes.default.bool,
+
+  /**
+   * Sets image shape as thumbnail.
+   */
+  thumbnail: _propTypes.default.bool
+};
+exports.propTypes = propTypes;
+var defaultProps = {
+  fluid: false,
+  rounded: false,
+  roundedCircle: false,
+  thumbnail: false
+};
+
+var Image = /*#__PURE__*/_react.default.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      fluid = _ref.fluid,
+      rounded = _ref.rounded,
+      roundedCircle = _ref.roundedCircle,
+      thumbnail = _ref.thumbnail,
+      props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["bsPrefix", "className", "fluid", "rounded", "roundedCircle", "thumbnail"]);
+  bsPrefix = (0, _ThemeProvider.useBootstrapPrefix)(bsPrefix, 'img');
+  var classes = (0, _classnames.default)(fluid && bsPrefix + "-fluid", rounded && "rounded", roundedCircle && "rounded-circle", thumbnail && bsPrefix + "-thumbnail");
+  return /*#__PURE__*/_react.default.createElement("img", (0, _extends2.default)({
+    // eslint-disable-line jsx-a11y/alt-text
+    ref: ref
+  }, props, {
+    className: (0, _classnames.default)(className, classes)
+  }));
+});
+
+Image.displayName = 'Image';
+Image.defaultProps = defaultProps;
+var _default = Image;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js"}],"components/MovieView/movieview.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32727,6 +32983,8 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 require("./movieview.scss");
 
 var _back = _interopRequireDefault(require("../../img/back.svg"));
@@ -32734,6 +32992,8 @@ var _back = _interopRequireDefault(require("../../img/back.svg"));
 var _heart = _interopRequireDefault(require("../../img/heart.svg"));
 
 var _plus = _interopRequireDefault(require("../../img/plus.svg"));
+
+var _Image = require("react-bootstrap/esm/Image");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32827,9 +33087,25 @@ var MovieView = /*#__PURE__*/function (_Component) {
   return MovieView;
 }(_react.Component);
 
+MovieView.propTypes = {
+  movie: _propTypes.default.shape({
+    Title: _propTypes.default.string.isRequired,
+    Description: _propTypes.default.string.isRequired,
+    ImageURL: _propTypes.default.string.isRequired,
+    Director: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Bio: _propTypes.default.string
+    }),
+    Genre: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Description: _propTypes.default.string
+    })
+  }).isRequired,
+  onClick: _propTypes.default.func.isRequired
+};
 var _default = MovieView;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./movieview.scss":"components/MovieView/movieview.scss","../../img/back.svg":"img/back.svg","../../img/heart.svg":"img/heart.svg","../../img/plus.svg":"img/plus.svg"}],"components/LoginView/loginview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./movieview.scss":"components/MovieView/movieview.scss","../../img/back.svg":"img/back.svg","../../img/heart.svg":"img/heart.svg","../../img/plus.svg":"img/plus.svg","react-bootstrap/esm/Image":"../node_modules/react-bootstrap/esm/Image.js"}],"components/LoginView/loginview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -32844,7 +33120,11 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 require("./loginview.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -32916,9 +33196,13 @@ function LoginView(props) {
   }, "New User?")));
 }
 
+LoginView.propTypes = {
+  onChange: _propTypes.default.func,
+  onClick: _propTypes.default.func
+};
 var _default = LoginView;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./loginview.scss":"components/LoginView/loginview.scss"}],"components/RegisterView/registerview.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss"}],"components/RegisterView/registerview.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32927,6 +33211,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -33014,9 +33302,13 @@ function RegisterView(props) {
   }, "Already Have an Account?")));
 }
 
+RegisterView.propTypes = {
+  onChange: _propTypes.default.func,
+  onClick: _propTypes.default.func
+};
 var _default = RegisterView;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"img/user.svg":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"img/user.svg":[function(require,module,exports) {
 module.exports = "/user.6b500eaa.svg";
 },{}],"components/MainView/mainview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
@@ -33317,7 +33609,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55129" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64434" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

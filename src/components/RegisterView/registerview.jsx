@@ -1,4 +1,5 @@
 import React,  { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function RegisterView(props) {
     const [ username, setUsername ] = useState('');
@@ -29,6 +30,9 @@ function RegisterView(props) {
     )
 }
 
-
+RegisterView.propTypes = {
+    onChange: PropTypes.func,
+    onClick: PropTypes.func
+}
 
 export default RegisterView;

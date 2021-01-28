@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './loginview.scss';
 
 function LoginView(props) {
@@ -26,6 +27,11 @@ function LoginView(props) {
         </div>
         
     )
+}
+
+LoginView.propTypes = {
+    onChange: PropTypes.func,
+    onClick: PropTypes.func
 }
 
 export default LoginView;
