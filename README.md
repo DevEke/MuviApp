@@ -1,2 +1,2 @@
-# Moovies
- This repo is for the client-side of Moovies app
+# Muvi App
+ This repo is for the client-side of Muvi app
