@@ -221,6 +221,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   flex-shrink: 1 0 auto;
+  margin: 0 20px;
 }
 .main-view .nav .btn:hover, .main-view .nav .btn:focus {
   background-color: rgba(255, 255, 255, 0.3);
@@ -235,7 +236,6 @@ body {
   min-width: 100px;
   border-radius: 5px;
   padding: 10px 15px;
-  margin-left: 20px;
 }
 .main-view .movie-grid {
   display: flex;
