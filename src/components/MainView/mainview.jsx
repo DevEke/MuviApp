@@ -21,15 +21,13 @@ class MainView extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://muvi-app.herokuapp.com/movies')
-        .then((response) => {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
             this.setState({
-                movies: response.data
-            })
-            .catch((error) => {
-                console.log(error);
+                user: localStorage.getItem('user')
             });
-        })
+            this.getMovies(accessToken);
+        }
     }
 
     onMovieClick(movie) {
@@ -50,7 +48,6 @@ class MainView extends Component {
             user: authData.user.Username,
             newUser: false
         });
-
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
@@ -78,6 +75,7 @@ class MainView extends Component {
     }
 
     onSignOut() {
+        localStorage.clear();
         this.setState({
             user: null
         })

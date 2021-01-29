@@ -33401,15 +33401,14 @@ var MainView = /*#__PURE__*/function (_Component) {
   _createClass(MainView, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
+      var accessToken = localStorage.getItem('token');
 
-      _axios.default.get('https://muvi-app.herokuapp.com/movies').then(function (response) {
-        _this2.setState({
-          movies: response.data
-        }).catch(function (error) {
-          console.log(error);
+      if (accessToken !== null) {
+        this.setState({
+          user: localStorage.getItem('user')
         });
-      });
+        this.getMovies(accessToken);
+      }
     }
   }, {
     key: "onMovieClick",
@@ -33440,14 +33439,14 @@ var MainView = /*#__PURE__*/function (_Component) {
   }, {
     key: "getMovies",
     value: function getMovies(token) {
-      var _this3 = this;
+      var _this2 = this;
 
       _axios.default.get('https://muvi-app.herokuapp.com/movies', {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
       }).then(function (response) {
-        _this3.setState({
+        _this2.setState({
           movies: response.data
         });
       }).catch(function (error) {
@@ -33465,6 +33464,7 @@ var MainView = /*#__PURE__*/function (_Component) {
   }, {
     key: "onSignOut",
     value: function onSignOut() {
+      localStorage.clear();
       this.setState({
         user: null
       });
@@ -33486,7 +33486,7 @@ var MainView = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       var _this$state = this.state,
           movies = _this$state.movies,
@@ -33495,18 +33495,18 @@ var MainView = /*#__PURE__*/function (_Component) {
           user = _this$state.user;
       if (newUser) return _react.default.createElement(_registerview.default, {
         onRegistered: function onRegistered(user) {
-          return _this4.onRegistered(user);
+          return _this3.onRegistered(user);
         },
         toLogin: function toLogin() {
-          return _this4.toLogin();
+          return _this3.toLogin();
         }
       });
       if (!user) return _react.default.createElement(_loginview.default, {
         onLoggedIn: function onLoggedIn(user) {
-          return _this4.onLoggedIn(user);
+          return _this3.onLoggedIn(user);
         },
         toRegister: function toRegister() {
-          return _this4.toRegister();
+          return _this3.toRegister();
         }
       });
       if (!movies) return _react.default.createElement("div", {
@@ -33523,7 +33523,7 @@ var MainView = /*#__PURE__*/function (_Component) {
         alt: "profile icon"
       })), _react.default.createElement("button", {
         onClick: function onClick() {
-          return _this4.onSignOut();
+          return _this3.onSignOut();
         },
         className: "signout btn"
       }, "Sign Out"))), _react.default.createElement("div", {
@@ -33531,7 +33531,7 @@ var MainView = /*#__PURE__*/function (_Component) {
       }, selectedMovie ? _react.default.createElement(_movieview.default, {
         movie: selectedMovie,
         onClick: function onClick() {
-          return _this4.goBack();
+          return _this3.goBack();
         }
       }) : movies.map(function (movie) {
         return _react.default.createElement(_moviecard.default, {
@@ -33539,7 +33539,7 @@ var MainView = /*#__PURE__*/function (_Component) {
           key: movie._id,
           movie: movie,
           onClick: function onClick(movie) {
-            return _this4.onMovieClick(movie);
+            return _this3.onMovieClick(movie);
           }
         });
       })));
@@ -33642,7 +33642,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59617" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60780" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
