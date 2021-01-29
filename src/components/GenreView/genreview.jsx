@@ -13,7 +13,8 @@ class GenreView extends Component {
     render() {
         const { movies, genre } = this.props;
         return (
-            <div className="genre-view">
+            <div>
+                <div className="genre-view">
                 <Link className="flex-start-btn" to="/">
                     <button className="btn back">
                         <img src={back} alt="back icon"/>
@@ -24,17 +25,20 @@ class GenreView extends Component {
                         <h1>{genre.Genre.Name}</h1>
                         <p>{genre.Genre.Description}</p>
                     </div>
-                    <div className="movies-flex">
-                        {movies.map((movie) => {
-                            if (movie.Genre.Name === genre.Genre.Name) {
-                                return (
-                                        <MovieCard className="moviecard" key={movie._id}  movie={movie}/>
-                                )
-                            }
-                        })}
-                    </div>
                 </div>
-            </div>           
+                </div>
+                <h2 className="genre-title">{genre.Genre.Name} Movies</h2>
+                <div className="movies-flex">
+                {movies.map((movie) => {
+                    if (movie.Genre.Name === genre.Genre.Name) {
+                        return (
+                                <MovieCard className="moviecard" key={movie._id}  movie={movie}/>
+                        )
+                    }
+                })}
+                </div>
+            </div>
+                       
         )
     }
 }

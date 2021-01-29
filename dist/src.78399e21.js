@@ -36285,7 +36285,9 @@ var DirectorView = /*#__PURE__*/function (_Component) {
         className: "director-container"
       }, _react.default.createElement("div", {
         className: "director-info"
-      }, _react.default.createElement("h1", null, director.Director.Name), _react.default.createElement("small", null, "Born ", director.Director.Birthday), _react.default.createElement("p", null, director.Director.Bio)))), _react.default.createElement("div", {
+      }, _react.default.createElement("h1", null, director.Director.Name), _react.default.createElement("small", null, "Born ", director.Director.Birthday), _react.default.createElement("p", null, director.Director.Bio)))), _react.default.createElement("h2", {
+        className: "director-title"
+      }, "Movies by ", director.Director.Name), _react.default.createElement("div", {
         className: "movies-flex"
       }, movies.map(function (movie) {
         if (movie.Director.Name === director.Director.Name) {
@@ -36383,7 +36385,7 @@ var GenreView = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           movies = _this$props.movies,
           genre = _this$props.genre;
-      return _react.default.createElement("div", {
+      return _react.default.createElement("div", null, _react.default.createElement("div", {
         className: "genre-view"
       }, _react.default.createElement(_reactRouterDom.Link, {
         className: "flex-start-btn",
@@ -36397,7 +36399,9 @@ var GenreView = /*#__PURE__*/function (_Component) {
         className: "genre-container"
       }, _react.default.createElement("div", {
         className: "genre-info"
-      }, _react.default.createElement("h1", null, genre.Genre.Name), _react.default.createElement("p", null, genre.Genre.Description)), _react.default.createElement("div", {
+      }, _react.default.createElement("h1", null, genre.Genre.Name), _react.default.createElement("p", null, genre.Genre.Description)))), _react.default.createElement("h2", {
+        className: "genre-title"
+      }, genre.Genre.Name, " Movies"), _react.default.createElement("div", {
         className: "movies-flex"
       }, movies.map(function (movie) {
         if (movie.Genre.Name === genre.Genre.Name) {
@@ -36407,7 +36411,7 @@ var GenreView = /*#__PURE__*/function (_Component) {
             movie: movie
           });
         }
-      }))));
+      })));
     }
   }]);
 

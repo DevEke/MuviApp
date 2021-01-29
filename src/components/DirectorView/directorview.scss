@@ -72,8 +72,14 @@ $tertiary-color: rgba(255,255,255,0.3);
         
     }
 }
-
+.director-title {
+    font-size: 24px;
+    padding-left: 150px;
+    margin-top: 50px;
+    font-family: 'Raleway', sans-serif;
+}
 .movies-flex {
     display: flex;
     flex-wrap: wrap;
+    padding-left: 100px;
 }

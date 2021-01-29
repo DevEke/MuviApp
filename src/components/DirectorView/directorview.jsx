@@ -29,6 +29,7 @@ class DirectorView extends Component {
                     </div>
                 </div>
                 </div>
+                <h2 className="director-title">Movies by {director.Director.Name}</h2>
                 <div className="movies-flex">
                 {movies.map((movie) => {
                         if (movie.Director.Name === director.Director.Name) {

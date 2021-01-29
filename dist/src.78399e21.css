@@ -264,9 +264,17 @@ body {
   margin-top: 20px;
 }
 
+.director-title {
+  font-size: 24px;
+  padding-left: 150px;
+  margin-top: 50px;
+  font-family: "Raleway", sans-serif;
+}
+
 .movies-flex {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 100px;
 }
 .genre-view {
   display: flex;
@@ -311,6 +319,13 @@ body {
 .genre-view .genre-container .movies-flex {
   display: flex;
   flex-wrap: wrap;
+}
+
+.genre-title {
+  font-size: 24px;
+  padding-left: 150px;
+  margin-top: 50px;
+  font-family: "Raleway", sans-serif;
 }
 .main-view {
   display: flex;
