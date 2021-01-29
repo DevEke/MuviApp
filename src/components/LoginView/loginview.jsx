@@ -10,14 +10,14 @@ function LoginView(props) {
     const attemptLogin = (e) => {
         e.preventDefault();
         console.log(username, password);
-        axios.post('https://moovies-app-0088.herokuapp.com/login', {
+        axios.post('https://muvi-app.herokuapp.com/login', {
             Username: username,
             Password: password
         }).then((response) => {
             const data = response.data;
             props.onLoggedIn(data)
         }).catch((error) => {
-            alert('Username or Password is incorrect.')
+            console.log('Username or Password is incorrect.')
         })
     };
 

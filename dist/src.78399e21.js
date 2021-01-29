@@ -33159,14 +33159,14 @@ function LoginView(props) {
     e.preventDefault();
     console.log(username, password);
 
-    _axios.default.post('https://moovies-app-0088.herokuapp.com/login', {
+    _axios.default.post('https://muvi-app.herokuapp.com/login', {
       Username: username,
       Password: password
     }).then(function (response) {
       var data = response.data;
       props.onLoggedIn(data);
     }).catch(function (error) {
-      alert('Username or Password is incorrect.');
+      console.log('Username or Password is incorrect.');
     });
   };
 
@@ -33403,7 +33403,7 @@ var MainView = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios.default.get('https://moovies-app-0088.herokuapp.com/movies').then(function (response) {
+      _axios.default.get('https://muvi-app.herokuapp.com/movies').then(function (response) {
         _this2.setState({
           movies: response.data
         }).catch(function (error) {
@@ -33430,7 +33430,8 @@ var MainView = /*#__PURE__*/function (_Component) {
     value: function onLoggedIn(authData) {
       console.log(authData);
       this.setState({
-        user: authData.user.Username
+        user: authData.user.Username,
+        newUser: false
       });
       localStorage.setItem('token', authData.token);
       localStorage.setItem('user', authData.user.Username);
@@ -33441,7 +33442,7 @@ var MainView = /*#__PURE__*/function (_Component) {
     value: function getMovies(token) {
       var _this3 = this;
 
-      _axios.default.get('https://moovies-app-0088.herokuapp.com/movies', {
+      _axios.default.get('https://muvi-app.herokuapp.com/movies', {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
@@ -33492,9 +33493,6 @@ var MainView = /*#__PURE__*/function (_Component) {
           selectedMovie = _this$state.selectedMovie,
           newUser = _this$state.newUser,
           user = _this$state.user;
-      if (!movies) return _react.default.createElement("div", {
-        className: "main-view"
-      });
       if (newUser) return _react.default.createElement(_registerview.default, {
         onRegistered: function onRegistered(user) {
           return _this4.onRegistered(user);
@@ -33510,6 +33508,9 @@ var MainView = /*#__PURE__*/function (_Component) {
         toRegister: function toRegister() {
           return _this4.toRegister();
         }
+      });
+      if (!movies) return _react.default.createElement("div", {
+        className: "main-view"
       });
       return _react.default.createElement("div", {
         className: "main-view"
@@ -33589,30 +33590,30 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var MooviesApp = /*#__PURE__*/function (_Component) {
-  _inherits(MooviesApp, _Component);
+var MuviApp = /*#__PURE__*/function (_Component) {
+  _inherits(MuviApp, _Component);
 
-  var _super = _createSuper(MooviesApp);
+  var _super = _createSuper(MuviApp);
 
-  function MooviesApp() {
-    _classCallCheck(this, MooviesApp);
+  function MuviApp() {
+    _classCallCheck(this, MuviApp);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(MooviesApp, [{
+  _createClass(MuviApp, [{
     key: "render",
     value: function render() {
       return _react.default.createElement(_mainview.default, null);
     }
   }]);
 
-  return MooviesApp;
+  return MuviApp;
 }(_react.Component);
 
 var container = document.getElementsByClassName('app-container')[0];
 
-_reactDom.default.render(_react.default.createElement(MooviesApp), container);
+_reactDom.default.render(_react.default.createElement(MuviApp), container);
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./index.scss":"index.scss","./components/MainView/mainview":"components/MainView/mainview.jsx"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -33641,7 +33642,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50873" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58399" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

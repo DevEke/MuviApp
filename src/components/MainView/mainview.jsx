@@ -21,7 +21,7 @@ class MainView extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://moovies-app-0088.herokuapp.com/movies')
+        axios.get('https://muvi-app.herokuapp.com/movies')
         .then((response) => {
             this.setState({
                 movies: response.data
@@ -47,7 +47,8 @@ class MainView extends Component {
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
-            user: authData.user.Username
+            user: authData.user.Username,
+            newUser: false
         });
 
         localStorage.setItem('token', authData.token);
@@ -56,7 +57,7 @@ class MainView extends Component {
     }
 
     getMovies(token) {
-        axios.get('https://moovies-app-0088.herokuapp.com/movies', {
+        axios.get('https://muvi-app.herokuapp.com/movies', {
             headers: {Authorization: `Bearer ${token}`}
         })
         .then((response) => {
@@ -96,11 +97,13 @@ class MainView extends Component {
 
     render() {
         const { movies, selectedMovie, newUser, user } = this.state;
-        if (!movies) return <div className="main-view"/>;
-        
+
         if (newUser) return <RegisterView onRegistered={user => this.onRegistered(user)} toLogin={() => this.toLogin()}/>;
 
         if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} toRegister={() => this.toRegister()}/>;
+
+        if (!movies) return <div className="main-view"/>;
+        
 
         return (
             <div className="main-view">

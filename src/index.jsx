@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import MainView from './components/MainView/mainview';
 
-class MooviesApp extends Component {
+class MuviApp extends Component {
     render() {
         return (
             <MainView/>
@@ -13,4 +13,4 @@ class MooviesApp extends Component {
 
 const container = document.getElementsByClassName('app-container')[0];
 
-ReactDOM.render(React.createElement(MooviesApp), container);
+ReactDOM.render(React.createElement(MuviApp), container);
