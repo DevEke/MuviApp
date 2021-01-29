@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import MovieCard from '../MovieCard/moviecard';
 import MovieView from '../MovieView/movieview';
