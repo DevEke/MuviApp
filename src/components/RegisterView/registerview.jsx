@@ -1,5 +1,7 @@
 import React,  { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function RegisterView(props) {
     const [ username, setUsername ] = useState('');
@@ -9,7 +11,17 @@ function RegisterView(props) {
     const attemptRegister = (e) => {
         e.preventDefault();
         console.log(username, password, email);
-        props.onRegistered(username);
+        axios.post('https://muvi-app.herokuapp.com/users', {
+            Username: username,
+            Password: password,
+            Email: email
+        }).then((response) => {
+            const data = response.data;
+            console.log(data);
+            window.open('/', '_self');
+        }).catch((error) => {
+            console.log('Error with Registration')
+        })
     }
 
     return (
@@ -24,7 +36,7 @@ function RegisterView(props) {
                 <label className="label sr-only" htmlFor="email">Email</label>
                 <input id="email" placeholder="Email" type="email" value={email} onChange={e => setEmail(e.target.value)}/>
                 <button className="form-btn btn-filled" type="button" onClick={attemptRegister}>Create Account</button>
-                <button className="form-btn btn-open" type="button" onClick={props.toLogin}>Already Have an Account?</button>
+                <Link to="/"><button className="form-btn btn-open" type="button">Already Have an Account?</button></Link>
             </form>
         </div>
     )

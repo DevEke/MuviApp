@@ -7,7 +7,7 @@ class MovieCard extends Component {
     render() {
         const { movie } = this.props;
         return (
-            <Link to={`/movies/${movie._id}`}>
+            <Link to={`/movies/${movie._id}`} style={{textDecoration: 'none'}}>
                 <div className="movie-card">
                     <img className="img-sizer" src={movie.ImageURL} />
                     <div className="movie-overlay">

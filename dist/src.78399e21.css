@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  color: white;
 }
 .movie-card {
   margin: 50px;
@@ -57,6 +58,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+.movie-view .flex-start-btn {
+  align-self: flex-start;
+}
 .movie-view .movie-poster {
   height: 700px;
   width: auto;
@@ -74,6 +78,11 @@ body {
 .movie-view .movie-info h2 {
   font-size: 18px;
   margin-bottom: 20px;
+  color: white;
+  transition: opacity 0.3s;
+}
+.movie-view .movie-info h2:hover {
+  opacity: 0.5;
 }
 .movie-view .movie-info p {
   font-size: 24px;
@@ -85,6 +94,13 @@ body {
   font-size: 16px;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
+  transition: opacity 0.3s;
+}
+.movie-view .movie-info small:hover {
+  opacity: 0.5;
+}
+.movie-view .movie-info .text-link {
+  text-decoration: none;
 }
 .movie-view .btn {
   height: 50px;
@@ -97,7 +113,6 @@ body {
   margin: 20px 0;
   font-size: 12px;
   flex-shrink: 0;
-  align-self: flex-start;
 }
 .movie-view .back {
   margin-right: 30px;
@@ -193,6 +208,109 @@ body {
 }
 .ctn form .btn-open:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+.director-view {
+  display: flex;
+  width: 100vw;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Raleway", sans-serif;
+}
+.director-view .flex-start-btn {
+  align-self: flex-start;
+}
+.director-view .flex-start-btn .btn {
+  height: 50px;
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  margin: 20px 0;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.director-view .flex-start-btn .back {
+  margin-right: 30px;
+}
+.director-view .flex-start-btn .back:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.director-view .director-image {
+  height: 500px;
+  width: 500px;
+  margin-bottom: 30px;
+  align-self: flex-start;
+  padding: 30px;
+  border-radius: 50%;
+}
+.director-view .director-container {
+  padding: 20px 50px;
+}
+.director-view .director-container .director-info h1 {
+  font-weight: 700;
+}
+.director-view .director-container .director-info small {
+  color: #1B52F5;
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+}
+.director-view .director-container .director-info p {
+  font-size: 24px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.movies-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.genre-view {
+  display: flex;
+  width: 100vw;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+}
+.genre-view .flex-start-btn {
+  align-self: flex-start;
+}
+.genre-view .flex-start-btn .btn {
+  height: 50px;
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  margin: 20px 0;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.genre-view .flex-start-btn .back {
+  margin-right: 30px;
+}
+.genre-view .flex-start-btn .back:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.genre-view .genre-container {
+  padding: 20px 50px;
+}
+.genre-view .genre-container .genre-info h1 {
+  font-weight: 700;
+}
+.genre-view .genre-container .genre-info p {
+  font-size: 24px;
+  width: 90%;
+  margin-top: 20px;
+}
+.genre-view .genre-container .movies-flex {
+  display: flex;
+  flex-wrap: wrap;
 }
 .main-view {
   display: flex;

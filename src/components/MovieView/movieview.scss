@@ -9,6 +9,10 @@ $tertiary-color: rgba(255,255,255,0.3);
     justify-content: center;
     align-items: center;
 
+    .flex-start-btn {
+        align-self: flex-start;
+    }
+
     .movie-poster {
         height: 700px;
         width: auto;
@@ -27,6 +31,12 @@ $tertiary-color: rgba(255,255,255,0.3);
         h2 {
             font-size: 18px;
             margin-bottom: 20px;
+            color: white;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 0.5;
+            }
         }
     
         p {
@@ -40,6 +50,15 @@ $tertiary-color: rgba(255,255,255,0.3);
             font-size: 16px;
             font-family: 'Quicksand', sans-serif;
             font-weight: 700;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity:  0.5;
+            }
+        }
+
+        .text-link {
+            text-decoration: none;
         }
 
     }
@@ -55,7 +74,6 @@ $tertiary-color: rgba(255,255,255,0.3);
         margin: 20px 0;
         font-size: 12px;
         flex-shrink: 0;
-        align-self: flex-start;
     }
 
     .back {

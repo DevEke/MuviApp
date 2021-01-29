@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import './loginview.scss';
+import {Link} from 'react-router-dom';
 
 function LoginView(props) {
     const [ username, setUsername ] = useState('');
@@ -31,7 +32,7 @@ function LoginView(props) {
                 <label className="label sr-only" htmlFor="password">Password</label>
                 <input id="password" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 <button className="form-btn btn-filled" type="button" onClick={attemptLogin}>Sign In</button>
-                <button className="form-btn btn-open" type="button" onClick={props.toRegister}>New User?</button>
+                <Link to="/register"><button className="form-btn btn-open" type="button">New User?</button></Link>
             </form>
         </div>
         

@@ -5,7 +5,7 @@ import './movieview.scss';
 import back from '../../img/back.svg';
 import heart from '../../img/heart.svg';
 import plus from '../../img/plus.svg';
-import { propTypes } from 'react-bootstrap/esm/Image';
+
 
 class MovieView extends Component {
     constructor() {
@@ -27,17 +27,17 @@ class MovieView extends Component {
 
         return (
             <div className="movie-view">
-                <Link to="/">
+                <Link to="/" className="flex-start-btn">
                     <button className="btn back">
                         <img src={back} alt="back icon"/>
                     </button>
                 </Link>
                 <img className="movie-poster" src={movie.ImageURL}/>
                 <div className="movie-info">
-                    <h1 className="value">{movie.Title}</h1>
-                    <Link to={`/directors/${movie.Director.Name}`}><h2>{movie.Director.Name}</h2></Link>
-                    <Link to={`/genres/${movie.Genre.Name}`}><small className="value">{movie.Genre.Name}</small></Link>
-                    <p className="value">{movie.Description}</p>
+                    <h1>{movie.Title}</h1>
+                    <Link to={`/directors/${movie.Director.Name}`} className="text-link"><h2>{movie.Director.Name}</h2></Link>
+                    <Link to={`/genres/${movie.Genre.Name}`} className="text-link"><small>{movie.Genre.Name}</small></Link>
+                    <p>{movie.Description}</p>
                     <button className="btn fav">
                         <img src={heart} alt="add icon"/>
                     </button>
