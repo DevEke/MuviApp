@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './movieview.scss';
 import back from '../../img/back.svg';
 import heart from '../../img/heart.svg';
@@ -21,19 +22,21 @@ class MovieView extends Component {
     }
 
     render() {
-        const { movie, onClick } = this.props;
+        const { movie } = this.props;
         if (!movie) return null;
 
         return (
             <div className="movie-view">
-                <button className="btn back" onClick={() => onClick()}>
+                <Link to="/">
+                    <button className="btn back">
                         <img src={back} alt="back icon"/>
                     </button>
+                </Link>
                 <img className="movie-poster" src={movie.ImageURL}/>
                 <div className="movie-info">
                     <h1 className="value">{movie.Title}</h1>
-                    <h2>{movie.Director.Name}</h2>
-                    <small className="value">{movie.Genre.Name}</small>
+                    <Link to={`/directors/${movie.Director.Name}`}><h2>{movie.Director.Name}</h2></Link>
+                    <Link to={`/genres/${movie.Genre.Name}`}><small className="value">{movie.Genre.Name}</small></Link>
                     <p className="value">{movie.Description}</p>
                     <button className="btn fav">
                         <img src={heart} alt="add icon"/>
@@ -57,8 +60,7 @@ MovieView.propTypes = {
             Name: PropTypes.string.isRequired,
             Description: PropTypes.string
         }),
-    }).isRequired,
-    onClick: PropTypes.func.isRequired
+    }).isRequired
 };
 
 export default MovieView;

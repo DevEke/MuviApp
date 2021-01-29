@@ -1,19 +1,22 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './moviecard.scss';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends Component {
     render() {
-        const {movie, onClick } = this.props;
+        const { movie } = this.props;
         return (
-            <div className="movie-card" onClick={() => onClick(movie)}>
-                <img className="img-sizer" src={movie.ImageURL} />
-                <div className="movie-overlay">
-                    <h1>{movie.Title}</h1>
-                    <small>{movie.Genre.Name}</small>
-                    <p>{movie.Description}</p>
+            <Link to={`/movies/${movie._id}`}>
+                <div className="movie-card">
+                    <img className="img-sizer" src={movie.ImageURL} />
+                    <div className="movie-overlay">
+                        <h1>{movie.Title}</h1>
+                        <small>{movie.Genre.Name}</small>
+                        <p>{movie.Description}</p>
+                    </div>
                 </div>
-            </div>
+            </Link>
         )
     }
 }
@@ -31,8 +34,7 @@ MovieCard.propTypes = {
             Name: PropTypes.string.isRequired,
             Description: PropTypes.string
         }).isRequired,
-    }).isRequired,
-    onClick: PropTypes.func.isRequired
+    }).isRequired
 };
 
 export default MovieCard;
