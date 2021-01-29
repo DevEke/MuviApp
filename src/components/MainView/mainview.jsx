@@ -15,7 +15,7 @@ class MainView extends Component {
         this.state = {
             movies: null,
             selectedMovie: null,
-            user: null,
+            user: 'user',
             newUser: false
         }
     }

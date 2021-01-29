@@ -33392,7 +33392,7 @@ var MainView = /*#__PURE__*/function (_Component) {
     _this.state = {
       movies: null,
       selectedMovie: null,
-      user: null,
+      user: 'user',
       newUser: false
     };
     return _this;
@@ -33642,7 +33642,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58399" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59338" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
