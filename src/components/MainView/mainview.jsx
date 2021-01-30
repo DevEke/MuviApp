@@ -8,6 +8,7 @@ import RegisterView from '../RegisterView/registerview';
 import DirectorView from '../DirectorView/directorview';
 import GenreView from '../GenreView/genreview';
 import ProfileView from '../ProfileView/profileview';
+import UpdateView from '../UpdateView/updateview';
 import profile from '../../img/user.svg';
 import './mainview.scss';
 
@@ -74,9 +75,11 @@ class MainView extends Component {
                     <div className="nav">
                         <h1>MUVI</h1>
                         <div>
-                            <button className="account btn">
-                                <img src={profile} alt="profile icon"/>
-                            </button>
+                            <Link to="/users/:userId">
+                                <button className="account btn">
+                                    <img src={profile} alt="profile icon"/>
+                                </button>
+                            </Link>
                             <Link to="/"><button onClick={() => this.onSignOut()} className="signout btn">Sign Out</button></Link>
                         </div>
                     </div>
@@ -96,8 +99,11 @@ class MainView extends Component {
                             if (!movies) return <div className="main-view"/>;
                             return <GenreView genre={movies.find(movie => movie.Genre.Name === match.params.name)} movies={movies}/>}}
                         />
-                        <Route path="/users/:username" render={({match}) => {
-                            <ProfileView username = {users.find(user => user.Username === match.params.username)}/>}}
+                        <Route exact path="/users/:userId" render={() => {
+                            <ProfileView movies={movies}/>}}
+                        />
+                        <Route path="/users/:userId" render={() => {
+                            return <UpdateView/>}}
                         />
                     </div>         
                 </div>
