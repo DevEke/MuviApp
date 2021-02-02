@@ -5,21 +5,27 @@ import './movieview.scss';
 import back from '../../img/back.svg';
 import heart from '../../img/heart.svg';
 import plus from '../../img/plus.svg';
+import axios from 'axios';
 
 
 class MovieView extends Component {
     constructor() {
         super();
-        this.state = {
-            favorite: false
-        }
     }
 
-    addtoFavorites() {
-        this.setState({
-            favorite: true
-        })
+    addtoFavorites(movie) {
+        let token = localStorage.getItem('token');
+        let url = "https://muvi-app.herokuapp.com/users/" + localStorage.getItem('user') + "/favorites/" + movie._id;
+        axios.post(url, "", {
+            headers: {Authorization: `Bearer ${token}`},
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log('Error Adding movie to favorites.')
+        });
     }
+
+    
 
     render() {
         const { movie } = this.props;
@@ -27,19 +33,19 @@ class MovieView extends Component {
 
         return (
             <div className="movie-view">
-                <Link to="/" className="flex-start-btn">
-                    <button className="btn back">
+                <Link to="/" className="movie-view-flex-start-btn">
+                    <button className="movie-view-back-btn">
                         <img src={back} alt="back icon"/>
                     </button>
                 </Link>
                 <img className="movie-poster" src={movie.ImageURL}/>
                 <div className="movie-info">
-                    <h1>{movie.Title}</h1>
-                    <Link to={`/directors/${movie.Director.Name}`} className="text-link"><h2>{movie.Director.Name}</h2></Link>
-                    <Link to={`/genres/${movie.Genre.Name}`} className="text-link"><small>{movie.Genre.Name}</small></Link>
-                    <p>{movie.Description}</p>
-                    <button className="btn fav">
-                        <img src={heart} alt="add icon"/>
+                    <h1 className="movie-view-title">{movie.Title}</h1>
+                    <Link to={`/directors/${movie.Director.Name}`} className="text-link"><h2 className="movie-view-director">Directed By {movie.Director.Name}</h2></Link>
+                    <Link to={`/genres/${movie.Genre.Name}`} className="text-link"><small className="movie-view-genre">{movie.Genre.Name}</small></Link>
+                    <p className="movie-view-description">{movie.Description}</p>
+                    <button onClick={() => this.addtoFavorites(movie)} className="favorite-btn">
+                        <img src={heart} alt="fav icon"/>
                     </button>
                 </div>
             </div>

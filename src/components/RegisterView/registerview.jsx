@@ -2,6 +2,7 @@ import React,  { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './registerview.scss';
 
 function RegisterView(props) {
     const [ username, setUsername ] = useState('');
@@ -25,18 +26,17 @@ function RegisterView(props) {
     }
 
     return (
-        <div className="ctn">
-            <h1 className="logo-text">MUVI</h1>
+        <div className="register-container">
             <p>Register</p>
-            <form>
-                <label className="label sr-only" htmlFor="username">Username</label>
+            <form className="register-form">
+                <label className="label" htmlFor="username">Username</label>
                 <input id="username" placeholder="Username" type="text" value={username} onChange={e => setUsername(e.target.value)}/>
-                <label className="label sr-only" htmlFor="password">Password</label>
+                <label className="label" htmlFor="password">Password</label>
                 <input id="password" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
-                <label className="label sr-only" htmlFor="email">Email</label>
+                <label className="label" htmlFor="email">Email</label>
                 <input id="email" placeholder="Email" type="email" value={email} onChange={e => setEmail(e.target.value)}/>
-                <button className="form-btn btn-filled" type="button" onClick={attemptRegister}>Create Account</button>
-                <Link to="/"><button className="form-btn btn-open" type="button">Already Have an Account?</button></Link>
+                <button className="register-register-btn" type="button" onClick={attemptRegister}>Create Account</button>
+                <Link to="/"><button className="register-login-btn" type="button">Already Have an Account?</button></Link>
             </form>
         </div>
     )

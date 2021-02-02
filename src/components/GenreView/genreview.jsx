@@ -13,22 +13,22 @@ class GenreView extends Component {
     render() {
         const { movies, genre } = this.props;
         return (
-            <div>
+            <div className="genre-container">
                 <div className="genre-view">
-                <Link className="flex-start-btn" to="/">
-                    <button className="btn back">
-                        <img src={back} alt="back icon"/>
-                    </button>
-                </Link>
-                <div className="genre-container">
-                    <div className="genre-info">
-                        <h1>{genre.Genre.Name}</h1>
-                        <p>{genre.Genre.Description}</p>
+                    <Link className="genre-flex-start-btn" to="/">
+                        <button className="genre-view-back-btn">
+                            <img src={back} alt="back icon"/>
+                        </button>
+                    </Link>
+                    <div className="genre-info-container">
+                        <div className="genre-info">
+                            <h1 className="genre-view-name">{genre.Genre.Name}</h1>
+                            <p className="genre-view-description">{genre.Genre.Description}</p>
+                        </div>
                     </div>
                 </div>
-                </div>
                 <h2 className="genre-title">{genre.Genre.Name} Movies</h2>
-                <div className="movies-flex">
+                <div className="genre-movies-flex">
                 {movies.map((movie) => {
                     if (movie.Genre.Name === genre.Genre.Name) {
                         return (

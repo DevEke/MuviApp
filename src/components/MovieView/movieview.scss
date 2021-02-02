@@ -1,118 +1,129 @@
 $primary-color: #1B52F5;
 $secondary-color: rgba(255,255,255,0.1);
 $tertiary-color: rgba(255,255,255,0.3);
+$primary-font: 'Raleway', sans-serif;
+$secondary-font: 'Quicksand', sans-serif;
+
+@mixin button-background {
+    background-color: $secondary-color;
+    border: none;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    flex-shrink: 1 0 auto;
+
+    &:hover, &:focus {
+        background-color: $tertiary-color;
+        outline: none;
+    }
+}
+@mixin flex-row-standard {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-column-standard {
+    display: flex;
+    flex-direction: column;
+}
+@mixin round-button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+@mixin rectangle-button {
+    min-width: 100px;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+}
 
 .movie-view {
     display: flex;
     width: 100vw;
     padding: 20px;
-    justify-content: center;
     align-items: center;
-
-    .flex-start-btn {
-        align-self: flex-start;
-    }
-
-    .movie-poster {
-        height: 700px;
-        width: auto;
-        border-radius: 10px;
-    }
-
-    .movie-info {
-        padding: 20px 50px;
-        font-family: 'Raleway', sans-serif; 
-        color: white;
-
-        h1 {
-            color: white;
-            font-weight: 700;
-        }
-        h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: white;
-            transition: opacity 0.3s;
-
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-    
-        p {
-            font-size: 24px;
-            width: 70%;
-            margin-top: 20px;
-        }
-    
-        small {
-            color: $primary-color;
-            font-size: 16px;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 700;
-            transition: opacity 0.3s;
-
-            &:hover {
-                opacity:  0.5;
-            }
-        }
-
-        .text-link {
-            text-decoration: none;
-        }
-
-    }
-
-    .btn {
-        height: 50px;
-        width: 50px;
-        background-color: $secondary-color;
-        transition: background-color 0.3s;
-        border-radius: 50px;
-        color: white;
-        cursor: pointer;
-        margin: 20px 0;
-        font-size: 12px;
-        flex-shrink: 0;
-    }
-
-    .back {
-        margin-right: 30px;
-        &:hover {
-            background-color: $tertiary-color;
-        }
-    }
-
-    .fav {
-        &:hover {
-            background-color: $primary-color;
-        }
-    }
-
-    
-
+    color: white;
 }
 
+.movie-view-flex-start-btn {
+    align-self: flex-start;
+}
 
+.movie-poster {
+    height: 700px;
+    width: auto;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.movie-info {
+    padding: 0 50px;
+    font-family: $primary-font; 
+}
+
+.movie-view-title {
+    font-weight: 700;
+    font-size: 48px;
+    margin: 0;
+}
+
+.movie-view-director {
+    font-size: 20px;
+    font-weight: 400;
+    transition: opacity 0.3s;
+    margin: 10px 0 20px;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.movie-view-description {
+    font-size: 24px;
+    width: 70%;
+    margin: 50px 0;
+}
+
+.movie-view-genre {
+    background-color: $secondary-color;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: $tertiary-color;
+    }
+}
+
+.text-link {
+    text-decoration: none;
+    color: white;
+}
+
+.movie-view-back-btn {
+    @include button-background();
+    @include round-button();
+}
+.favorite-btn {
+    @include button-background();
+    @include round-button();
+    &:hover {
+        background-color: $primary-color;
+    }
+}
 
 @media only screen and (max-width: 767px) {
     .movie-view {
-
         flex-direction: column;
-
-        .movie-poster {
-            width: 270px;
-            height: auto;
-        }
-        .movie-info {
-            padding: 10px;
-            margin-top: 50px;
-
-            p {
-                width: 100%;
-            }
-        }
-
+    }
+    .movie-poster {
+        width: 270px;
+        height: auto;
+    }
+    .movie-info {
+        padding: 10px;
     }
     
 }
@@ -120,9 +131,16 @@ $tertiary-color: rgba(255,255,255,0.3);
 @media only screen and (max-width: 1024px) {
     .movie-view {
         flex-direction: column;
-        
-        .movie-info {
-            margin-top: 50px;
-        }
+    }
+    .movie-poster {
+        margin: 0;
+        margin-top: 50px;
+    }
+
+    .movie-info {
+        margin-top: 50px;
+    }
+    .movie-view-description {
+        width: 100%;
     }
 }

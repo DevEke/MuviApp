@@ -13,31 +13,31 @@ class DirectorView extends Component {
     render() {
         const { movies, director } = this.props;
         return (
-            <div>
+            <div className="director-view-container">
                 <div className="director-view">
-                <Link to="/" className="flex-start-btn">
-                    <button className="btn back">
-                        <img src={back} alt="back icon"/>
-                    </button>
-                </Link>
-                <img className="director-image" src={director.Director.ImageURL}/>
-                <div className="director-container">
-                    <div className="director-info">
-                        <h1>{director.Director.Name}</h1>
-                        <small>Born {director.Director.Birthday}</small>
-                        <p>{director.Director.Bio}</p>
+                    <Link to="/" className="director-view-flex-start-btn">
+                        <button className="director-view-back-btn">
+                            <img src={back} alt="back icon"/>
+                        </button>
+                    </Link>
+                    <img className="director-image" src={director.Director.ImageURL}/>
+                    <div className="director-container">
+                        <div className="director-info">
+                            <h1 className="director-view-director">{director.Director.Name}</h1>
+                            <small className="director-view-birthday">Born {director.Director.Birthday}</small>
+                            <p className="director-view-bio">{director.Director.Bio}</p>
+                        </div>
                     </div>
                 </div>
-                </div>
                 <h2 className="director-title">Movies by {director.Director.Name}</h2>
-                <div className="movies-flex">
-                {movies.map((movie) => {
-                        if (movie.Director.Name === director.Director.Name) {
-                            return (
-                                    <MovieCard className="moviecard" key={movie._id}  movie={movie}/>
-                            )
-                        }
-                    })}
+                <div className="director-view-movies-flex">
+                    {movies.map((movie) => {
+                            if (movie.Director.Name === director.Director.Name) {
+                                return (
+                                        <MovieCard key={movie._id}  movie={movie}/>
+                                )
+                            }
+                        })}
                 </div>
             </div>
             

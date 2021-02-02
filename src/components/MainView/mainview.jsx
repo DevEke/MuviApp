@@ -67,6 +67,7 @@ class MainView extends Component {
 
     render() {
         const { user, movies } = this.state;
+        const { movie } = this.props;
 
 
         return (
@@ -74,13 +75,13 @@ class MainView extends Component {
                 <div className="main-view">
                     <div className="nav">
                         <h1>MUVI</h1>
-                        <div>
+                        <div className="nav-button-flex">
                             <Link to="/users/:userId">
-                                <button className="account btn">
+                                <button className="account-btn">
                                     <img src={profile} alt="profile icon"/>
                                 </button>
                             </Link>
-                            <Link to="/"><button onClick={() => this.onSignOut()} className="signout btn">Sign Out</button></Link>
+                            <Link to="/"><button onClick={() => this.onSignOut()} className="signout-btn">Sign Out</button></Link>
                         </div>
                     </div>
                     <div className="movie-grid">
@@ -99,10 +100,10 @@ class MainView extends Component {
                             if (!movies) return <div className="main-view"/>;
                             return <GenreView genre={movies.find(movie => movie.Genre.Name === match.params.name)} movies={movies}/>}}
                         />
-                        <Route exact path="/users/:userId" render={() => {
-                            <ProfileView movies={movies}/>}}
-                        />
                         <Route path="/users/:userId" render={() => {
+                            return <ProfileView movies={movies} movie={movie}/>}}
+                        />
+                        <Route path="/update/:userId" render={() => {
                             return <UpdateView/>}}
                         />
                     </div>         

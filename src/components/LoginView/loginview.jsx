@@ -23,16 +23,15 @@ function LoginView(props) {
     };
 
     return (
-        <div className="ctn">
-            <h1 className="logo-text">MUVI</h1>
+        <div className="login-container">
             <p>Sign In</p>
-            <form>
-                <label className="label sr-only" htmlFor="username">Username</label>
+            <form className="login-form">
+                <label className="label" htmlFor="username">Username</label>
                 <input id="username" placeholder="Username" type="text" value={username} onChange={e => setUsername(e.target.value)}/>
-                <label className="label sr-only" htmlFor="password">Password</label>
+                <label className="label" htmlFor="password">Password</label>
                 <input id="password" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
-                <button className="form-btn btn-filled" type="button" onClick={attemptLogin}>Sign In</button>
-                <Link to="/register"><button className="form-btn btn-open" type="button">New User?</button></Link>
+                <button className="login-login-btn" type="button" onClick={attemptLogin}>Sign In</button>
+                <Link to="/register"><button className="login-register-btn" type="button">New User?</button></Link>
             </form>
         </div>
         

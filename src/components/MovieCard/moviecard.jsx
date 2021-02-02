@@ -7,13 +7,13 @@ class MovieCard extends Component {
     render() {
         const { movie } = this.props;
         return (
-            <Link to={`/movies/${movie._id}`} style={{textDecoration: 'none'}}>
+            <Link className="movie-card-link" to={`/movies/${movie._id}`}>
                 <div className="movie-card">
                     <img className="img-sizer" src={movie.ImageURL} />
                     <div className="movie-overlay">
-                        <h1>{movie.Title}</h1>
-                        <small>{movie.Genre.Name}</small>
-                        <p>{movie.Description}</p>
+                        <h1 className="movie-card-title">{movie.Title}</h1>
+                        <small className="movie-card-genre">{movie.Genre.Name}</small>
+                        <p className="movie-card-description">{movie.Description}</p>
                     </div>
                 </div>
             </Link>

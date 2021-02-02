@@ -1,0 +1,128 @@
+$primary-color: #1B52F5;
+$secondary-color: rgba(255,255,255,0.1);
+$tertiary-color: rgba(255,255,255,0.3);
+$primary-font: 'Raleway', sans-serif;
+$secondary-font: 'Quicksand', sans-serif;
+
+@mixin button-background {
+    background-color: $secondary-color;
+    border: none;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    flex-shrink: 1 0 auto;
+
+    &:hover, &:focus {
+        background-color: $tertiary-color;
+        outline: none;
+    }
+}
+@mixin flex-row-standard {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-column-standard {
+    display: flex;
+    flex-direction: column;
+}
+@mixin round-button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+@mixin rectangle-button {
+    min-width: 100px;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+}
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.account-container {
+    width: 100vw;
+    @include flex-column-standard();
+    align-items: center;
+}
+
+.flex-start-btn {
+    align-items: flex-start;
+}
+
+form {
+    @include flex-column-standard();
+    margin: 75px 0;
+    min-width: 300px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.update-profile-image {
+    margin-bottom: 20px;
+    height: 100px;
+}
+.label {
+    @include sr-only();
+}
+
+input {
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: $primary-font;
+    border: none;
+    background-color: $secondary-color;
+    color: white;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &::placeholder {
+        color: white;
+        opacity: 0.6;
+    }
+
+    &:hover, &:focus {
+        background: $tertiary-color;
+    }
+}
+
+.validation-error {
+    @include flex-row-standard();
+    font-size: 12px;
+    padding: 5px;
+    color: #FF0000;
+
+    img {
+        margin-right: 10px;
+    }
+}
+
+.update-account-btn {
+    @include button-background();
+    @include rectangle-button();
+    width: 300px;
+    margin-top: 50px;
+    &:hover, &:focus {
+        background-color: $primary-color;
+    }
+}
+
+.cancel-update-btn {
+    @include button-background();
+    @include rectangle-button();
+    width: 300px;
+}
+
+@media only screen and (max-width: 767px) {
+    form {
+        margin: 50px 0;
+    }
+}
