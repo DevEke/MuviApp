@@ -9,3 +9,12 @@ import {
     UNREGISTER_USER
 } from '../actions/actions.js';
 
+function movies(state = [], action) {
+    switch(action.type) {
+        case GET_MOVIES: 
+            return action.value;
+        default: return state;
+    }
+}
+
+export default movies;
