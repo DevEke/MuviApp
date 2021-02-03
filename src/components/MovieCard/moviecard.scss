@@ -48,7 +48,6 @@ $secondary-font: 'Quicksand', sans-serif;
     height: 441.76px;
     cursor: pointer;
     position: relative;
-    border-radius: 10px;
 
     &:hover .movie-overlay {
         opacity: 1;
@@ -58,6 +57,7 @@ $secondary-font: 'Quicksand', sans-serif;
 .img-sizer {
     width: 300px;
     height: auto;
+    border-radius: 5px;
 }
 
 .movie-overlay {

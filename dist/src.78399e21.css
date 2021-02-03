@@ -13,7 +13,6 @@ body {
   height: 441.76px;
   cursor: pointer;
   position: relative;
-  border-radius: 10px;
 }
 .movie-card:hover .movie-overlay {
   opacity: 1;
@@ -22,6 +21,7 @@ body {
 .img-sizer {
   width: 300px;
   height: auto;
+  border-radius: 5px;
 }
 
 .movie-overlay {
