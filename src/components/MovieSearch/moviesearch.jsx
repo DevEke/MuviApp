@@ -5,6 +5,7 @@ import './moviesearch.scss';
 
 function MovieSearch(props) {
     return <input
+        className="search-input"
         type="text"
         onChange={(e) => props.setFilter(e.target.value)}
         value={props.movieFilter}
