@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import MovieCard from '../MovieCard/moviecard';
 import MovieView from '../MovieView/movieview';
 import LoginView from '../LoginView/loginview';

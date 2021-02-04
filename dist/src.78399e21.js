@@ -39310,6 +39310,8 @@ var _reactRouterDom = require("react-router-dom");
 
 var _axios = _interopRequireDefault(require("axios"));
 
+var _reactRedux = require("react-redux");
+
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
 
 var _movieview = _interopRequireDefault(require("../MovieView/movieview"));
@@ -39538,7 +39540,7 @@ var MainView = /*#__PURE__*/function (_Component) {
 
 var _default = MainView;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"actions/actions.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"actions/actions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
