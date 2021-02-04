@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import MovieSearch from '../MovieSearch/moviesearch';
 import MovieCard from '../MovieCard/moviecard';
 
 const mapStateToProps = (state) => {
@@ -17,7 +18,10 @@ function MoviesList(props) {
 
     if (!movies) return null;
 
-    return filteredMovies.map((movie) => <MovieCard key={movie._id} movie={movie}/>);
+    return <div className="movies-list">
+                <MovieSearch movieFilter={movieFilter}/>
+                {filteredMovies.map((movie) => <MovieCard key={movie._id} movie={movie}/>)}
+        </div>;
 }
 
 export default connect(mapStateToProps)(MoviesList);

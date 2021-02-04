@@ -38136,7 +38136,38 @@ var setFilter = function setFilter(value) {
 };
 
 exports.setFilter = setFilter;
-},{}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
+},{}],"components/MovieSearch/moviesearch.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRedux = require("react-redux");
+
+var _actions = require("../../actions/actions");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function MovieSearch(props) {
+  return _react.default.createElement("input", {
+    onChange: function onChange(e) {
+      return props.setFilter(e.target.value);
+    },
+    value: props.movieFilter,
+    placeholder: "Search"
+  });
+}
+
+var _default = (0, _reactRedux.connect)(null, {
+  setFilter: _actions.setFilter
+})(MovieSearch);
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -38252,6 +38283,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRedux = require("react-redux");
 
+var _moviesearch = _interopRequireDefault(require("../MovieSearch/moviesearch"));
+
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -38275,18 +38308,22 @@ function MoviesList(props) {
   }
 
   if (!movies) return null;
-  return filteredMovies.map(function (movie) {
+  return _react.default.createElement("div", {
+    className: "movies-list"
+  }, _react.default.createElement(_moviesearch.default, {
+    movieFilter: movieFilter
+  }), filteredMovies.map(function (movie) {
     return _react.default.createElement(_moviecard.default, {
       key: movie._id,
       movie: movie
     });
-  });
+  }));
 }
 
 var _default = (0, _reactRedux.connect)(mapStateToProps)(MoviesList);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieSearch/moviesearch":"components/MovieSearch/moviesearch.jsx","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
