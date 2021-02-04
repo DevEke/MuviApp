@@ -4,7 +4,6 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { setMovies } from '../../actions/actions';
 import MoviesList from '../MoviesList/movieslist';
-import MovieCard from '../MovieCard/moviecard';
 import MovieView from '../MovieView/movieview';
 import LoginView from '../LoginView/loginview';
 import RegisterView from '../RegisterView/registerview';
