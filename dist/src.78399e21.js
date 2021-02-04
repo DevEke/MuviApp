@@ -39792,7 +39792,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var store = (0, _redux.createStore)(_reducers.default, (0, _reduxDevtoolsExtension.devToolsEnhancer)(), (0, _redux.applyMiddleware)(_reduxThunk.default));
+var store = (0, _redux.createStore)(_reducers.default, (0, _redux.applyMiddleware)(_reduxThunk.default));
 
 var MuviApp = /*#__PURE__*/function (_Component) {
   _inherits(MuviApp, _Component);
