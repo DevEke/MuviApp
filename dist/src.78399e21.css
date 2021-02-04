@@ -3,73 +3,6 @@ body {
   color: white;
   margin: 0;
 }
-.movie-card-link {
-  text-decoration: none;
-}
-
-.movie-card {
-  margin: 30px;
-  width: 300px;
-  height: 441.76px;
-  cursor: pointer;
-  position: relative;
-}
-.movie-card:hover .movie-overlay {
-  opacity: 1;
-}
-
-.img-sizer {
-  width: 300px;
-  height: auto;
-  border-radius: 5px;
-}
-
-.movie-overlay {
-  opacity: 0;
-  box-sizing: border-box;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), black);
-  color: white;
-  transition: opacity 0.3s, box-shadow 0.3s;
-  width: 100%;
-  height: 50%;
-  position: relative;
-  bottom: 50%;
-  z-index: 555;
-  padding: 10px;
-}
-
-.movie-card-title {
-  font-family: "Raleway", sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  margin: 10px 0;
-  font-size: 24px;
-}
-
-.movie-card-genre {
-  color: #1B52F5;
-  font-size: 12px;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 700;
-}
-
-.movie-card-description {
-  font-family: "Raleway", sans-serif;
-  margin-top: 10px;
-  line-height: 20px;
-}
-
-@media (hover: none) {
-  .movie-overlay {
-    opacity: 1;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), black);
-  }
-}
-@media only screen and (max-width: 360px) {
-  .movie-card {
-    margin: 30px auto;
-  }
-}
 .movie-view {
   display: flex;
   width: 100vw;
@@ -502,6 +435,73 @@ input:hover, input:focus {
 
   .director-view-container {
     padding: 0;
+  }
+}
+.movie-card-link {
+  text-decoration: none;
+}
+
+.movie-card {
+  margin: 30px;
+  width: 300px;
+  height: 441.76px;
+  cursor: pointer;
+  position: relative;
+}
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.img-sizer {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.movie-overlay {
+  opacity: 0;
+  box-sizing: border-box;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), black);
+  color: white;
+  transition: opacity 0.3s, box-shadow 0.3s;
+  width: 100%;
+  height: 50%;
+  position: relative;
+  bottom: 50%;
+  z-index: 555;
+  padding: 10px;
+}
+
+.movie-card-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.movie-card-genre {
+  color: #1B52F5;
+  font-size: 12px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+}
+
+.movie-card-description {
+  font-family: "Raleway", sans-serif;
+  margin-top: 10px;
+  line-height: 20px;
+}
+
+@media (hover: none) {
+  .movie-overlay {
+    opacity: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), black);
+  }
+}
+@media only screen and (max-width: 360px) {
+  .movie-card {
+    margin: 30px auto;
   }
 }
 .genre-view {

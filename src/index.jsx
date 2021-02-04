@@ -4,11 +4,16 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './index.scss';
 import MainView from './components/MainView/mainview';
+import moviesApp from './reducers/reducers';
+
+const store = createStore(moviesApp);
 
 class MuviApp extends Component {
     render() {
         return (
-            <MainView/>
+            <Provider store={store}>
+                <MainView/>
+            </Provider>
         )
     }
 }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/actions';
+import { setFavorites } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 import './profileview.scss';
 import back from '../../img/back.svg';
@@ -11,13 +14,6 @@ import '../MovieCard/moviecard.scss';
 class ProfileView extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            username: "",
-            password: "",
-            email: "",
-            favoriteMovies: []
-        }
     }
 
     componentDidMount() {
@@ -26,17 +22,17 @@ class ProfileView extends Component {
     }
 
     getUser(token) {
+        let { updateUsername, updatePassword, updateEmail } = this.props.updateUser;
+        let { setFavorites } = this.props;
         let user = localStorage.getItem("user")
         let url = "https://muvi-app.herokuapp.com/users/" + user;
         axios.get(url, {
             headers: {Authorization: `Bearer ${token}`},
         }).then((response) => {
-            this.setState({
-                username: response.data.Username,
-                password: response.data.Password,
-                email: response.data.Email,
-                favoriteMovies: response.data.FavoriteMovies
-            });
+            updateUsername(response.data.Username);
+            updatePassword(response.data.Password);
+            updateEmail(response.data.Email);
+            setFavorites(response.data.FavoriteMovies);
         });
     }
 
@@ -56,6 +52,7 @@ class ProfileView extends Component {
 
 
     removeFavorite(movie) {
+        let { setFavorites } = this.props;
         let token = localStorage.getItem('token');
         let user = localStorage.getItem('user');
         let url = "https://muvi-app.herokuapp.com/users/" + user + "/favorites/" + movie._id;
@@ -63,10 +60,7 @@ class ProfileView extends Component {
             headers: { Authorization: `Bearer ${token}`},
         }).then((response) => {
             let data = response.data;
-            this.setState({
-                favoriteMovies: data.FavoriteMovies
-            });
-            console.log(this.state.favoriteMovies);
+            setFavorites(data.FavoriteMovies);
             this.componentDidMount();
         }).catch((error) => {
             console.log('Error removing movie from favorites');
@@ -76,8 +70,7 @@ class ProfileView extends Component {
     
 
     render() {
-        const { username, favoriteMovies } = this.state;
-        const { movies } = this.props;
+        const { movies, username, favoriteMovies } = this.props;
         const favMovies = movies.filter((movie) => {
             return favoriteMovies.includes(movie._id);
         })
@@ -120,5 +113,13 @@ class ProfileView extends Component {
     }  
 }
 
+let mapStateToProps = (state) => {
+    return { 
+        username: state.username,
+        password: state.password,
+        email: state.email,
+        favoriteMovies: state.favoriteMovies
+    }
+}
 
-export default ProfileView;
+export default connect(mapStateToProps, { updateUser, setFavorites })(ProfileView);

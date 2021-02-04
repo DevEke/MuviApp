@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import MovieCard from '../MovieCard/moviecard';
+import { getMovies, setUser } from '../../actions/actions';;
 import MovieView from '../MovieView/movieview';
 import LoginView from '../LoginView/loginview';
 import RegisterView from '../RegisterView/registerview';
@@ -15,43 +16,33 @@ import './mainview.scss';
 
 
 class MainView extends Component {
-    constructor() {
-        super();
-        this.state = {
-            movies: [],
-            user: null,
-            newUser: false
-        }
+    constructor(props) {
+        super(props);
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
+        let user = localStorage.getItem('user');
         if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
-            this.getMovies(accessToken);
+            setUser(user);
+            this.retrieveMovies(accessToken);
         }
     }
 
     onLoggedIn(authData) {
         console.log(authData);
-        this.setState({
-            user: authData.user.Username,
-        });
+        setUser(authData.user.Username);
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
-        this.getMovies(authData.token);
+        this.retrieveMovies(authData.token);
     }
 
-    getMovies(token) {
+    retrieveMovies(token) {
         axios.get('https://muvi-app.herokuapp.com/movies', {
             headers: {Authorization: `Bearer ${token}`}
         })
         .then((response) => {
-            this.setState({
-                movies: response.data
-            });
+            this.props.getMovies(response.data);
         })
         .catch((error) => {
             console.log(error);
@@ -60,14 +51,11 @@ class MainView extends Component {
 
     onSignOut() {
         localStorage.clear();
-        this.setState({
-            user: null
-        })
+        this.props.setUser(null)
     }
 
     render() {
-        const { user, movies } = this.state;
-        const { movie } = this.props;
+        const { user, movie, movies } = this.props;
 
 
         return (
@@ -87,7 +75,7 @@ class MainView extends Component {
                     <div className="movie-grid">
                         <Route exact path="/" render={() => 
                             { if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)}/>;
-                            return movies.map(movie => <MovieCard className="moviecard" key={movie._id}  movie={movie}/>)
+                            return <MoviesList movies={movies}/>;
                             }
                         }/>
                         <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(movie => movie._id === match.params.movieId)}/>}/>
@@ -113,5 +101,19 @@ class MainView extends Component {
     }
 }
 
+let mapStateToProps = state => {
+    return { 
+        user: state.user,
+        movies: state.movies 
+    }
+}
 
-export default MainView;
+let mapDispatchToProps = (dispatch) => {
+    return {
+        getMovies: () => dispatch(getMovies()),
+        setUser: () => dispatch(setUser())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainView);

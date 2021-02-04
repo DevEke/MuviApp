@@ -16,6 +16,7 @@ function LoginView(props) {
             Password: password
         }).then((response) => {
             const data = response.data;
+            console.log('mark');
             props.onLoggedIn(data)
         }).catch((error) => {
             console.log('Username or Password is incorrect.')
