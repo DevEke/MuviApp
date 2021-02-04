@@ -38111,7 +38111,32 @@ module.exports.default = axios;
 
 },{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js","./helpers/isAxiosError":"../node_modules/axios/lib/helpers/isAxiosError.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
+},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"actions/actions.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setFilter = exports.setMovies = exports.SET_FILTER = exports.SET_MOVIES = void 0;
+//Action Types
+var SET_MOVIES = 'SET_MOVIES';
+exports.SET_MOVIES = SET_MOVIES;
+var SET_FILTER = 'SET_FILTER'; //Action Creators
+
+exports.SET_FILTER = SET_FILTER;
+
+var setMovies = function setMovies(value) {
+  type: SET_MOVIES, value;
+};
+
+exports.setMovies = setMovies;
+
+var setFilter = function setFilter(value) {
+  type: SET_FILTER, value;
+};
+
+exports.setFilter = setFilter;
+},{}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39312,6 +39337,8 @@ var _axios = _interopRequireDefault(require("axios"));
 
 var _reactRedux = require("react-redux");
 
+var _actions = require("../../actions/actions");
+
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
 
 var _movieview = _interopRequireDefault(require("../MovieView/movieview"));
@@ -39540,32 +39567,7 @@ var MainView = /*#__PURE__*/function (_Component) {
 
 var _default = MainView;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"actions/actions.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.setFilter = exports.setMovies = exports.SET_FILTER = exports.SET_MOVIES = void 0;
-//Action Types
-var SET_MOVIES = 'SET_MOVIES';
-exports.SET_MOVIES = SET_MOVIES;
-var SET_FILTER = 'SET_FILTER'; //Action Creators
-
-exports.SET_FILTER = SET_FILTER;
-
-var setMovies = function setMovies(value) {
-  type: SET_MOVIES, value;
-};
-
-exports.setMovies = setMovies;
-
-var setFilter = function setFilter(value) {
-  type: SET_FILTER, value;
-};
-
-exports.setFilter = setFilter;
-},{}],"reducers/reducers.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

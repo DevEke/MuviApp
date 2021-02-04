@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { setMovies } from '../../actions/actions';
+import MoviesList from '../MoviesList/movieslist';
 import MovieCard from '../MovieCard/moviecard';
 import MovieView from '../MovieView/movieview';
 import LoginView from '../LoginView/loginview';
@@ -50,9 +52,7 @@ class MainView extends Component {
             headers: {Authorization: `Bearer ${token}`}
         })
         .then((response) => {
-            this.setState({
-                movies: response.data
-            });
+            this.props.setMovies(response.data);
         })
         .catch((error) => {
             console.log(error);
@@ -67,8 +67,8 @@ class MainView extends Component {
     }
 
     render() {
-        const { user, movies } = this.state;
-        const { movie } = this.props;
+        const { user } = this.state;
+        const { movie, movies } = this.props;
 
 
         return (
@@ -88,7 +88,7 @@ class MainView extends Component {
                     <div className="movie-grid">
                         <Route exact path="/" render={() => 
                             { if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)}/>;
-                            return movies.map(movie => <MovieCard className="moviecard" key={movie._id}  movie={movie}/>)
+                            return <MoviesList movies={movies}/>)
                             }
                         }/>
                         <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(movie => movie._id === match.params.movieId)}/>}/>
@@ -114,5 +114,11 @@ class MainView extends Component {
     }
 }
 
+let mapStateToProps = (state) => {
+    return {
+        movies: state.movies
+    }
+}
 
-export default MainView;
+
+export default connect(mapStateToProps, { setMovies })(MainView);
