@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setFilter } from '../../actions/actions';
+import './moviesearch.scss';
 
 function MovieSearch(props) {
     return <input

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MovieSearch from '../MovieSearch/moviesearch';
 import MovieCard from '../MovieCard/moviecard';
+import './movieslist.scss';
 
 const mapStateToProps = (state) => {
     const { movieFilter } = state;
