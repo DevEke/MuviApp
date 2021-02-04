@@ -18,10 +18,12 @@ function MoviesList(props) {
 
     if (!movies) return null;
 
-    return <div className="movies-list">
+    return (
+            <div className="movies-list">
                 <MovieSearch movieFilter={movieFilter}/>
                 {filteredMovies.map((movie) => <MovieCard key={movie._id} movie={movie}/>)}
-        </div>;
+            </div>
+        );
 }
 
 export default connect(mapStateToProps)(MoviesList);
