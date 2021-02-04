@@ -22,7 +22,9 @@ function MoviesList(props) {
     return (
             <div className="movies-list">
                 <MovieSearch movieFilter={movieFilter}/>
-                {filteredMovies.map((movie) => <MovieCard key={movie._id} movie={movie}/>)}
+                <div className="movie-layout">
+                    {filteredMovies.map((movie) => <MovieCard key={movie._id} movie={movie}/>)}
+                </div>
             </div>
         );
 }

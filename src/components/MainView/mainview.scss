@@ -42,12 +42,13 @@ $secondary-font: 'Quicksand', sans-serif;
     @include flex-column-standard();
     background-color: black;
     width: 100vw;
+    height: 100vh;
 }
 
 .nav {
     font-size: 16px;
     color: white;
-    padding: 20px;
+    height: 60px;
     @include flex-row-standard();
     justify-content: space-between;
     h1 {
@@ -74,10 +75,7 @@ p {
     margin-left: 15px;
 }
 .movie-grid {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    justify-content: center;
+    height: 100%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -92,3 +90,7 @@ p {
     }
 
 }
+
+::-webkit-scrollbar {
+    display: none;
+  }

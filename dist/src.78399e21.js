@@ -30510,7 +30510,35 @@ function isCrushed() {}
 if ("development" !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
   warning('You are currently using minified code outside of NODE_ENV === "production". ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or setting mode to production in webpack (https://webpack.js.org/concepts/mode/) ' + 'to ensure you have the correct code for your production build.');
 }
-},{"symbol-observable":"../node_modules/symbol-observable/es/index.js"}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
+},{"symbol-observable":"../node_modules/symbol-observable/es/index.js"}],"../node_modules/redux-thunk/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function createThunkMiddleware(extraArgument) {
+  return function (_ref) {
+    var dispatch = _ref.dispatch,
+        getState = _ref.getState;
+    return function (next) {
+      return function (action) {
+        if (typeof action === 'function') {
+          return action(dispatch, getState, extraArgument);
+        }
+
+        return next(action);
+      };
+    };
+  };
+}
+
+var thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+var _default = thunk;
+exports.default = _default;
+},{}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -38136,7 +38164,12 @@ var setFilter = function setFilter(value) {
 };
 
 exports.setFilter = setFilter;
-},{}],"components/MovieSearch/moviesearch.jsx":[function(require,module,exports) {
+},{}],"components/MovieSearch/moviesearch.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/MovieSearch/moviesearch.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38150,10 +38183,13 @@ var _reactRedux = require("react-redux");
 
 var _actions = require("../../actions/actions");
 
+require("./moviesearch.scss");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function MovieSearch(props) {
   return _react.default.createElement("input", {
+    className: "search-input",
     type: "text",
     onChange: function onChange(e) {
       return props.setFilter(e.target.value);
@@ -38168,7 +38204,7 @@ var _default = (0, _reactRedux.connect)(null, {
 })(MovieSearch);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","./moviesearch.scss":"components/MovieSearch/moviesearch.scss"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -38272,7 +38308,12 @@ MovieCard.propTypes = {
 };
 var _default = MovieCard;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./moviecard.scss":"components/MovieCard/moviecard.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/MoviesList/movieslist.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./moviecard.scss":"components/MovieCard/moviecard.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/MoviesList/movieslist.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/MoviesList/movieslist.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38287,6 +38328,8 @@ var _reactRedux = require("react-redux");
 var _moviesearch = _interopRequireDefault(require("../MovieSearch/moviesearch"));
 
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
+
+require("./movieslist.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38313,18 +38356,20 @@ function MoviesList(props) {
     className: "movies-list"
   }, _react.default.createElement(_moviesearch.default, {
     movieFilter: movieFilter
-  }), filteredMovies.map(function (movie) {
+  }), _react.default.createElement("div", {
+    className: "movie-layout"
+  }, filteredMovies.map(function (movie) {
     return _react.default.createElement(_moviecard.default, {
       key: movie._id,
       movie: movie
     });
-  }));
+  })));
 }
 
 var _default = (0, _reactRedux.connect)(mapStateToProps)(MoviesList);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieSearch/moviesearch":"components/MovieSearch/moviesearch.jsx","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieSearch/moviesearch":"components/MovieSearch/moviesearch.jsx","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","./movieslist.scss":"components/MoviesList/movieslist.scss"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39707,6 +39752,8 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _redux = require("redux");
 
+var _reduxThunk = _interopRequireDefault(require("redux-thunk"));
+
 var _reactRedux = require("react-redux");
 
 var _reduxDevtoolsExtension = require("redux-devtools-extension");
@@ -39745,7 +39792,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var store = (0, _redux.createStore)(_reducers.default, (0, _reduxDevtoolsExtension.devToolsEnhancer)());
+var store = (0, _redux.createStore)(_reducers.default, (0, _reduxDevtoolsExtension.devToolsEnhancer)(), (0, _redux.applyMiddleware)(_reduxThunk.default));
 
 var MuviApp = /*#__PURE__*/function (_Component) {
   _inherits(MuviApp, _Component);
@@ -39773,7 +39820,7 @@ var MuviApp = /*#__PURE__*/function (_Component) {
 var container = document.getElementsByClassName('app-container')[0];
 
 _reactDom.default.render(_react.default.createElement(MuviApp), container);
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","redux":"../node_modules/redux/es/redux.js","react-redux":"../node_modules/react-redux/es/index.js","redux-devtools-extension":"../node_modules/redux-devtools-extension/index.js","./index.scss":"index.scss","./components/MainView/mainview":"components/MainView/mainview.jsx","./reducers/reducers":"reducers/reducers.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","redux":"../node_modules/redux/es/redux.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","react-redux":"../node_modules/react-redux/es/index.js","redux-devtools-extension":"../node_modules/redux-devtools-extension/index.js","./index.scss":"index.scss","./components/MainView/mainview":"components/MainView/mainview.jsx","./reducers/reducers":"reducers/reducers.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -39801,7 +39848,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58403" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50303" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -70,6 +70,16 @@ body {
     margin: 30px auto;
   }
 }
+.movies-list {
+  height: 100%;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.movie-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
 .movie-view {
   display: flex;
   width: 100vw;
@@ -891,12 +901,13 @@ input:hover, input:focus {
   flex-direction: column;
   background-color: black;
   width: 100vw;
+  height: 100vh;
 }
 
 .nav {
   font-size: 16px;
   color: white;
-  padding: 20px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -951,10 +962,7 @@ p {
 }
 
 .movie-grid {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-  justify-content: center;
+  height: 100%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -966,6 +974,9 @@ p {
   h1 {
     font-size: 16px;
   }
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */
