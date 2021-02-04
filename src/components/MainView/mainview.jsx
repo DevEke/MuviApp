@@ -88,7 +88,7 @@ class MainView extends Component {
                     <div className="movie-grid">
                         <Route exact path="/" render={() => 
                             { if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)}/>;
-                            return <MoviesList movies={movies}/>)
+                            return <MoviesList movies={movies}/>;
                             }
                         }/>
                         <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(movie => movie._id === match.params.movieId)}/>}/>

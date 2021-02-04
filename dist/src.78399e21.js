@@ -38240,7 +38240,53 @@ MovieCard.propTypes = {
 };
 var _default = MovieCard;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./moviecard.scss":"components/MovieCard/moviecard.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./moviecard.scss":"components/MovieCard/moviecard.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/MoviesList/movieslist.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRedux = require("react-redux");
+
+var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  var movieFilter = state.movieFilter;
+  return {
+    movieFilter: movieFilter
+  };
+};
+
+function MoviesList(props) {
+  var movies = props.movies,
+      movieFilter = props.movieFilter;
+  var filteredMovies = movies;
+
+  if (movieFilter !== '') {
+    filteredMovies = movies.filter(function (movie) {
+      return movie.Title.includes(movieFilter);
+    });
+  }
+
+  if (!movies) return null;
+  return filteredMovies.map(function (movie) {
+    return _react.default.createElement(_moviecard.default, {
+      key: movie._id,
+      movie: movie
+    });
+  });
+}
+
+var _default = (0, _reactRedux.connect)(mapStateToProps)(MoviesList);
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39339,6 +39385,8 @@ var _reactRedux = require("react-redux");
 
 var _actions = require("../../actions/actions");
 
+var _movieslist = _interopRequireDefault(require("../MoviesList/movieslist"));
+
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
 
 var _movieview = _interopRequireDefault(require("../MovieView/movieview"));
@@ -39439,9 +39487,7 @@ var MainView = /*#__PURE__*/function (_Component) {
           Authorization: "Bearer ".concat(token)
         }
       }).then(function (response) {
-        _this2.setState({
-          movies: response.data
-        });
+        _this2.props.setMovies(response.data);
       }).catch(function (error) {
         console.log(error);
       });
@@ -39459,10 +39505,10 @@ var MainView = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      var _this$state = this.state,
-          user = _this$state.user,
-          movies = _this$state.movies;
-      var movie = this.props.movie;
+      var user = this.state.user;
+      var _this$props = this.props,
+          movie = _this$props.movie,
+          movies = _this$props.movies;
       return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", {
         className: "main-view"
       }, _react.default.createElement("div", {
@@ -39494,12 +39540,8 @@ var MainView = /*#__PURE__*/function (_Component) {
               return _this3.onLoggedIn(user);
             }
           });
-          return movies.map(function (movie) {
-            return _react.default.createElement(_moviecard.default, {
-              className: "moviecard",
-              key: movie._id,
-              movie: movie
-            });
+          return _react.default.createElement(_movieslist.default, {
+            movies: movies
           });
         }
       }), _react.default.createElement(_reactRouterDom.Route, {
@@ -39565,9 +39607,18 @@ var MainView = /*#__PURE__*/function (_Component) {
   return MainView;
 }(_react.Component);
 
-var _default = MainView;
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    movies: state.movies
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, {
+  setMovies: _actions.setMovies
+})(MainView);
+
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MoviesList/movieslist":"components/MoviesList/movieslist.jsx","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
