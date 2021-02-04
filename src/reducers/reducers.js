@@ -1,20 +1,30 @@
 import { combineReducers } from 'redux';
 import {
-    GET_MOVIES,
-    SET_USER,
-    REGISTER_USER,
-    ADD_TO_FAVORTIES,
-    REMOVE_FROM_FAVORITES,
-    UPDATE_USER,
-    UNREGISTER_USER
+    SET_MOVIES,
+    SET_FILTER
 } from '../actions/actions.js';
 
-function movies(state = [], action) {
+function movieFilter( state = '', action ) {
     switch(action.type) {
-        case GET_MOVIES: 
+        case SET_FILTER:
             return action.value;
-        default: return state;
+        default:
+            return state;
     }
 }
 
-export default movies;
+function movies( state = [], action ) {
+    switch(action.type) {
+        case SET_MOVIES: 
+            return action.value;
+        default: 
+            return state;
+    }
+}
+
+const muviApp = combineReducers({
+    movieFilter,
+    movies
+})
+
+export default muviApp;
