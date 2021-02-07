@@ -7,11 +7,19 @@ export const SET_FILTER = 'SET_FILTER';
 //Action Creators
 
 export const setMovies = (value) => {
-    type: SET_MOVIES,
-    value
+    return async function(dispatch, getState) {
+        dispatch({
+            type: SET_MOVIES,
+            value
+        })
+    }
 }
 
 export const setFilter = (value) => {
-    type: SET_FILTER,
-    value
+    return async function(dispatch, getState) {
+        dispatch({
+            type: SET_FILTER,
+            value
+        })
+    }
 }
