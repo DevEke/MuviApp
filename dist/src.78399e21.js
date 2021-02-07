@@ -39022,7 +39022,7 @@ module.exports = _asyncToGenerator;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setFilter = exports.setMovies = exports.SET_FILTER = exports.SET_MOVIES = void 0;
+exports.setUser = exports.setFilter = exports.setMovies = exports.SET_USER = exports.SET_FILTER = exports.SET_MOVIES = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -39033,9 +39033,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //Action Types
 var SET_MOVIES = 'SET_MOVIES';
 exports.SET_MOVIES = SET_MOVIES;
-var SET_FILTER = 'SET_FILTER'; //Action Creators
-
+var SET_FILTER = 'SET_FILTER';
 exports.SET_FILTER = SET_FILTER;
+var SET_USER = 'SET_USER'; //Action Creators
+
+exports.SET_USER = SET_USER;
 
 var setMovies = function setMovies(value) {
   return /*#__PURE__*/function () {
@@ -39092,6 +39094,34 @@ var setFilter = function setFilter(value) {
 };
 
 exports.setFilter = setFilter;
+
+var setUser = function setUser(value) {
+  return /*#__PURE__*/function () {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(dispatch, getState) {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              dispatch({
+                type: SET_USER,
+                value: value
+              });
+
+            case 1:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function (_x5, _x6) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+};
+
+exports.setUser = setUser;
 },{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js"}],"components/MovieSearch/moviesearch.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
@@ -40442,16 +40472,8 @@ var MainView = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(MainView);
 
   function MainView() {
-    var _this;
-
     (0, _classCallCheck2.default)(this, MainView);
-    _this = _super.call(this);
-    _this.state = {
-      movies: [],
-      user: null,
-      newUser: false
-    };
-    return _this;
+    return _super.call(this);
   }
 
   (0, _createClass2.default)(MainView, [{
@@ -40460,9 +40482,7 @@ var MainView = /*#__PURE__*/function (_Component) {
       var accessToken = localStorage.getItem('token');
 
       if (accessToken !== null) {
-        this.setState({
-          user: localStorage.getItem('user')
-        });
+        this.props.setUser(localStorage.getItem('user'));
         this.getMovies(accessToken);
       }
     }
@@ -40470,9 +40490,7 @@ var MainView = /*#__PURE__*/function (_Component) {
     key: "onLoggedIn",
     value: function onLoggedIn(authData) {
       console.log(authData);
-      this.setState({
-        user: authData.user.Username
-      });
+      this.props.setUser(authData.user.Username);
       localStorage.setItem('token', authData.token);
       localStorage.setItem('user', authData.user.Username);
       this.getMovies(authData.token);
@@ -40480,14 +40498,14 @@ var MainView = /*#__PURE__*/function (_Component) {
   }, {
     key: "getMovies",
     value: function getMovies(token) {
-      var _this2 = this;
+      var _this = this;
 
       _axios.default.get('https://muvi-app.herokuapp.com/movies', {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
       }).then(function (response) {
-        _this2.props.setMovies(response.data);
+        _this.props.setMovies(response.data);
       }).catch(function (error) {
         console.log(error);
       });
@@ -40496,19 +40514,17 @@ var MainView = /*#__PURE__*/function (_Component) {
     key: "onSignOut",
     value: function onSignOut() {
       localStorage.clear();
-      this.setState({
-        user: null
-      });
+      this.props.setUser(null);
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
-      var user = this.state.user;
       var _this$props = this.props,
           movie = _this$props.movie,
-          movies = _this$props.movies;
+          movies = _this$props.movies,
+          user = _this$props.user;
       return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
       }, /*#__PURE__*/_react.default.createElement("div", {
@@ -40526,7 +40542,7 @@ var MainView = /*#__PURE__*/function (_Component) {
         to: "/"
       }, /*#__PURE__*/_react.default.createElement("button", {
         onClick: function onClick() {
-          return _this3.onSignOut();
+          return _this2.onSignOut();
         },
         className: "signout-btn"
       }, "Sign Out")))), /*#__PURE__*/_react.default.createElement("div", {
@@ -40537,7 +40553,7 @@ var MainView = /*#__PURE__*/function (_Component) {
         render: function render() {
           if (!user) return /*#__PURE__*/_react.default.createElement(_loginview.default, {
             onLoggedIn: function onLoggedIn(user) {
-              return _this3.onLoggedIn(user);
+              return _this2.onLoggedIn(user);
             }
           });
           return /*#__PURE__*/_react.default.createElement(_movieslist.default, {
@@ -40608,12 +40624,14 @@ var MainView = /*#__PURE__*/function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    movies: state.movies
+    movies: state.movies,
+    user: state.user
   };
 };
 
 var _default = (0, _reactRedux.connect)(mapStateToProps, {
-  setMovies: _actions.setMovies
+  setMovies: _actions.setMovies,
+  setUser: _actions.setUser
 })(MainView);
 
 exports.default = _default;
@@ -40655,9 +40673,23 @@ function movies() {
   }
 }
 
+function user() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions.SET_USER:
+      return action.value;
+
+    default:
+      return state;
+  }
+}
+
 var muviApp = (0, _redux.combineReducers)({
   movieFilter: movieFilter,
-  movies: movies
+  movies: movies,
+  user: user
 });
 var _default = muviApp;
 exports.default = _default;

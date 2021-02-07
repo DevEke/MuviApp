@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setMovies } from '../../actions/actions';
+import { setUser } from '../../actions/actions';
 import MoviesList from '../MoviesList/movieslist';
 import MovieView from '../MovieView/movieview';
 import LoginView from '../LoginView/loginview';
@@ -19,28 +20,19 @@ import './mainview.scss';
 class MainView extends Component {
     constructor() {
         super();
-        this.state = {
-            movies: [],
-            user: null,
-            newUser: false
-        }
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
+            this.props.setUser(localStorage.getItem('user'));
             this.getMovies(accessToken);
         }
     }
 
     onLoggedIn(authData) {
         console.log(authData);
-        this.setState({
-            user: authData.user.Username,
-        });
+        this.props.setUser(authData.user.Username);
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
@@ -60,14 +52,11 @@ class MainView extends Component {
 
     onSignOut() {
         localStorage.clear();
-        this.setState({
-            user: null
-        })
+        this.props.setUser(null);
     }
 
     render() {
-        const { user } = this.state;
-        const { movie, movies } = this.props;
+        const { movie, movies, user } = this.props;
 
 
         return (
@@ -115,9 +104,10 @@ class MainView extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        movies: state.movies
+        movies: state.movies,
+        user: state.user
     }
 }
 
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);

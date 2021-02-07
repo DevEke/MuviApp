@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import {
     SET_MOVIES,
-    SET_FILTER
+    SET_FILTER,
+    SET_USER
 } from '../actions/actions.js';
 
 function movieFilter( state = '', action ) {
@@ -22,9 +23,19 @@ function movies( state = [], action ) {
     }
 }
 
+function user( state = '', action ) {
+    switch(action.type) {
+        case SET_USER:
+            return action.value;
+        default:
+            return state;
+    }
+}
+
 const muviApp = combineReducers({
     movieFilter,
-    movies
+    movies,
+    user
 })
 
 export default muviApp;
