@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import './updateview.scss';
 import user from '../../img/user.svg';
-import back from '../../img/back.svg';
 import notice from '../../img/alert.svg';
 
 function UpdateView(props) {
