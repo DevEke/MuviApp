@@ -27,8 +27,8 @@ $secondary-font: 'Quicksand', sans-serif;
     flex-direction: column;
 }
 @mixin round-button {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 @mixin rectangle-button {
@@ -52,6 +52,7 @@ $secondary-font: 'Quicksand', sans-serif;
     display: flex;
     width: 100vw;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .profile-info {
@@ -118,12 +119,13 @@ h1 {
     }
 }
 
-.favortie-movie-container {
-    @include flex-column-standard();
+.favorite-movie-container {
     width: 70vw;
     padding: 50px;
 
     .movie-grid {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: flex-start;
     }
 }

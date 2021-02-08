@@ -5,7 +5,7 @@ $primary-font: 'Raleway', sans-serif;
 $secondary-font: 'Quicksand', sans-serif;
 
 @mixin button-background {
-    background-color: $secondary-color;
+    background-color: inherit;
     border: none;
     color: white;
     font-family: 'Raleway', sans-serif;
@@ -27,14 +27,14 @@ $secondary-font: 'Quicksand', sans-serif;
     flex-direction: column;
 }
 @mixin round-button {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 @mixin rectangle-button {
     min-width: 100px;
     border-radius: 5px;
-    padding: 15px;
+    padding: 10px 15px;
     font-size: 16px;
 }
 
@@ -49,10 +49,12 @@ $secondary-font: 'Quicksand', sans-serif;
     font-size: 16px;
     color: white;
     height: 60px;
+    padding: 10px 20px;
     @include flex-row-standard();
     justify-content: space-between;
     h1 {
         font-family: $secondary-font;
+        margin: 0;
     }
 }
 

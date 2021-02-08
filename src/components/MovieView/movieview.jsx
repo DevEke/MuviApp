@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './movieview.scss';
 import back from '../../img/back.svg';
 import heart from '../../img/heart.svg';
-import plus from '../../img/plus.svg';
 import axios from 'axios';
 
 
@@ -20,6 +19,7 @@ class MovieView extends Component {
             headers: {Authorization: `Bearer ${token}`},
         }).then((response) => {
             console.log(response);
+            alert("Movie added to favorites. Check your profile.")
         }).catch((error) => {
             console.log('Error Adding movie to favorites.')
         });

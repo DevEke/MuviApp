@@ -44,12 +44,21 @@ class GenreView extends Component {
 }
 
 GenreView.propTypes = {
-    movie: PropTypes.shape({
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            Title: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
+            ImageURL: PropTypes.string.isRequired,
+            Director: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Bio: PropTypes.string,
+            }),
+            Genre: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Description: PropTypes.string
+            })
         })
-    }).isRequired
+    )
 }
 
 export default GenreView;

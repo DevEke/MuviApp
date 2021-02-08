@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import MovieSearch from '../MovieSearch/moviesearch';
 import MovieCard from '../MovieCard/moviecard';
 import './movieslist.scss';
@@ -27,6 +28,25 @@ function MoviesList(props) {
                 </div>
             </div>
         );
+}
+
+MoviesList.propTypes = {
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            Title: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
+            ImageURL: PropTypes.string.isRequired,
+            Director: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Bio: PropTypes.string,
+            }),
+            Genre: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Description: PropTypes.string
+            })
+        })
+    ),
+    movieFilter: PropTypes.string
 }
 
 export default connect(mapStateToProps)(MoviesList);

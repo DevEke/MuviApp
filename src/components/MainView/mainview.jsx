@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setMovies } from '../../actions/actions';
-import { setUser } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 import MoviesList from '../MoviesList/movieslist';
 import MovieView from '../MovieView/movieview';
 import LoginView from '../LoginView/loginview';
@@ -109,5 +109,36 @@ let mapStateToProps = (state) => {
     }
 }
 
+MainView.propTypes = {
+    user: PropTypes.string,
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            Title: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
+            ImageURL: PropTypes.string.isRequired,
+            Director: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Bio: PropTypes.string,
+            }),
+            Genre: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Description: PropTypes.string
+            })
+        })
+    ),
+    movie: PropTypes.shape({
+        Title: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+        ImageURL: PropTypes.string.isRequired,
+        Director: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Bio: PropTypes.string,
+        }),
+        Genre: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Description: PropTypes.string
+        })
+    }) 
+};
 
 export default connect(mapStateToProps, { setMovies, setUser })(MainView);

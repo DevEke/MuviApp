@@ -27,8 +27,8 @@ $secondary-font: 'Quicksand', sans-serif;
     flex-direction: column;
 }
 @mixin round-button {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 @mixin rectangle-button {

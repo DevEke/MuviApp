@@ -48,7 +48,7 @@ $secondary-font: 'Quicksand', sans-serif;
     border: 0;
 }
 
-.account-container {
+.update-account-container {
     width: 100vw;
     @include flex-column-standard();
     align-items: center;
@@ -63,6 +63,7 @@ form {
     margin: 75px 0;
     min-width: 300px;
     font-family: 'Raleway', sans-serif;
+    justify-content: center;
 }
 
 .update-profile-image {
@@ -83,6 +84,7 @@ input {
     color: white;
     transition: background-color 0.3s;
     cursor: pointer;
+    width: 300px;
 
     &::placeholder {
         color: white;
@@ -119,6 +121,7 @@ input {
     @include button-background();
     @include rectangle-button();
     width: 300px;
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 767px) {

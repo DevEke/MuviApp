@@ -3,6 +3,11 @@ body {
   color: white;
   margin: 0;
 }
+.search-input {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+}
 .movie-card-link {
   text-decoration: none;
 }
@@ -71,16 +76,19 @@ body {
   }
 }
 .movies-list {
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 .movie-layout {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .movie-view {
+  box-sizing: border-box;
   display: flex;
   width: 100vw;
   padding: 20px;
@@ -150,8 +158,8 @@ body {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   flex-shrink: 1 0 auto;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .movie-view-back-btn:hover, .movie-view-back-btn:focus {
@@ -167,8 +175,8 @@ body {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   flex-shrink: 1 0 auto;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .favorite-btn:hover, .favorite-btn:focus {
@@ -380,6 +388,7 @@ input:hover, input:focus {
   outline: none;
 }
 .director-view-container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -404,8 +413,8 @@ input:hover, input:focus {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   flex-shrink: 1 0 auto;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .director-view-back-btn:hover, .director-view-back-btn:focus {
@@ -555,8 +564,8 @@ input:hover, input:focus {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   flex-shrink: 1 0 auto;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .genre-view-back-btn:hover, .genre-view-back-btn:focus {
@@ -616,6 +625,7 @@ input:hover, input:focus {
   display: flex;
   width: 100vw;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .profile-info {
@@ -655,8 +665,8 @@ input:hover, input:focus {
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   flex-shrink: 1 0 auto;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .profile-view-back-btn:hover, .profile-view-back-btn:focus {
@@ -718,13 +728,13 @@ h1 {
   background-color: #f23d00;
 }
 
-.favortie-movie-container {
-  display: flex;
-  flex-direction: column;
+.favorite-movie-container {
   width: 70vw;
   padding: 50px;
 }
-.favortie-movie-container .movie-grid {
+.favorite-movie-container .movie-grid {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 
@@ -735,8 +745,8 @@ h1 {
 }
 
 .remove-favorite-btn {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
@@ -784,7 +794,7 @@ h1 {
     text-align: center;
   }
 }
-.account-container {
+.update-account-container {
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -801,6 +811,7 @@ form {
   margin: 75px 0;
   min-width: 300px;
   font-family: "Raleway", sans-serif;
+  justify-content: center;
 }
 
 .update-profile-image {
@@ -829,6 +840,7 @@ input {
   color: white;
   transition: background-color 0.3s;
   cursor: pointer;
+  width: 300px;
 }
 input::placeholder {
   color: white;
@@ -885,6 +897,7 @@ input:hover, input:focus {
   padding: 15px;
   font-size: 16px;
   width: 300px;
+  margin-top: 20px;
 }
 .cancel-update-btn:hover, .cancel-update-btn:focus {
   background-color: rgba(255, 255, 255, 0.3);
@@ -908,12 +921,14 @@ input:hover, input:focus {
   font-size: 16px;
   color: white;
   height: 60px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .nav h1 {
   font-family: "Quicksand", sans-serif;
+  margin: 0;
 }
 
 .nav-button-flex {
@@ -926,10 +941,10 @@ p {
 }
 
 .account-btn {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: inherit;
   border: none;
   color: white;
   font-family: "Raleway", sans-serif;
@@ -943,7 +958,7 @@ p {
 }
 
 .signout-btn {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: inherit;
   border: none;
   color: white;
   font-family: "Raleway", sans-serif;
@@ -952,7 +967,7 @@ p {
   flex-shrink: 1 0 auto;
   min-width: 100px;
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px 15px;
   font-size: 16px;
   margin-left: 15px;
 }

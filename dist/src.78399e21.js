@@ -39022,7 +39022,7 @@ module.exports = _asyncToGenerator;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setUser = exports.setFilter = exports.setMovies = exports.SET_USER = exports.SET_FILTER = exports.SET_MOVIES = void 0;
+exports.setUser = exports.setFilter = exports.setMovies = exports.SET_USER_FAVORITES = exports.SET_USER_EMAIL = exports.SET_USER_PASSWORD = exports.SET_USER_USERNAME = exports.SET_USER = exports.SET_FILTER = exports.SET_MOVIES = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -39035,9 +39035,17 @@ var SET_MOVIES = 'SET_MOVIES';
 exports.SET_MOVIES = SET_MOVIES;
 var SET_FILTER = 'SET_FILTER';
 exports.SET_FILTER = SET_FILTER;
-var SET_USER = 'SET_USER'; //Action Creators
-
+var SET_USER = 'SET_USER';
 exports.SET_USER = SET_USER;
+var SET_USER_USERNAME = 'SET_USER_USERNAME';
+exports.SET_USER_USERNAME = SET_USER_USERNAME;
+var SET_USER_PASSWORD = 'SET_USER_PASSWORD';
+exports.SET_USER_PASSWORD = SET_USER_PASSWORD;
+var SET_USER_EMAIL = 'SET_USER_EMAIL';
+exports.SET_USER_EMAIL = SET_USER_EMAIL;
+var SET_USER_FAVORITES = 'SET_USER_FAVORITES'; //Action Creators
+
+exports.SET_USER_FAVORITES = SET_USER_FAVORITES;
 
 var setMovies = function setMovies(value) {
   return /*#__PURE__*/function () {
@@ -39119,7 +39127,39 @@ var setUser = function setUser(value) {
       return _ref3.apply(this, arguments);
     };
   }();
-};
+}; // export const setUserUsername = (value) => {
+//     return async function(dispatch, getState) {
+//         dispatch({
+//             type: SET_USER_USERNAME,
+//             value
+//         })
+//     }
+// }
+// export const setUserPassword = (value) => {
+//     return async function(dispatch, getState) {
+//         dispatch({
+//             type: SET_USER_PASSWORD,
+//             value
+//         })
+//     }
+// }
+// export const setUserEmail = (value) => {
+//     return async function(dispatch, getState) {
+//         dispatch({
+//             type: SET_USER_EMAIL,
+//             value
+//         })
+//     }
+// }
+// export const setUserFavorites = (value) => {
+//     return async function(dispatch, getState) {
+//         dispatch({
+//             type: SET_USER_FAVORITES,
+//             value
+//         })
+//     }
+// }
+
 
 exports.setUser = setUser;
 },{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js"}],"components/MovieSearch/moviesearch.scss":[function(require,module,exports) {
@@ -39137,6 +39177,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 var _reactRedux = require("react-redux");
 
 var _actions = require("../../actions/actions");
@@ -39153,16 +39195,20 @@ function MovieSearch(props) {
       return props.setFilter(e.target.value);
     },
     value: props.movieFilter,
-    placeholder: "Search"
+    placeholder: "Filter Movies"
   });
 }
+
+MovieSearch.propTypes = {
+  onChange: _propTypes.default.func
+};
 
 var _default = (0, _reactRedux.connect)(null, {
   setFilter: _actions.setFilter
 })(MovieSearch);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","./moviesearch.scss":"components/MovieSearch/moviesearch.scss"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","./moviesearch.scss":"components/MovieSearch/moviesearch.scss"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39273,6 +39319,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRedux = require("react-redux");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 var _moviesearch = _interopRequireDefault(require("../MovieSearch/moviesearch"));
 
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
@@ -39314,10 +39362,27 @@ function MoviesList(props) {
   })));
 }
 
+MoviesList.propTypes = {
+  movies: _propTypes.default.arrayOf(_propTypes.default.shape({
+    Title: _propTypes.default.string.isRequired,
+    Description: _propTypes.default.string.isRequired,
+    ImageURL: _propTypes.default.string.isRequired,
+    Director: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Bio: _propTypes.default.string
+    }),
+    Genre: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Description: _propTypes.default.string
+    })
+  })),
+  movieFilter: _propTypes.default.string
+};
+
 var _default = (0, _reactRedux.connect)(mapStateToProps)(MoviesList);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../MovieSearch/moviesearch":"components/MovieSearch/moviesearch.jsx","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","./movieslist.scss":"components/MoviesList/movieslist.scss"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","prop-types":"../node_modules/prop-types/index.js","../MovieSearch/moviesearch":"components/MovieSearch/moviesearch.jsx","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx","./movieslist.scss":"components/MoviesList/movieslist.scss"}],"components/MovieView/movieview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39326,8 +39391,6 @@ module.hot.accept(reloadCSS);
 module.exports = "/back.8885959e.svg";
 },{}],"img/heart.svg":[function(require,module,exports) {
 module.exports = "/heart.8b87f66a.svg";
-},{}],"img/plus.svg":[function(require,module,exports) {
-module.exports = "/plus.f3e11ee5.svg";
 },{}],"components/MovieView/movieview.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -39357,8 +39420,6 @@ require("./movieview.scss");
 var _back = _interopRequireDefault(require("../../img/back.svg"));
 
 var _heart = _interopRequireDefault(require("../../img/heart.svg"));
-
-var _plus = _interopRequireDefault(require("../../img/plus.svg"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -39395,6 +39456,7 @@ var MovieView = /*#__PURE__*/function (_Component) {
         }
       }).then(function (response) {
         console.log(response);
+        alert("Movie added to favorites. Check your profile.");
       }).catch(function (error) {
         console.log('Error Adding movie to favorites.');
       });
@@ -39466,7 +39528,7 @@ MovieView.propTypes = {
 };
 var _default = MovieView;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movieview.scss":"components/MovieView/movieview.scss","../../img/back.svg":"img/back.svg","../../img/heart.svg":"img/heart.svg","../../img/plus.svg":"img/plus.svg","axios":"../node_modules/axios/index.js"}],"../node_modules/@babel/runtime/helpers/arrayWithHoles.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movieview.scss":"components/MovieView/movieview.scss","../../img/back.svg":"img/back.svg","../../img/heart.svg":"img/heart.svg","axios":"../node_modules/axios/index.js"}],"../node_modules/@babel/runtime/helpers/arrayWithHoles.js":[function(require,module,exports) {
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
@@ -39850,7 +39912,7 @@ var DirectorView = /*#__PURE__*/function (_Component) {
         className: "director-view-director"
       }, director.Director.Name), /*#__PURE__*/_react.default.createElement("small", {
         className: "director-view-birthday"
-      }, "Born ", director.Director.Birthday), /*#__PURE__*/_react.default.createElement("p", {
+      }, director.Director.Birthday), /*#__PURE__*/_react.default.createElement("p", {
         className: "director-view-bio"
       }, director.Director.Bio)))), /*#__PURE__*/_react.default.createElement("h2", {
         className: "director-title"
@@ -39870,13 +39932,19 @@ var DirectorView = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 DirectorView.propTypes = {
-  movie: _propTypes.default.shape({
+  movies: _propTypes.default.arrayOf(_propTypes.default.shape({
+    Title: _propTypes.default.string.isRequired,
+    Description: _propTypes.default.string.isRequired,
+    ImageURL: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
-      Birthday: _propTypes.default.string.isRequired,
-      Bio: _propTypes.default.string.isRequired
+      Bio: _propTypes.default.string
+    }),
+    Genre: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Description: _propTypes.default.string
     })
-  }).isRequired
+  }))
 };
 var _default = DirectorView;
 exports.default = _default;
@@ -39980,12 +40048,19 @@ var GenreView = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 GenreView.propTypes = {
-  movie: _propTypes.default.shape({
+  movies: _propTypes.default.arrayOf(_propTypes.default.shape({
+    Title: _propTypes.default.string.isRequired,
+    Description: _propTypes.default.string.isRequired,
+    ImageURL: _propTypes.default.string.isRequired,
+    Director: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Bio: _propTypes.default.string
+    }),
     Genre: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
-      Description: _propTypes.default.string.isRequired
+      Description: _propTypes.default.string
     })
-  }).isRequired
+  }))
 };
 var _default = GenreView;
 exports.default = _default;
@@ -40104,6 +40179,7 @@ var ProfileView = /*#__PURE__*/function (_Component) {
       }).then(function (response) {
         localStorage.clear();
         window.location.pathname = "/";
+        alert("Account successfully unregistered. Returning to Login Screen.");
       }).catch(function (error) {
         console.log("Account could not be deleted");
       });
@@ -40129,6 +40205,7 @@ var ProfileView = /*#__PURE__*/function (_Component) {
         });
 
         console.log(_this3.state.favoriteMovies);
+        alert("Movie successfully removed from favorites list.");
 
         _this3.componentDidMount();
       }).catch(function (error) {
@@ -40207,6 +40284,21 @@ var ProfileView = /*#__PURE__*/function (_Component) {
   return ProfileView;
 }(_react.Component);
 
+ProfileView.propTypes = {
+  movies: _propTypes.default.arrayOf(_propTypes.default.shape({
+    Title: _propTypes.default.string.isRequired,
+    Description: _propTypes.default.string.isRequired,
+    ImageURL: _propTypes.default.string.isRequired,
+    Director: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Bio: _propTypes.default.string
+    }),
+    Genre: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Description: _propTypes.default.string
+    })
+  })).isRequired
+};
 var _default = ProfileView;
 exports.default = _default;
 },{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./profileview.scss":"components/ProfileView/profileview.scss","../../img/back.svg":"img/back.svg","../../img/user100.svg":"img/user100.svg","../../img/close.svg":"img/close.svg","../MovieCard/moviecard.scss":"components/MovieCard/moviecard.scss"}],"components/UpdateView/updateview.scss":[function(require,module,exports) {
@@ -40231,6 +40323,8 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/sli
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -40297,6 +40391,7 @@ function UpdateView(props) {
         var data = response.data;
         localStorage.setItem("user", data.Username);
         window.open("/", "_self");
+        alert('Account successfully updated.');
       }).catch(function (error) {
         console.log(error);
       });
@@ -40341,7 +40436,7 @@ function UpdateView(props) {
     htmlFor: "username"
   }, "New Username"), /*#__PURE__*/_react.default.createElement("input", {
     id: "username",
-    placeholder: "Enter New Username",
+    placeholder: "Enter New or Current Username",
     type: "text",
     value: username,
     onChange: function onChange(e) {
@@ -40359,7 +40454,7 @@ function UpdateView(props) {
     htmlFor: "password"
   }, "New Password"), /*#__PURE__*/_react.default.createElement("input", {
     id: "password",
-    placeholder: "Enter New Password",
+    placeholder: "Enter New or Current Password",
     type: "password",
     value: password,
     onChange: function onChange(e) {
@@ -40377,7 +40472,7 @@ function UpdateView(props) {
     htmlFor: "email"
   }, "New Email"), /*#__PURE__*/_react.default.createElement("input", {
     id: "email",
-    placeholder: "Enter New Email",
+    placeholder: "Enter New or Current Email",
     type: "email",
     value: email,
     onChange: function onChange(e) {
@@ -40401,9 +40496,13 @@ function UpdateView(props) {
   }, "Cancel Update"))));
 }
 
+UpdateView.propTypes = {
+  onChange: _propTypes.default.func,
+  onClick: _propTypes.default.func
+};
 var _default = UpdateView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/user.svg":"img/user.svg","../../img/back.svg":"img/back.svg","../../img/alert.svg":"img/alert.svg"}],"components/MainView/mainview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/user.svg":"img/user.svg","../../img/back.svg":"img/back.svg","../../img/alert.svg":"img/alert.svg"}],"components/MainView/mainview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40427,6 +40526,8 @@ var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRouterDom = require("react-router-dom");
 
@@ -40629,13 +40730,43 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
+MainView.propTypes = {
+  user: _propTypes.default.string,
+  movies: _propTypes.default.arrayOf(_propTypes.default.shape({
+    Title: _propTypes.default.string.isRequired,
+    Description: _propTypes.default.string.isRequired,
+    ImageURL: _propTypes.default.string.isRequired,
+    Director: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Bio: _propTypes.default.string
+    }),
+    Genre: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Description: _propTypes.default.string
+    })
+  })),
+  movie: _propTypes.default.shape({
+    Title: _propTypes.default.string.isRequired,
+    Description: _propTypes.default.string.isRequired,
+    ImageURL: _propTypes.default.string.isRequired,
+    Director: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Bio: _propTypes.default.string
+    }),
+    Genre: _propTypes.default.shape({
+      Name: _propTypes.default.string.isRequired,
+      Description: _propTypes.default.string
+    })
+  })
+};
+
 var _default = (0, _reactRedux.connect)(mapStateToProps, {
   setMovies: _actions.setMovies,
   setUser: _actions.setUser
 })(MainView);
 
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MoviesList/movieslist":"components/MoviesList/movieslist.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MoviesList/movieslist":"components/MoviesList/movieslist.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40684,12 +40815,48 @@ function user() {
     default:
       return state;
   }
-}
+} // function userUsername( state = '', action ) {
+//     switch(action.type) {
+//         case SET_USER_USERNAME:
+//             return action.value;
+//         default:
+//             return state;
+//     }
+// }
+// function userPassword( state = '', action ) {
+//     switch(action.type) {
+//         case SET_USER_PASSWORD:
+//             return action.value;
+//         default:
+//             return state;
+//     }
+// }
+// function userEmail( state = '', action ) {
+//     switch(action.type) {
+//         case SET_USER_EMAIL:
+//             return action.value;
+//         default:
+//             return state;
+//     }
+// }
+// function userFavorites( state = [], action ) {
+//     switch(action.type) {
+//         case SET_USER_FAVORITES:
+//             return action.value;
+//         default:
+//             return state;
+//     }
+// }
+
 
 var muviApp = (0, _redux.combineReducers)({
   movieFilter: movieFilter,
   movies: movies,
-  user: user
+  user: user // userUsername,
+  // userPassword,
+  // userEmail,
+  // userFavorites
+
 });
 var _default = muviApp;
 exports.default = _default;

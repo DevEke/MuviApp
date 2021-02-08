@@ -24,7 +24,7 @@ class DirectorView extends Component {
                     <div className="director-container">
                         <div className="director-info">
                             <h1 className="director-view-director">{director.Director.Name}</h1>
-                            <small className="director-view-birthday">Born {director.Director.Birthday}</small>
+                            <small className="director-view-birthday">{director.Director.Birthday}</small>
                             <p className="director-view-bio">{director.Director.Bio}</p>
                         </div>
                     </div>
@@ -46,13 +46,21 @@ class DirectorView extends Component {
 }
 
 DirectorView.propTypes = {
-    movie: PropTypes.shape({
-        Director: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Birthday: PropTypes.string.isRequired,
-            Bio: PropTypes.string.isRequired
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            Title: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
+            ImageURL: PropTypes.string.isRequired,
+            Director: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Bio: PropTypes.string,
+            }),
+            Genre: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Description: PropTypes.string
+            })
         })
-    }).isRequired
+    )
 }
 
 export default DirectorView;

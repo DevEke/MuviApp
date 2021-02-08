@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import './updateview.scss';
 import user from '../../img/user.svg';
@@ -30,6 +31,7 @@ function UpdateView(props) {
             const data = response.data;
             localStorage.setItem("user", data.Username);
             window.open("/", "_self");
+            alert('Account successfully updated.')
         }).catch((error) => {
             console.log(error);
         })
@@ -65,7 +67,7 @@ function UpdateView(props) {
             <form>
                 <img className="update-profile-image" src={user} alt="user profile image"/>
                 <label className="label" htmlFor="username">New Username</label>
-                <input id="username" placeholder="Enter New Username" type="text" value={username} onChange={e => changeUsername(e.target.value)}/>
+                <input id="username" placeholder="Enter New or Current Username" type="text" value={username} onChange={e => changeUsername(e.target.value)}/>
                 {Object.keys(usernameValidation).map((key) => {
                     return (
                         <div className="validation-error" key={key}>
@@ -75,7 +77,7 @@ function UpdateView(props) {
                     );
                 })}
                 <label className="label" htmlFor="password">New Password</label>
-                <input id="password" placeholder="Enter New Password" type="password" value={password} onChange={e => changePassword(e.target.value)}/>
+                <input id="password" placeholder="Enter New or Current Password" type="password" value={password} onChange={e => changePassword(e.target.value)}/>
                 {Object.keys(passwordValidation).map((key) => {
                     return (
                         <div className="validation-error" key={key}>
@@ -85,7 +87,7 @@ function UpdateView(props) {
                     );
                 })}
                 <label className="label" htmlFor="email">New Email</label>
-                <input id="email" placeholder="Enter New Email" type="email" value={email} onChange={e => changeEmail(e.target.value)}/>
+                <input id="email" placeholder="Enter New or Current Email" type="email" value={email} onChange={e => changeEmail(e.target.value)}/>
                 {Object.keys(emailValidation).map((key) => {
                     return (
                         <div className="validation-error" key={key}>
@@ -101,5 +103,9 @@ function UpdateView(props) {
     )
 }
 
+UpdateView.propTypes = {
+    onChange: PropTypes.func,
+    onClick: PropTypes.func
+}
 
 export default UpdateView;

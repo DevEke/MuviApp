@@ -49,6 +49,7 @@ class ProfileView extends Component {
         }).then((response) => {
             localStorage.clear();
             window.location.pathname = "/";
+            alert("Account successfully unregistered. Returning to Login Screen.");
         }).catch((error) => {
             console.log("Account could not be deleted")
         });
@@ -67,6 +68,7 @@ class ProfileView extends Component {
                 favoriteMovies: data.FavoriteMovies
             });
             console.log(this.state.favoriteMovies);
+            alert("Movie successfully removed from favorites list.");
             this.componentDidMount();
         }).catch((error) => {
             console.log('Error removing movie from favorites');
@@ -120,5 +122,22 @@ class ProfileView extends Component {
     }  
 }
 
+ProfileView.propTypes = {
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            Title: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
+            ImageURL: PropTypes.string.isRequired,
+            Director: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Bio: PropTypes.string,
+            }),
+            Genre: PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Description: PropTypes.string
+            })
+        })
+    ).isRequired
+};
 
 export default ProfileView;
