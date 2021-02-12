@@ -51,7 +51,7 @@ function UpdateView(props) {
             isValid = false;
         }
         if (!email.includes(".") && !email.includes("@")) {
-            emailValidation.emailInvalid = "Enter a valid email address";
+            emailValidation.emailInvalid = "Enter a valid email address.";
             isValid = false;
         }
 

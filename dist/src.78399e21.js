@@ -39613,7 +39613,9 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/LoginView/loginview.jsx":[function(require,module,exports) {
+},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"img/alert.svg":[function(require,module,exports) {
+module.exports = "/alert.8412a249.svg";
+},{}],"components/LoginView/loginview.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39633,6 +39635,8 @@ require("./loginview.scss");
 
 var _reactRouterDom = require("react-router-dom");
 
+var _alert = _interopRequireDefault(require("../../img/alert.svg"));
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -39650,8 +39654,19 @@ function LoginView(props) {
       password = _useState4[0],
       setPassword = _useState4[1];
 
+  var _useState5 = (0, _react.useState)(''),
+      _useState6 = (0, _slicedToArray2.default)(_useState5, 2),
+      usernameValidation = _useState6[0],
+      checkUsernameValidation = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(''),
+      _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
+      passwordValidation = _useState8[0],
+      checkPasswordValidation = _useState8[1];
+
   var attemptLogin = function attemptLogin(e) {
     e.preventDefault();
+    var isValid = loginValidation();
     console.log(username, password);
 
     _axios.default.post('https://muvi-app.herokuapp.com/login', {
@@ -39661,8 +39676,28 @@ function LoginView(props) {
       var data = response.data;
       props.onLoggedIn(data);
     }).catch(function (error) {
-      console.log('Username or Password is incorrect.');
+      console.log(error.response.data); // console.log('Username or Password is incorrect.')
     });
+  };
+
+  var loginValidation = function loginValidation() {
+    var usernameValidation = {};
+    var passwordValidation = {};
+    var isValid = true;
+
+    if (username.trim().length < 1) {
+      usernameValidation.usernameMissing = "Please enter a username.";
+      isValid = false;
+    }
+
+    if (password.trim().length < 1) {
+      passwordValidation.passwordMissing = "Please enter a password.";
+      isValid = false;
+    }
+
+    checkUsernameValidation(usernameValidation);
+    checkPasswordValidation(passwordValidation);
+    return isValid;
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -39680,6 +39715,13 @@ function LoginView(props) {
     onChange: function onChange(e) {
       return setUsername(e.target.value);
     }
+  }), Object.keys(usernameValidation).map(function (key) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "validation-error",
+      key: key
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _alert.default
+    }), usernameValidation[key]);
   }), /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "password"
@@ -39691,6 +39733,13 @@ function LoginView(props) {
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     }
+  }), Object.keys(passwordValidation).map(function (key) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "validation-error",
+      key: key
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _alert.default
+    }), passwordValidation[key]);
   }), /*#__PURE__*/_react.default.createElement("button", {
     className: "login-login-btn",
     type: "button",
@@ -39709,7 +39758,7 @@ LoginView.propTypes = {
 };
 var _default = LoginView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/RegisterView/registerview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/alert.svg":"img/alert.svg"}],"components/RegisterView/registerview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39734,6 +39783,8 @@ var _reactRouterDom = require("react-router-dom");
 
 require("./registerview.scss");
 
+var _alert = _interopRequireDefault(require("../../img/alert.svg"));
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -39756,8 +39807,24 @@ function RegisterView(props) {
       email = _useState6[0],
       setEmail = _useState6[1];
 
+  var _useState7 = (0, _react.useState)(''),
+      _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
+      usernameValidation = _useState8[0],
+      checkUsernameValidation = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(''),
+      _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
+      passwordValidation = _useState10[0],
+      checkPasswordValidation = _useState10[1];
+
+  var _useState11 = (0, _react.useState)(''),
+      _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
+      emailValidation = _useState12[0],
+      checkEmailValidation = _useState12[1];
+
   var attemptRegister = function attemptRegister(e) {
     e.preventDefault();
+    var isValid = registerValidation();
     console.log(username, password, email);
 
     _axios.default.post('https://muvi-app.herokuapp.com/users', {
@@ -39765,12 +39832,52 @@ function RegisterView(props) {
       Password: password,
       Email: email
     }).then(function (response) {
-      var data = response.data;
+      var data = response.data; // loginUser(data);
+
       console.log(data);
       window.open('/', '_self');
     }).catch(function (error) {
-      console.log('Error with Registration');
+      console.log(error); // console.log('Error with Registration')
     });
+  }; // const loginUser = (data) => {
+  //     axios.post('https://muvi-app.herokuapp.com/login', {
+  //         Username: data.Username,
+  //         Password: data.Password,
+  //     }).then((response) => {
+  //         const data = response.data;
+  //         props.onLoggedIn(data);
+  //         window.open('/', '_self');
+  //     }).catch((error) => {
+  //         console.log(error);
+  //     });
+  // };
+
+
+  var registerValidation = function registerValidation() {
+    var usernameValidation = {};
+    var passwordValidation = {};
+    var emailValidation = {};
+    var isValid = true;
+
+    if (username.trim().length < 5) {
+      usernameValidation.usernameShort = "Username must be at least 5 characters long.";
+      isValid = false;
+    }
+
+    if (password.trim().length < 1) {
+      passwordValidation.passwordMissing = "You must enter a password.";
+      isValid = false;
+    }
+
+    if (!email.includes(".") && !email.includes("@")) {
+      emailValidation.emailInvalid = "Enter a valid email address.";
+      isValid = false;
+    }
+
+    checkUsernameValidation(usernameValidation);
+    checkPasswordValidation(passwordValidation);
+    checkEmailValidation(emailValidation);
+    return isValid;
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -39788,6 +39895,13 @@ function RegisterView(props) {
     onChange: function onChange(e) {
       return setUsername(e.target.value);
     }
+  }), Object.keys(usernameValidation).map(function (key) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "validation-error",
+      key: key
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _alert.default
+    }), usernameValidation[key]);
   }), /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "password"
@@ -39799,6 +39913,13 @@ function RegisterView(props) {
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     }
+  }), Object.keys(passwordValidation).map(function (key) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "validation-error",
+      key: key
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _alert.default
+    }), passwordValidation[key]);
   }), /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "email"
@@ -39810,6 +39931,13 @@ function RegisterView(props) {
     onChange: function onChange(e) {
       return setEmail(e.target.value);
     }
+  }), Object.keys(emailValidation).map(function (key) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "validation-error",
+      key: key
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _alert.default
+    }), emailValidation[key]);
   }), /*#__PURE__*/_react.default.createElement("button", {
     className: "register-register-btn",
     type: "button",
@@ -39828,7 +39956,7 @@ RegisterView.propTypes = {
 };
 var _default = RegisterView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./registerview.scss":"components/RegisterView/registerview.scss"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./registerview.scss":"components/RegisterView/registerview.scss","../../img/alert.svg":"img/alert.svg"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40308,8 +40436,6 @@ module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"img/user.svg":[function(require,module,exports) {
 module.exports = "/user.6b500eaa.svg";
-},{}],"img/alert.svg":[function(require,module,exports) {
-module.exports = "/alert.8412a249.svg";
 },{}],"components/UpdateView/updateview.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -40331,8 +40457,6 @@ var _axios = _interopRequireDefault(require("axios"));
 require("./updateview.scss");
 
 var _user = _interopRequireDefault(require("../../img/user.svg"));
-
-var _back = _interopRequireDefault(require("../../img/back.svg"));
 
 var _alert = _interopRequireDefault(require("../../img/alert.svg"));
 
@@ -40415,7 +40539,7 @@ function UpdateView(props) {
     }
 
     if (!email.includes(".") && !email.includes("@")) {
-      emailValidation.emailInvalid = "Enter a valid email address";
+      emailValidation.emailInvalid = "Enter a valid email address.";
       isValid = false;
     }
 
@@ -40502,7 +40626,7 @@ UpdateView.propTypes = {
 };
 var _default = UpdateView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/user.svg":"img/user.svg","../../img/back.svg":"img/back.svg","../../img/alert.svg":"img/alert.svg"}],"components/MainView/mainview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/user.svg":"img/user.svg","../../img/alert.svg":"img/alert.svg"}],"components/MainView/mainview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40674,7 +40798,11 @@ var MainView = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
         path: "/register",
         render: function render() {
-          return /*#__PURE__*/_react.default.createElement(_registerview.default, null);
+          return /*#__PURE__*/_react.default.createElement(_registerview.default, {
+            onLoggedIn: function onLoggedIn(user) {
+              return _this2.onLoggedIn(user);
+            }
+          });
         }
       }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
         path: "/directors/:name",
@@ -40953,7 +41081,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60939" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63666" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

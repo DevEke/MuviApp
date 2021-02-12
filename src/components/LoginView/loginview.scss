@@ -99,3 +99,14 @@ input {
     width: 300px;
     margin-top: 15px;
 }
+
+.validation-error {
+    @include flex-row-standard();
+    font-size: 12px;
+    padding: 5px;
+    color: #FF0000;
+
+    img {
+        margin-right: 10px;
+    }
+}

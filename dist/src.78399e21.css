@@ -304,6 +304,17 @@ input:hover, input:focus {
   background-color: rgba(255, 255, 255, 0.3);
   outline: none;
 }
+
+.validation-error {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 5px;
+  color: #FF0000;
+}
+.validation-error img {
+  margin-right: 10px;
+}
 .register-container {
   width: 100vw;
   display: flex;
@@ -386,6 +397,17 @@ input:hover, input:focus {
 .register-login-btn:hover, .register-login-btn:focus {
   background-color: rgba(255, 255, 255, 0.3);
   outline: none;
+}
+
+.validation-error {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 5px;
+  color: #FF0000;
+}
+.validation-error img {
+  margin-right: 10px;
 }
 .director-view-container {
   box-sizing: border-box;

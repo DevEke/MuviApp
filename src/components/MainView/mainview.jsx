@@ -80,7 +80,7 @@ class MainView extends Component {
                             }
                         }/>
                         <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(movie => movie._id === match.params.movieId)}/>}/>
-                        <Route path="/register" render={() => <RegisterView />}/>
+                        <Route path="/register" render={() => <RegisterView onLoggedIn={user => this.onLoggedIn(user)} />}/>
                         <Route path="/directors/:name" render={({match}) => { 
                             if (!movies) return <div className="main-view"/>;
                             return <DirectorView director={movies.find(movie => movie.Director.Name === match.params.name)} movies={movies}/>}}
