@@ -39654,12 +39654,12 @@ function LoginView(props) {
       password = _useState4[0],
       setPassword = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(''),
+  var _useState5 = (0, _react.useState)({}),
       _useState6 = (0, _slicedToArray2.default)(_useState5, 2),
       usernameValidation = _useState6[0],
       checkUsernameValidation = _useState6[1];
 
-  var _useState7 = (0, _react.useState)(''),
+  var _useState7 = (0, _react.useState)({}),
       _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
       passwordValidation = _useState8[0],
       checkPasswordValidation = _useState8[1];
@@ -39777,6 +39777,10 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _reactRedux = require("react-redux");
+
+var _actions = require("../../actions/actions");
+
 var _axios = _interopRequireDefault(require("axios"));
 
 var _reactRouterDom = require("react-router-dom");
@@ -39807,17 +39811,17 @@ function RegisterView(props) {
       email = _useState6[0],
       setEmail = _useState6[1];
 
-  var _useState7 = (0, _react.useState)(''),
+  var _useState7 = (0, _react.useState)({}),
       _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
       usernameValidation = _useState8[0],
       checkUsernameValidation = _useState8[1];
 
-  var _useState9 = (0, _react.useState)(''),
+  var _useState9 = (0, _react.useState)({}),
       _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
       passwordValidation = _useState10[0],
       checkPasswordValidation = _useState10[1];
 
-  var _useState11 = (0, _react.useState)(''),
+  var _useState11 = (0, _react.useState)({}),
       _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
       emailValidation = _useState12[0],
       checkEmailValidation = _useState12[1];
@@ -39832,9 +39836,10 @@ function RegisterView(props) {
       Password: password,
       Email: email
     }).then(function (response) {
-      var data = response.data; // loginUser(data);
-
-      console.log(data);
+      var data = response.data;
+      props.setUser(data.Username);
+      console.log(data.Username);
+      alert('Account Created. Login at the login screen');
       window.open('/', '_self');
     }).catch(function (error) {
       console.log(error); // console.log('Error with Registration')
@@ -39950,13 +39955,23 @@ function RegisterView(props) {
   }, "Already Have an Account?"))));
 }
 
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+};
+
 RegisterView.propTypes = {
   onChange: _propTypes.default.func,
   onClick: _propTypes.default.func
 };
-var _default = RegisterView;
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, {
+  setUser: _actions.setUser
+})(RegisterView);
+
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./registerview.scss":"components/RegisterView/registerview.scss","../../img/alert.svg":"img/alert.svg"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./registerview.scss":"components/RegisterView/registerview.scss","../../img/alert.svg":"img/alert.svg"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);

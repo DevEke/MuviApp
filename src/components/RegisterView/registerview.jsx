@@ -1,5 +1,7 @@
 import React,  { useState } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './registerview.scss';
@@ -9,9 +11,9 @@ function RegisterView(props) {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ email, setEmail ] = useState('');
-    const [usernameValidation, checkUsernameValidation] = useState('');
-    const [passwordValidation, checkPasswordValidation] = useState('');
-    const [emailValidation, checkEmailValidation] = useState('');
+    const [ usernameValidation, checkUsernameValidation] = useState({});
+    const [ passwordValidation, checkPasswordValidation] = useState({});
+    const [ emailValidation, checkEmailValidation] = useState({});
 
     const attemptRegister = (e) => {
         e.preventDefault();
@@ -23,9 +25,11 @@ function RegisterView(props) {
             Email: email
         }).then((response) => {
             const data = response.data;
-            // loginUser(data);
-            console.log(data);
+            props.setUser(data.Username);
+            console.log(data.Username);
+            alert('Account Created. Login at the login screen');
             window.open('/', '_self');
+
         }).catch((error) => {
             console.log(error);
             // console.log('Error with Registration')
@@ -110,9 +114,15 @@ function RegisterView(props) {
     )
 }
 
+let mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+
 RegisterView.propTypes = {
     onChange: PropTypes.func,
     onClick: PropTypes.func
 }
 
-export default RegisterView;
+export default connect(mapStateToProps, { setUser })(RegisterView);

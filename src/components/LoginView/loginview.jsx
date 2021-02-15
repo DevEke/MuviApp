@@ -8,8 +8,8 @@ import notice from '../../img/alert.svg';
 function LoginView(props) {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
-    const [ usernameValidation, checkUsernameValidation] = useState('');
-    const [ passwordValidation, checkPasswordValidation] = useState('');
+    const [ usernameValidation, checkUsernameValidation] = useState({});
+    const [ passwordValidation, checkPasswordValidation] = useState({});
 
     const attemptLogin = (e) => {
         e.preventDefault();
@@ -22,7 +22,6 @@ function LoginView(props) {
             const data = response.data;
             props.onLoggedIn(data)
         }).catch((error) => {
-            console.log(error.response.data)
             // console.log('Username or Password is incorrect.')
         })
     };
