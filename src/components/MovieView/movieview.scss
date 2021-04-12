@@ -1,89 +1,94 @@
-$primary-color: #1B52F5;
-$secondary-color: rgba(255,255,255,0.1);
-$tertiary-color: rgba(255,255,255,0.3);
-$primary-font: 'Raleway', sans-serif;
-$secondary-font: 'Quicksand', sans-serif;
-
-@mixin button-background {
-    background-color: $secondary-color;
-    border: none;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
-    flex-shrink: 1 0 auto;
-
-    &:hover, &:focus {
-        background-color: $tertiary-color;
-        outline: none;
-    }
-}
-@mixin flex-row-standard {
-    display: flex;
-    align-items: center;
-}
-@mixin flex-column-standard {
-    display: flex;
-    flex-direction: column;
-}
-@mixin round-button {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-}
-@mixin rectangle-button {
-    min-width: 100px;
-    border-radius: 5px;
-    padding: 15px;
-    font-size: 16px;
-}
+@import '../../root.scss';
 
 .movie-view {
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     width: 100vw;
-    padding: 20px;
+    height: 100%;
     align-items: center;
     color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    .movie__info-container {
+        position: relative;
+        height: auto;
+        width: 100vw;
+        top: 50%;
+        min-height: 50%;
+
+    }
+
+    .movie__background-logo-container {
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .movie__info-container {
+        padding: 100px 165px;
+        position: relative;
+        background-image: linear-gradient(to bottom, rgba(21,26,30,.8), rgba(21,26,30,1))
+    }
 }
 
 .movie-view-flex-start-btn {
-    align-self: flex-start;
-}
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    left: 165px;
+    text-decoration: none;
 
-.movie-poster {
-    height: 700px;
-    width: auto;
-    border-radius: 10px;
-    margin-left: 50px;
+    p {
+        margin: 0;
+    }
 }
 
 .movie-info {
-    padding: 0 50px;
-    font-family: $primary-font; 
+    padding: 0;
+    font-family: $primary-font;
+
+    p {
+        margin: 0;
+    }
+
+    .genre-link {
+        text-decoration: none;
+        color: $primary-color;
+        text-transform: uppercase;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
 }
 
 .movie-view-title {
     font-weight: 700;
     font-size: 48px;
-    margin: 0;
+    margin: 0 0 8px 0;
+    letter-spacing: initial;
+    font-family: $primary-font;
 }
 
 .movie-view-director {
-    font-size: 20px;
-    font-weight: 400;
-    transition: opacity 0.3s;
-    margin: 10px 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 26px 0 32px;
+    text-transform: uppercase;
 
     &:hover {
-        opacity: 0.5;
+        text-decoration: underline;
     }
 }
 
 .movie-view-description {
     font-size: 24px;
-    width: 70%;
-    margin: 50px 0;
+    margin: 0;
 }
 
 .movie-view-genre {
@@ -104,27 +109,92 @@ $secondary-font: 'Quicksand', sans-serif;
 }
 
 .movie-view-back-btn {
-    @include button-background();
-    @include round-button();
+    @include lg-btn();
+    @include flex-row-standard;
+    height: 50px;
+    background-color: transparent;
+    img {
+        margin-right: 16px;
+    }
+    
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $accent-dark-color;
+    }
 }
 .favorite-btn {
-    @include button-background();
-    @include round-button();
+    @include lg-btn();
+    @include flex-row-standard;
+    background-color: transparent;
+    position: absolute;
+    top: 20px;
+    right: 165px;
+    height: 50px;
+    img {
+        margin-right: 16px;
+    }
+    text-transform: uppercase;
+
     &:hover {
-        background-color: $primary-color;
+        background-color: $accent-dark-color;
     }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 425px) {
+    .movie-view-flex-start-btn {
+        top: 20px;
+        left: 0px;
+    }
+
+    .movie-view-title {
+        font-size: 32px;
+    }
+
     .movie-view {
-        flex-direction: column;
+        .movie__info-container {
+            padding: 20px 20px 60px;
+            position: relative;
+            max-height: 100%;
+            background-image: linear-gradient(to bottom, rgba(21,26,30,.8), rgba(21,26,30,1))
+        }
     }
-    .movie-poster {
-        width: 270px;
-        height: auto;
+
+    .movie-view-director {
+        font-size: 16px;
+        margin: 20px 0 28px;
+        text-decoration: none;
     }
-    .movie-info {
-        padding: 10px;
+
+    .movie-view-description {
+        font-size: 18px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .favorite-btn {
+        top: 20px;
+        right: 0;
+    }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+    .movie-view-flex-start-btn {
+        top: 20px;
+        left: 40px;
+    }
+
+    .movie-view {
+        .movie__info-container {
+            padding: 40px 60px 60px;
+        }
+    }
+
+    .favorite-btn {
+        top: 20px;
+        right: 40px;
     }
     
 }

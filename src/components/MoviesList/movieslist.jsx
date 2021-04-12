@@ -36,6 +36,7 @@ MoviesList.propTypes = {
             Title: PropTypes.string.isRequired,
             Description: PropTypes.string.isRequired,
             ImageURL: PropTypes.string.isRequired,
+            BackdropImage: PropTypes.string.isRequired,
             Director: PropTypes.shape({
                 Name: PropTypes.string.isRequired,
                 Bio: PropTypes.string,

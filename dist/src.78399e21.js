@@ -39162,7 +39162,9 @@ var setUser = function setUser(value) {
 
 
 exports.setUser = setUser;
-},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js"}],"components/MovieSearch/moviesearch.scss":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js"}],"img/search.svg":[function(require,module,exports) {
+module.exports = "/search.1e31d98f.svg";
+},{}],"components/MovieSearch/moviesearch.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39183,12 +39185,18 @@ var _reactRedux = require("react-redux");
 
 var _actions = require("../../actions/actions");
 
+var _search = _interopRequireDefault(require("../../img/search.svg"));
+
 require("./moviesearch.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function MovieSearch(props) {
-  return /*#__PURE__*/_react.default.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "search__container"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _search.default
+  }), /*#__PURE__*/_react.default.createElement("input", {
     className: "search-input",
     type: "text",
     onChange: function onChange(e) {
@@ -39196,7 +39204,7 @@ function MovieSearch(props) {
     },
     value: props.movieFilter,
     placeholder: "Filter Movies"
-  });
+  }));
 }
 
 MovieSearch.propTypes = {
@@ -39208,7 +39216,7 @@ var _default = (0, _reactRedux.connect)(null, {
 })(MovieSearch);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","./moviesearch.scss":"components/MovieSearch/moviesearch.scss"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../../img/search.svg":"img/search.svg","./moviesearch.scss":"components/MovieSearch/moviesearch.scss"}],"components/MovieCard/moviecard.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39275,11 +39283,9 @@ var MovieCard = /*#__PURE__*/function (_Component) {
         className: "movie-overlay"
       }, /*#__PURE__*/_react.default.createElement("h1", {
         className: "movie-card-title"
-      }, movie.Title), /*#__PURE__*/_react.default.createElement("small", {
-        className: "movie-card-genre"
-      }, movie.Genre.Name), /*#__PURE__*/_react.default.createElement("p", {
-        className: "movie-card-description"
-      }, movie.Description))));
+      }, movie.Title), /*#__PURE__*/_react.default.createElement("p", {
+        className: "movie-card-director"
+      }, new Date(movie.ReleaseDate).getFullYear(), " - ", movie.Genre.Name))));
     }
   }]);
   return MovieCard;
@@ -39290,6 +39296,7 @@ MovieCard.propTypes = {
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageURL: _propTypes.default.string.isRequired,
+    BackdropImage: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string
@@ -39367,6 +39374,7 @@ MoviesList.propTypes = {
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageURL: _propTypes.default.string.isRequired,
+    BackdropImage: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string
@@ -39469,7 +39477,12 @@ var MovieView = /*#__PURE__*/function (_Component) {
       var movie = this.props.movie;
       if (!movie) return null;
       return /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-view"
+        className: "movie-view",
+        style: {
+          backgroundImage: "url(".concat(movie.BackdropImage, ")")
+        }
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "movie__info-container"
       }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         to: "/",
         className: "movie-view-flex-start-btn"
@@ -39478,24 +39491,19 @@ var MovieView = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/_react.default.createElement("img", {
         src: _back.default,
         alt: "back icon"
-      }))), /*#__PURE__*/_react.default.createElement("img", {
-        className: "movie-poster",
-        src: movie.ImageURL
-      }), /*#__PURE__*/_react.default.createElement("div", {
+      }), /*#__PURE__*/_react.default.createElement("p", null, "back"))), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-info"
       }, /*#__PURE__*/_react.default.createElement("h1", {
         className: "movie-view-title"
-      }, movie.Title), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      }, movie.Title), /*#__PURE__*/_react.default.createElement("p", null, new Date(movie.ReleaseDate).getFullYear(), " - ", /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+        className: "genre-link",
+        to: "/genres/".concat(movie.Genre.Name)
+      }, " ", movie.Genre.Name)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         to: "/directors/".concat(movie.Director.Name),
         className: "text-link"
       }, /*#__PURE__*/_react.default.createElement("h2", {
         className: "movie-view-director"
-      }, "Directed By ", movie.Director.Name)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        to: "/genres/".concat(movie.Genre.Name),
-        className: "text-link"
-      }, /*#__PURE__*/_react.default.createElement("small", {
-        className: "movie-view-genre"
-      }, movie.Genre.Name)), /*#__PURE__*/_react.default.createElement("p", {
+      }, movie.Director.Name)), /*#__PURE__*/_react.default.createElement("p", {
         className: "movie-view-description"
       }, movie.Description), /*#__PURE__*/_react.default.createElement("button", {
         onClick: function onClick() {
@@ -39505,7 +39513,7 @@ var MovieView = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/_react.default.createElement("img", {
         src: _heart.default,
         alt: "fav icon"
-      }))));
+      }), /*#__PURE__*/_react.default.createElement("p", null, "Add to favorites")))));
     }
   }]);
   return MovieView;
@@ -39516,6 +39524,7 @@ MovieView.propTypes = {
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageURL: _propTypes.default.string.isRequired,
+    BackdropImage: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string
@@ -39615,6 +39624,10 @@ module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"img/alert.svg":[function(require,module,exports) {
 module.exports = "/alert.8412a249.svg";
+},{}],"img/logo.svg":[function(require,module,exports) {
+module.exports = "/logo.f1d8a4c6.svg";
+},{}],"img/arrow.svg":[function(require,module,exports) {
+module.exports = "/arrow.28e30bbc.svg";
 },{}],"components/LoginView/loginview.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -39636,6 +39649,10 @@ require("./loginview.scss");
 var _reactRouterDom = require("react-router-dom");
 
 var _alert = _interopRequireDefault(require("../../img/alert.svg"));
+
+var _logo = _interopRequireDefault(require("../../img/logo.svg"));
+
+var _arrow = _interopRequireDefault(require("../../img/arrow.svg"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -39664,6 +39681,16 @@ function LoginView(props) {
       passwordValidation = _useState8[0],
       checkPasswordValidation = _useState8[1];
 
+  var _useState9 = (0, _react.useState)("false"),
+      _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
+      errorUsername = _useState10[0],
+      addErrorClassUsername = _useState10[1];
+
+  var _useState11 = (0, _react.useState)("false"),
+      _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
+      errorPassword = _useState12[0],
+      addErrorClassPassword = _useState12[1];
+
   var attemptLogin = function attemptLogin(e) {
     e.preventDefault();
     var isValid = loginValidation();
@@ -39675,8 +39702,7 @@ function LoginView(props) {
     }).then(function (response) {
       var data = response.data;
       props.onLoggedIn(data);
-    }).catch(function (error) {
-      console.log(error.response.data); // console.log('Username or Password is incorrect.')
+    }).catch(function (error) {// console.log('Username or Password is incorrect.')
     });
   };
 
@@ -39687,11 +39713,13 @@ function LoginView(props) {
 
     if (username.trim().length < 1) {
       usernameValidation.usernameMissing = "Please enter a username.";
+      addErrorClassUsername('true');
       isValid = false;
     }
 
     if (password.trim().length < 1) {
       passwordValidation.passwordMissing = "Please enter a password.";
+      addErrorClassPassword('true');
       isValid = false;
     }
 
@@ -39702,12 +39730,15 @@ function LoginView(props) {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "login-container"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Sign In"), /*#__PURE__*/_react.default.createElement("form", {
+  }, /*#__PURE__*/_react.default.createElement("form", {
     className: "login-form"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Log in to your account"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "username"
   }, "Username"), /*#__PURE__*/_react.default.createElement("input", {
+    className: errorUsername ? "input-alert" : null,
     id: "username",
     placeholder: "Username",
     type: "text",
@@ -39721,11 +39752,14 @@ function LoginView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), usernameValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("label", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, usernameValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
+  }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "password"
   }, "Password"), /*#__PURE__*/_react.default.createElement("input", {
+    className: errorPassword ? "input-alert" : null,
     id: "password",
     placeholder: "Password",
     type: "password",
@@ -39739,17 +39773,22 @@ function LoginView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), passwordValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("button", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, passwordValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "aligner"
+  }, /*#__PURE__*/_react.default.createElement("button", {
     className: "login-login-btn",
     type: "button",
     onClick: attemptLogin
-  }, "Sign In"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "Sign In"), /*#__PURE__*/_react.default.createElement("img", {
+    src: _arrow.default
+  })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    className: "aligner",
     to: "/register"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "login-register-btn",
     type: "button"
-  }, "New User?"))));
+  }, "Dont have an account?"))));
 }
 
 LoginView.propTypes = {
@@ -39758,7 +39797,7 @@ LoginView.propTypes = {
 };
 var _default = LoginView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/alert.svg":"img/alert.svg"}],"components/RegisterView/registerview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/alert.svg":"img/alert.svg","../../img/logo.svg":"img/logo.svg","../../img/arrow.svg":"img/arrow.svg"}],"components/RegisterView/registerview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39784,6 +39823,10 @@ var _actions = require("../../actions/actions");
 var _axios = _interopRequireDefault(require("axios"));
 
 var _reactRouterDom = require("react-router-dom");
+
+var _logo = _interopRequireDefault(require("../../img/logo.svg"));
+
+var _arrow = _interopRequireDefault(require("../../img/arrow.svg"));
 
 require("./registerview.scss");
 
@@ -39887,8 +39930,10 @@ function RegisterView(props) {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "register-container"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Register"), /*#__PURE__*/_react.default.createElement("form", {
+  }, /*#__PURE__*/_react.default.createElement("form", {
     className: "register-form"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Create a new account"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "username"
@@ -39906,8 +39951,10 @@ function RegisterView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), usernameValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("label", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, usernameValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
+  }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "password"
   }, "Password"), /*#__PURE__*/_react.default.createElement("input", {
@@ -39924,8 +39971,10 @@ function RegisterView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), passwordValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("label", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, passwordValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
+  }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "email"
   }, "Email"), /*#__PURE__*/_react.default.createElement("input", {
@@ -39942,17 +39991,22 @@ function RegisterView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), emailValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("button", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, emailValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "aligner"
+  }, /*#__PURE__*/_react.default.createElement("button", {
     className: "register-register-btn",
     type: "button",
     onClick: attemptRegister
-  }, "Create Account"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "Create Account"), /*#__PURE__*/_react.default.createElement("img", {
+    src: _arrow.default
+  })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    className: "aligner",
     to: "/"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "register-login-btn",
     type: "button"
-  }, "Already Have an Account?"))));
+  }, "Already have an account?"))));
 }
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -39971,7 +40025,7 @@ var _default = (0, _reactRedux.connect)(mapStateToProps, {
 })(RegisterView);
 
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./registerview.scss":"components/RegisterView/registerview.scss","../../img/alert.svg":"img/alert.svg"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/logo.svg":"img/logo.svg","../../img/arrow.svg":"img/arrow.svg","./registerview.scss":"components/RegisterView/registerview.scss","../../img/alert.svg":"img/alert.svg"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40044,7 +40098,7 @@ var DirectorView = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/_react.default.createElement("img", {
         src: _back.default,
         alt: "back icon"
-      }))), /*#__PURE__*/_react.default.createElement("img", {
+      }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("img", {
         className: "director-image",
         src: director.Director.ImageURL
       }), /*#__PURE__*/_react.default.createElement("div", {
@@ -40055,7 +40109,12 @@ var DirectorView = /*#__PURE__*/function (_Component) {
         className: "director-view-director"
       }, director.Director.Name), /*#__PURE__*/_react.default.createElement("small", {
         className: "director-view-birthday"
-      }, director.Director.Birthday), /*#__PURE__*/_react.default.createElement("p", {
+      }, new Date(director.Director.Birthday).toLocaleDateString('en-gb', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        timeZone: 'utc'
+      })), /*#__PURE__*/_react.default.createElement("p", {
         className: "director-view-bio"
       }, director.Director.Bio)))), /*#__PURE__*/_react.default.createElement("h2", {
         className: "director-title"
@@ -40079,6 +40138,7 @@ DirectorView.propTypes = {
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageURL: _propTypes.default.string.isRequired,
+    BackdropImage: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string
@@ -40164,7 +40224,7 @@ var GenreView = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/_react.default.createElement("img", {
         src: _back.default,
         alt: "back icon"
-      }))), /*#__PURE__*/_react.default.createElement("div", {
+      }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("div", {
         className: "genre-info-container"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "genre-info"
@@ -40174,7 +40234,7 @@ var GenreView = /*#__PURE__*/function (_Component) {
         className: "genre-view-description"
       }, genre.Genre.Description)))), /*#__PURE__*/_react.default.createElement("h2", {
         className: "genre-title"
-      }, genre.Genre.Name, " Movies"), /*#__PURE__*/_react.default.createElement("div", {
+      }, "More ", genre.Genre.Name, " movies"), /*#__PURE__*/_react.default.createElement("div", {
         className: "genre-movies-flex"
       }, movies.map(function (movie) {
         if (movie.Genre.Name === genre.Genre.Name) {
@@ -40195,6 +40255,7 @@ GenreView.propTypes = {
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageURL: _propTypes.default.string.isRequired,
+    BackdropImage: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string
@@ -40212,8 +40273,10 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"img/user100.svg":[function(require,module,exports) {
-module.exports = "/user100.92f99945.svg";
+},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"img/update-account.svg":[function(require,module,exports) {
+module.exports = "/update-account.6b044e06.svg";
+},{}],"img/delete-account.svg":[function(require,module,exports) {
+module.exports = "/delete-account.5752ecfa.svg";
 },{}],"img/close.svg":[function(require,module,exports) {
 module.exports = "/close.24fb46be.svg";
 },{}],"components/ProfileView/profileview.jsx":[function(require,module,exports) {
@@ -40246,7 +40309,9 @@ require("./profileview.scss");
 
 var _back = _interopRequireDefault(require("../../img/back.svg"));
 
-var _user = _interopRequireDefault(require("../../img/user100.svg"));
+var _updateAccount = _interopRequireDefault(require("../../img/update-account.svg"));
+
+var _deleteAccount = _interopRequireDefault(require("../../img/delete-account.svg"));
 
 var _close = _interopRequireDefault(require("../../img/close.svg"));
 
@@ -40379,24 +40444,30 @@ var ProfileView = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/_react.default.createElement("img", {
         src: _back.default,
         alt: "back icon"
-      }))), /*#__PURE__*/_react.default.createElement("img", {
-        className: "profile-image",
-        src: _user.default
-      }), /*#__PURE__*/_react.default.createElement("h1", null, username), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("div", {
+        className: "profile-btns"
+      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+        style: {
+          textDecoration: "none"
+        },
         to: "/update/".concat(username)
       }, /*#__PURE__*/_react.default.createElement("button", {
         className: "profile-update-account-btn",
         type: "button"
-      }, "Update Account")), /*#__PURE__*/_react.default.createElement("button", {
+      }, /*#__PURE__*/_react.default.createElement("img", {
+        src: _updateAccount.default
+      }), /*#__PURE__*/_react.default.createElement("p", null, "Edit Account"))), /*#__PURE__*/_react.default.createElement("button", {
         className: "delete-account-btn",
         onClick: function onClick() {
           return _this4.unRegister();
         }
-      }, "Delete Account")), /*#__PURE__*/_react.default.createElement("div", {
+      }, /*#__PURE__*/_react.default.createElement("img", {
+        src: _deleteAccount.default
+      }), /*#__PURE__*/_react.default.createElement("p", null, "Delete Account")))), /*#__PURE__*/_react.default.createElement("div", {
         className: "favorite-movie-container"
       }, /*#__PURE__*/_react.default.createElement("h2", {
         className: "favorite-movie-title"
-      }, "Favorite Movies"), /*#__PURE__*/_react.default.createElement("div", {
+      }, username, "'s Favorite Movies"), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-grid"
       }, favMovies.map(function (movie) {
         return /*#__PURE__*/_react.default.createElement("div", {
@@ -40416,11 +40487,9 @@ var ProfileView = /*#__PURE__*/function (_Component) {
           className: "movie-overlay"
         }, /*#__PURE__*/_react.default.createElement("h2", {
           className: "movie-card-title"
-        }, movie.Title), /*#__PURE__*/_react.default.createElement("small", {
+        }, movie.Title), /*#__PURE__*/_react.default.createElement("p", {
           className: "movie-card-genre"
-        }, movie.Genre.Name), /*#__PURE__*/_react.default.createElement("p", {
-          className: "movie-card-description"
-        }, movie.Description)));
+        }, new Date(movie.ReleaseDate).getFullYear(), " - ", movie.Genre.Name)));
       }))));
     }
   }]);
@@ -40432,6 +40501,7 @@ ProfileView.propTypes = {
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageURL: _propTypes.default.string.isRequired,
+    BackdropImage: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string
@@ -40444,13 +40514,13 @@ ProfileView.propTypes = {
 };
 var _default = ProfileView;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./profileview.scss":"components/ProfileView/profileview.scss","../../img/back.svg":"img/back.svg","../../img/user100.svg":"img/user100.svg","../../img/close.svg":"img/close.svg","../MovieCard/moviecard.scss":"components/MovieCard/moviecard.scss"}],"components/UpdateView/updateview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./profileview.scss":"components/ProfileView/profileview.scss","../../img/back.svg":"img/back.svg","../../img/update-account.svg":"img/update-account.svg","../../img/delete-account.svg":"img/delete-account.svg","../../img/close.svg":"img/close.svg","../MovieCard/moviecard.scss":"components/MovieCard/moviecard.scss"}],"components/UpdateView/updateview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"img/user.svg":[function(require,module,exports) {
-module.exports = "/user.6b500eaa.svg";
+},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"img/check.svg":[function(require,module,exports) {
+module.exports = "/check.f6311720.svg";
 },{}],"components/UpdateView/updateview.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -40471,7 +40541,7 @@ var _axios = _interopRequireDefault(require("axios"));
 
 require("./updateview.scss");
 
-var _user = _interopRequireDefault(require("../../img/user.svg"));
+var _check = _interopRequireDefault(require("../../img/check.svg"));
 
 var _alert = _interopRequireDefault(require("../../img/alert.svg"));
 
@@ -40566,11 +40636,9 @@ function UpdateView(props) {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "update-account-container"
-  }, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("img", {
-    className: "update-profile-image",
-    src: _user.default,
-    alt: "user profile image"
-  }), /*#__PURE__*/_react.default.createElement("label", {
+  }, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("p", null, "Update your account information"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
+  }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "username"
   }, "New Username"), /*#__PURE__*/_react.default.createElement("input", {
@@ -40587,8 +40655,10 @@ function UpdateView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), usernameValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("label", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, usernameValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
+  }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "password"
   }, "New Password"), /*#__PURE__*/_react.default.createElement("input", {
@@ -40605,8 +40675,10 @@ function UpdateView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), passwordValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("label", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, passwordValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "input__container"
+  }, /*#__PURE__*/_react.default.createElement("label", {
     className: "label",
     htmlFor: "email"
   }, "New Email"), /*#__PURE__*/_react.default.createElement("input", {
@@ -40623,12 +40695,17 @@ function UpdateView(props) {
       key: key
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: _alert.default
-    }), emailValidation[key]);
-  }), /*#__PURE__*/_react.default.createElement("button", {
+    }), /*#__PURE__*/_react.default.createElement("p", null, emailValidation[key]));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "aligner"
+  }, /*#__PURE__*/_react.default.createElement("button", {
     className: "update-account-btn",
     type: "button",
     onClick: updateAccount
-  }, "Update Account"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "Accept Changes"), /*#__PURE__*/_react.default.createElement("img", {
+    src: _check.default
+  })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    className: "aligner",
     to: "/users/:userId"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "cancel-update-btn"
@@ -40641,7 +40718,11 @@ UpdateView.propTypes = {
 };
 var _default = UpdateView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/user.svg":"img/user.svg","../../img/alert.svg":"img/alert.svg"}],"components/MainView/mainview.scss":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/check.svg":"img/check.svg","../../img/alert.svg":"img/alert.svg"}],"img/user.svg":[function(require,module,exports) {
+module.exports = "/user.6b500eaa.svg";
+},{}],"img/out.svg":[function(require,module,exports) {
+module.exports = "/out.ab99c714.svg";
+},{}],"components/MainView/mainview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40693,6 +40774,10 @@ var _profileview = _interopRequireDefault(require("../ProfileView/profileview"))
 var _updateview = _interopRequireDefault(require("../UpdateView/updateview"));
 
 var _user = _interopRequireDefault(require("../../img/user.svg"));
+
+var _out = _interopRequireDefault(require("../../img/out.svg"));
+
+var _logo = _interopRequireDefault(require("../../img/logo.svg"));
 
 require("./mainview.scss");
 
@@ -40769,23 +40854,27 @@ var MainView = /*#__PURE__*/function (_Component) {
         className: "main-view"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "nav"
-      }, /*#__PURE__*/_react.default.createElement("h1", null, "MUVI"), /*#__PURE__*/_react.default.createElement("div", {
+      }, /*#__PURE__*/_react.default.createElement("img", {
+        src: _logo.default
+      }), /*#__PURE__*/_react.default.createElement("div", {
         className: "nav-button-flex"
       }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+        className: "account-btn",
         to: "/users/:userId"
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        className: "account-btn"
       }, /*#__PURE__*/_react.default.createElement("img", {
         src: _user.default,
         alt: "profile icon"
-      }))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+        className: "sign-out-btn",
         to: "/"
       }, /*#__PURE__*/_react.default.createElement("button", {
         onClick: function onClick() {
           return _this2.onSignOut();
         },
         className: "signout-btn"
-      }, "Sign Out")))), /*#__PURE__*/_react.default.createElement("div", {
+      }, "Sign Out"), /*#__PURE__*/_react.default.createElement("img", {
+        src: _out.default
+      })))), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-grid"
       }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
         exact: true,
@@ -40879,6 +40968,7 @@ MainView.propTypes = {
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageURL: _propTypes.default.string.isRequired,
+    BackdropImage: _propTypes.default.string.isRequired,
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string
@@ -40909,7 +40999,7 @@ var _default = (0, _reactRedux.connect)(mapStateToProps, {
 })(MainView);
 
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MoviesList/movieslist":"components/MoviesList/movieslist.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MoviesList/movieslist":"components/MoviesList/movieslist.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","../../img/out.svg":"img/out.svg","../../img/logo.svg":"img/logo.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41096,7 +41186,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63666" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63183" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

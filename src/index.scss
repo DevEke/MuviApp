@@ -1,8 +1,4 @@
-$primary-color: #1B52F5;
-$secondary-color: rgba(255,255,255,0.1);
-$tertiary-color: rgba(255,255,255,0.3);
-$primary-font: 'Raleway', sans-serif;
-$secondary-font: 'Quicksand', sans-serif;
+@import './root.scss';
 
 @mixin button-background {
     background-color: $secondary-color;

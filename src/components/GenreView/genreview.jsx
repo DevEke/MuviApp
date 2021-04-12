@@ -18,6 +18,7 @@ class GenreView extends Component {
                     <Link className="genre-flex-start-btn" to="/">
                         <button className="genre-view-back-btn">
                             <img src={back} alt="back icon"/>
+                            <p>Back</p>
                         </button>
                     </Link>
                     <div className="genre-info-container">
@@ -27,7 +28,7 @@ class GenreView extends Component {
                         </div>
                     </div>
                 </div>
-                <h2 className="genre-title">{genre.Genre.Name} Movies</h2>
+                <h2 className="genre-title">More {genre.Genre.Name} movies</h2>
                 <div className="genre-movies-flex">
                 {movies.map((movie) => {
                     if (movie.Genre.Name === genre.Genre.Name) {
@@ -49,6 +50,7 @@ GenreView.propTypes = {
             Title: PropTypes.string.isRequired,
             Description: PropTypes.string.isRequired,
             ImageURL: PropTypes.string.isRequired,
+            BackdropImage: PropTypes.string.isRequired,
             Director: PropTypes.shape({
                 Name: PropTypes.string.isRequired,
                 Bio: PropTypes.string,

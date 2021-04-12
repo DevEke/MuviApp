@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import logo from '../../img/logo.svg';
+import arrow from '../../img/arrow.svg';
 import './registerview.scss';
 import notice from '../../img/alert.svg';
 
@@ -74,43 +76,55 @@ function RegisterView(props) {
     }
 
     return (
-        <div className="register-container">
-            <p>Register</p>
-            <form className="register-form">
-                <label className="label" htmlFor="username">Username</label>
-                <input id="username" placeholder="Username" type="text" value={username} onChange={e => setUsername(e.target.value)}/>
-                {Object.keys(usernameValidation).map((key) => {
-                    return (
-                        <div className="validation-error" key={key}>
-                            <img src={notice}/>
-                            {usernameValidation[key]}
-                        </div>
-                    );
-                })}
-                <label className="label" htmlFor="password">Password</label>
-                <input id="password" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
-                {Object.keys(passwordValidation).map((key) => {
-                    return (
-                        <div className="validation-error" key={key}>
-                            <img src={notice}/>
-                            {passwordValidation[key]}
-                        </div>
-                    );
-                })}
-                <label className="label" htmlFor="email">Email</label>
-                <input id="email" placeholder="Email" type="email" value={email} onChange={e => setEmail(e.target.value)}/>
-                {Object.keys(emailValidation).map((key) => {
-                    return (
-                        <div className="validation-error" key={key}>
-                            <img src={notice}/>
-                            {emailValidation[key]}
-                        </div>
-                    );
-                })}
-                <button className="register-register-btn" type="button" onClick={attemptRegister}>Create Account</button>
-                <Link to="/"><button className="register-login-btn" type="button">Already Have an Account?</button></Link>
-            </form>
-        </div>
+
+                
+            <div className="register-container">
+                {/* <img src={logo} /> */}
+                <form className="register-form">
+                    <p>Create a new account</p>
+                    <div className="input__container">
+                    <label className="label" htmlFor="username">Username</label>
+                    <input id="username" placeholder="Username" type="text" value={username} onChange={e => setUsername(e.target.value)}/>
+                    {Object.keys(usernameValidation).map((key) => {
+                        return (
+                            <div className="validation-error" key={key}>
+                                <img src={notice}/>
+                                <p>{usernameValidation[key]}</p>
+                            </div>
+                        );
+                    })}
+                    </div>
+                    <div className="input__container">
+                    <label className="label" htmlFor="password">Password</label>
+                    <input id="password" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
+                    {Object.keys(passwordValidation).map((key) => {
+                        return (
+                            <div className="validation-error" key={key}>
+                                <img src={notice}/>
+                                <p>{passwordValidation[key]}</p>
+                            </div>
+                        );
+                    })}
+                    </div>
+                    <div className="input__container">
+                    <label className="label" htmlFor="email">Email</label>
+                    <input id="email" placeholder="Email" type="email" value={email} onChange={e => setEmail(e.target.value)}/>
+                    {Object.keys(emailValidation).map((key) => {
+                        return (
+                            <div className="validation-error" key={key}>
+                                <img src={notice}/>
+                                <p>{emailValidation[key]}</p>
+                            </div>
+                        );
+                    })}
+                    </div>
+                    <div className="aligner">
+                        <button className="register-register-btn" type="button" onClick={attemptRegister}>Create Account</button>
+                        <img src={arrow}/>
+                    </div>
+                    <Link className="aligner" to="/"><button className="register-login-btn" type="button">Already have an account?</button></Link>
+                </form>
+            </div>
     )
 }
 

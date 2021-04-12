@@ -1,98 +1,72 @@
-$primary-color: #1B52F5;
-$secondary-color: rgba(255,255,255,0.1);
-$tertiary-color: rgba(255,255,255,0.3);
-$primary-font: 'Raleway', sans-serif;
-$secondary-font: 'Quicksand', sans-serif;
-
-@mixin button-background {
-    background-color: $secondary-color;
-    border: none;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
-    flex-shrink: 1 0 auto;
-
-    &:hover, &:focus {
-        background-color: $tertiary-color;
-        outline: none;
-    }
-}
-@mixin flex-row-standard {
-    display: flex;
-    align-items: center;
-}
-@mixin flex-column-standard {
-    display: flex;
-    flex-direction: column;
-}
-@mixin round-button {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-}
-@mixin rectangle-button {
-    min-width: 100px;
-    border-radius: 5px;
-    padding: 15px;
-    font-size: 16px;
-}
-@mixin sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
+@import '../../root.scss';
 
 .profile-container {
     display: flex;
     width: 100vw;
-    padding: 20px;
+    min-height: 100vh;
+    flex-direction: column;
     box-sizing: border-box;
 }
 
 .profile-info {
     display: flex;
-    flex-direction: column;
-    width: 30vw;
+    justify-content: flex-end;
     align-items: center;
-    position: relative;
-    margin-top: 100px;
+    padding: 70px 165px 20px;
+}
+
+.profile-btns {
+    display: flex;
+}
+
+.user-name {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        margin: 0 0 18px 0;
+        font-family: $primary-font;
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: uppercase;
+
+    }
+
+    p {
+        margin: 0;
+        font-family: $primary-font;
+        font-weight: 400;
+        font-size: 24px;
+    }
 }
 
 .flex-start-btn {
-    align-self: flex-start;
     position: absolute;
-    left: 20px;
-    top: -100px;
+    left: 0;
+    top: 70px;
+    left: 165px;
+    text-decoration: none;
+
+    p {
+        margin: 0;
+    }
 }
 
-.btn {
-    height: 50px;
-    width: 50px;
-    background-color: $secondary-color;
-    transition: background-color 0.3s;
-    border-radius: 50px;
-    color: white;
-    cursor: pointer;
-    margin: 20px 0;
-    font-size: 12px;
-    flex-shrink: 0;
-    
-}
 
 .profile-view-back-btn {
-    @include button-background();
-    @include round-button();
-}
+    @include lg-btn();
+    @include flex-row-standard;
+    height: 50px;
+    background-color: transparent;
+    img {
+        margin-right: 16px;
+    }
+    
+    text-transform: uppercase;
 
-.profile-image {
-    border-radius: 50%;
-    margin-bottom: 30px;
+    &:hover {
+        background-color: $accent-dark-color;
+    }
 }
 
 h1 {
@@ -102,51 +76,72 @@ h1 {
 }
 
 .profile-update-account-btn {
-    @include button-background();
-    @include rectangle-button();
-    width: 200px;
-    margin: 10px 0;
+    @include lg-btn();
+    @include flex-row-standard;
+    background-color: transparent;
+    height: 50px;
+    img {
+        margin-right: 16px;
+    }
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $accent-dark-color;
+    }
 }
 
 .delete-account-btn {
-    @include button-background();
-    @include rectangle-button();
-    background-color: #BF3000;
-    width: 200px;
+    @include lg-btn();
+    @include flex-row-standard;
+    background-color: transparent;
+    height: 50px;
+    img {
+        margin-right: 16px;
+    }
+    text-transform: uppercase;
 
-    &:hover, &:focus {
-        background-color: lighten(#BF3000, 10%);
+    &:hover {
+        background-color: $error-color;
     }
 }
 
 .favorite-movie-container {
-    width: 70vw;
-    padding: 50px;
+    padding: 0 165px 50px;
 
     .movie-grid {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        padding-bottom: 70px;
+
+        .movie-card-genre {
+            margin: 0;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
     }
 }
 
 .favorite-movie-title {
-    font-family: $primary-font;
-    font-size: 24px;
+    font-size: 18px;
+    text-transform: uppercase;
     font-weight: 400;
+    margin-top: 50px;
+    font-family: $primary-font;
 }
 
 .remove-favorite-btn {
-    @include round-button();
-    @include button-background();
+    @include lg-btn();
     position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
+    top: 0;
+    padding: 8px;
+    right: 0;
+    z-index: 800;
     transition: background-color 0.3s;
+    background-color: rgba(25,31,36,.7);
 
     &:hover {
-        background-color: #BF3000;
+        background-color: $error-color;
     }
 }
 
@@ -167,11 +162,40 @@ h1 {
 
     .favorite-movie-title {
         text-align: center;
+    }  
+}
+
+@media (hover: none) {
+    .remove-favorite-btn {
+        background-color: $error-color;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .profile-info {
+        padding: 50px 20px 20px;
+        justify-content: center;
+    }
+
+    .flex-start-btn {
+        top: 60px;
+        left: 0;
+        padding: 0;
+    }
+
+    .profile-btns {
+        display: flex;
+        flex-direction: column;
     }
 
     .favorite-movie-container {
-        width: 100vw;
-        margin-top: 100px;
-        text-align: center;
+        padding: 0 20px 0px;
+        margin-top: 20px;
+    
+        .movie-grid {
+            justify-content: center;
+            padding-bottom: 60px;
+
+        }
     }
 }

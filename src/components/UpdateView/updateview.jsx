@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import './updateview.scss';
-import user from '../../img/user.svg';
+import check from '../../img/check.svg';
 import notice from '../../img/alert.svg';
 
 function UpdateView(props) {
@@ -64,39 +64,48 @@ function UpdateView(props) {
     return (
         <div className="update-account-container">
             <form>
-                <img className="update-profile-image" src={user} alt="user profile image"/>
-                <label className="label" htmlFor="username">New Username</label>
-                <input id="username" placeholder="Enter New or Current Username" type="text" value={username} onChange={e => changeUsername(e.target.value)}/>
-                {Object.keys(usernameValidation).map((key) => {
-                    return (
-                        <div className="validation-error" key={key}>
-                            <img src={notice}/>
-                            {usernameValidation[key]}
-                        </div>
-                    );
-                })}
-                <label className="label" htmlFor="password">New Password</label>
-                <input id="password" placeholder="Enter New or Current Password" type="password" value={password} onChange={e => changePassword(e.target.value)}/>
-                {Object.keys(passwordValidation).map((key) => {
-                    return (
-                        <div className="validation-error" key={key}>
-                            <img src={notice}/>
-                            {passwordValidation[key]}
-                        </div>
-                    );
-                })}
-                <label className="label" htmlFor="email">New Email</label>
-                <input id="email" placeholder="Enter New or Current Email" type="email" value={email} onChange={e => changeEmail(e.target.value)}/>
-                {Object.keys(emailValidation).map((key) => {
-                    return (
-                        <div className="validation-error" key={key}>
-                            <img src={notice}/>
-                            {emailValidation[key]}
-                        </div>
-                    );
-                })}
-                <button className="update-account-btn" type="button" onClick={updateAccount}>Update Account</button>
-                <Link to="/users/:userId"><button  className="cancel-update-btn">Cancel Update</button></Link>
+                <p>Update your account information</p>
+                <div className="input__container">
+                    <label className="label" htmlFor="username">New Username</label>
+                    <input id="username" placeholder="Enter New or Current Username" type="text" value={username} onChange={e => changeUsername(e.target.value)}/>
+                    {Object.keys(usernameValidation).map((key) => {
+                        return (
+                            <div className="validation-error" key={key}>
+                                <img src={notice}/>
+                                <p>{usernameValidation[key]}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="input__container">
+                    <label className="label" htmlFor="password">New Password</label>
+                    <input id="password" placeholder="Enter New or Current Password" type="password" value={password} onChange={e => changePassword(e.target.value)}/>
+                    {Object.keys(passwordValidation).map((key) => {
+                        return (
+                            <div className="validation-error" key={key}>
+                                <img src={notice}/>
+                                <p>{passwordValidation[key]}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="input__container">
+                    <label className="label" htmlFor="email">New Email</label>
+                    <input id="email" placeholder="Enter New or Current Email" type="email" value={email} onChange={e => changeEmail(e.target.value)}/>
+                    {Object.keys(emailValidation).map((key) => {
+                        return (
+                            <div className="validation-error" key={key}>
+                                <img src={notice}/>
+                                <p>{emailValidation[key]}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="aligner">
+                    <button className="update-account-btn" type="button" onClick={updateAccount}>Accept Changes</button>
+                    <img src={check} />
+                </div>
+                <Link className="aligner" to="/users/:userId"><button  className="cancel-update-btn">Cancel Update</button></Link>
             </form>
         </div>
     )

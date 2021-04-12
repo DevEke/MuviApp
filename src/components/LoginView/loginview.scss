@@ -1,112 +1,84 @@
-$primary-color: #1B52F5;
-$secondary-color: rgba(255,255,255,0.1);
-$tertiary-color: rgba(255,255,255,0.3);
-$primary-font: 'Raleway', sans-serif;
-$secondary-font: 'Quicksand', sans-serif;
-
-@mixin button-background {
-    background-color: $secondary-color;
-    border: none;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
-    flex-shrink: 1 0 auto;
-
-    &:hover, &:focus {
-        background-color: $tertiary-color;
-        outline: none;
-    }
-}
-@mixin flex-row-standard {
-    display: flex;
-    align-items: center;
-}
-@mixin flex-column-standard {
-    display: flex;
-    flex-direction: column;
-}
-@mixin round-button {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-@mixin rectangle-button {
-    min-width: 100px;
-    border-radius: 5px;
-    padding: 15px;
-    font-size: 16px;
-}
+@import '../../root.scss';
 
 
 .login-container {
     @include flex-column-standard();
     justify-content: center;
+    width: 100vw;
     align-items: center;
+    background-color: $background-color;
     color: white;
     font-family: $primary-font;
-    margin: 50px 0;
+    height: 100vh;
 }
 
-.logo-text {
-    font-family: $secondary-font;
-    font-size: 32px;
-    margin: 0;
-    color: white;
-}
 
 .login-form {
     @include flex-column-standard();
     min-width: 300px;
-    font-family: $primary-font;
-    margin: 20px 0;
-}
+    margin: 0;
 
-input {
-    padding: 15px 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-    background-color: $secondary-color;
-    color: white;
-    transition: background-color 0.3s;
-    cursor: pointer;
-
-    &::placeholder {
+    p {
+        font-family: $primary-font;
         color: white;
+        margin: 32px 0;
+        @include sm-text;
+        font-size: 18px;
     }
 
-    &:hover, &:focus {
-        background: $tertiary-color;
-        outline: none;
+    .input__container {
+        position: relative;
+
+        .validation-error {
+            @include error;
+        }
+
+        input {
+            @include input()
+            }
+        }
     }
-}
+
+    
+
 
 .login-login-btn {
-    @include button-background();
-    @include rectangle-button();
-    margin-top: 20px;
-    background-color: $primary-color;
+    @include lg-btn();
+    background-color: transparent;
+    margin: 0 0 16px 0;
+    height: 50px;
+    padding-right: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    align-self: flex-end;
 
     &:hover {
-        background-color: lighten($primary-color, 10%);
+        background-color: $accent-dark-color;
+        padding-right: 48px;
+
+    }
+
+    &:hover + img {
+        opacity: 1;
     }
 }
 
+
+
 .login-register-btn {
-    @include button-background();
-    @include rectangle-button();
-    width: 300px;
-    margin-top: 15px;
+    @include lg-btn();
+    background-color: transparent;
+    margin: 0 0 16px 0;
+    padding: 0;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
-.validation-error {
-    @include flex-row-standard();
-    font-size: 12px;
-    padding: 5px;
-    color: #FF0000;
-
-    img {
-        margin-right: 10px;
+@media (hover: none) {
+    .login-login-btn {
+        background-color: $accent-dark-color;
+        padding-right: 48px;
     }
 }

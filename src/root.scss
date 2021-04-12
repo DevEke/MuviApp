@@ -1,0 +1,160 @@
+$primary-color: #899CAE;
+$secondary-color: #899CAE;
+$tertiary-color: #B9B9B9;
+$primary-font: 'Jost', sans-serif;
+$error-color: #BA3B3B;
+$background-color: #191F24;
+$accent-light-color: #151A1E;
+$accent-dark-color: #111518;
+
+
+* {
+    box-sizing: border-box;
+    font-family: $primary-font;
+}
+
+body {
+    background-color: white;
+}
+
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@mixin lg-btn {
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 20px;
+    font-family: $primary-font;
+    transition: background-color 0.3s, color 0.3s, padding-right 0.3s;
+    cursor: pointer;
+    flex-shrink: 1 0 auto;
+
+    &:hover, &:focus {
+        outline: none;
+    }
+}
+
+@mixin input {
+    height: 50px;
+    width: 300px;
+    border-radius: 0;
+    border: none;
+    margin: 0 0 30px 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: $tertiary-color;
+    font-family: $primary-font;
+    transition: background-color 0.3s, border 0.3s;
+    background-color: $accent-light-color;
+    border-bottom: 2px solid $accent-light-color;
+    cursor: pointer;
+    font-family: $primary-font;
+    @include sm-text;
+    font-size: 16px;
+
+    &::placeholder {
+        color: $tertiary-color;
+        opacity: 1;
+    }
+
+    &:hover {
+        background: $accent-dark-color;
+        border-bottom: 2px solid $accent-dark-color;
+    } 
+    
+    &:focus {
+        border-bottom: 2px solid $secondary-color;
+        background: $accent-dark-color;
+        outline: none;
+    }
+}
+
+@mixin flex-row-standard {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-column-standard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin round-button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+@mixin rectangle-button {
+    min-width: 100px;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+@mixin sm-text {
+    font-size: 18px;
+}
+
+@mixin error {
+    @include flex-row-standard();
+    background-color: transparent;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+
+    p {
+      color: $error-color;
+      position: absolute; 
+      font-size: 12px;
+      border-radius: 5px;
+      top: 18px;
+      left: 6px;
+      width: 300px;
+    }
+
+    img {
+        position: absolute;
+        left: 265px;
+        top: 15px;
+    }
+}
+
+.aligner {
+    align-self: flex-end;
+    position: relative;
+
+    img {
+        position: absolute;
+        right: 14px;
+        top: 15px;
+        transition: opacity 0.3s;
+        opacity: 0;
+
+    }
+}
+
+@media (hover: none) {
+    .aligner {
+        img {
+            opacity: 1;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .nav {
+        padding: 10px 40px;
+    }
+}

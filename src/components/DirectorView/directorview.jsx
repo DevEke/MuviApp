@@ -18,13 +18,15 @@ class DirectorView extends Component {
                     <Link to="/" className="director-view-flex-start-btn">
                         <button className="director-view-back-btn">
                             <img src={back} alt="back icon"/>
+                            <p>Back</p>
                         </button>
                     </Link>
                     <img className="director-image" src={director.Director.ImageURL}/>
                     <div className="director-container">
                         <div className="director-info">
                             <h1 className="director-view-director">{director.Director.Name}</h1>
-                            <small className="director-view-birthday">{director.Director.Birthday}</small>
+                            <small className="director-view-birthday">{new Date(director.Director.Birthday).toLocaleDateString(
+                                'en-gb', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'utc'})}</small>
                             <p className="director-view-bio">{director.Director.Bio}</p>
                         </div>
                     </div>
@@ -51,6 +53,7 @@ DirectorView.propTypes = {
             Title: PropTypes.string.isRequired,
             Description: PropTypes.string.isRequired,
             ImageURL: PropTypes.string.isRequired,
+            BackdropImage: PropTypes.string.isRequired,
             Director: PropTypes.shape({
                 Name: PropTypes.string.isRequired,
                 Bio: PropTypes.string,

@@ -1,0 +1,205 @@
+[{
+  "_id": {
+    "$oid": "600c87b35b2be629ae3d7890"
+  },
+  "Title": "Inception",
+  "Description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+  "Director": {
+    "Name": "Christopher Nolan",
+    "Bio": "Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made. Born and raised in London, Nolan developed an interest in filmmaking from a young age. After studying English literature at University College London, he made his feature debut with Following (1998). Nolan gained international recognition with his second film, Memento (2000), for which he was nominated for the Academy Award for Best Original Screenplay. He transitioned from independent to studio filmmaking with Insomnia (2002), and found further critical and commercial success with The Dark Knight Trilogy (2005–2012), The Prestige (2006), and Inception (2010), which received eight Oscar nominations, including for Best Picture and Best Original Screenplay.",
+    "Birthday": {
+      "$date": "1970-07-30T00:00:00Z"
+    }
+  },
+  "Genre": {
+    "Name": "Thriller",
+    "Description": "A thriller story is mostly about the emotional purpose, which is to elicit strong emotions, mostly dealing with generating suspense and anxiety. No matter what the specific plot, the best thrillers get your heart racing."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2010-07-13T00:00:00Z"
+  },
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "600c892e5b2be629ae3d7891"
+  },
+  "Title": "The Prestige",
+  "Description": "After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other, only to find a disturbing secret.",
+  "Director": {
+    "Name": "Christopher Nolan",
+    "Bio": "Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made. Born and raised in London, Nolan developed an interest in filmmaking from a young age. After studying English literature at University College London, he made his feature debut with Following (1998). Nolan gained international recognition with his second film, Memento (2000), for which he was nominated for the Academy Award for Best Original Screenplay. He transitioned from independent to studio filmmaking with Insomnia (2002), and found further critical and commercial success with The Dark Knight Trilogy (2005–2012), The Prestige (2006), and Inception (2010), which received eight Oscar nominations, including for Best Picture and Best Original Screenplay.",
+    "Birthday": {
+      "$date": "1970-07-30T00:00:00Z"
+    }
+  },
+  "Genre": {
+    "Name": "Drama",
+    "Description": "The drama genre is defined by conflict and often looks to reality rather than sensationalism. Emotions and intense situations are the focus, but where other genres might use unique or exciting moments to create a feeling, movies in the drama genre focus on common occurrences."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2006-10-17T00:00:00Z"
+  },
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "600c8a375b2be629ae3d7892"
+  },
+  "Title": "Interstellar",
+  "Description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+  "Director": {
+    "Name": "Christopher Nolan",
+    "Bio": "Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made. Born and raised in London, Nolan developed an interest in filmmaking from a young age. After studying English literature at University College London, he made his feature debut with Following (1998). Nolan gained international recognition with his second film, Memento (2000), for which he was nominated for the Academy Award for Best Original Screenplay. He transitioned from independent to studio filmmaking with Insomnia (2002), and found further critical and commercial success with The Dark Knight Trilogy (2005–2012), The Prestige (2006), and Inception (2010), which received eight Oscar nominations, including for Best Picture and Best Original Screenplay.",
+    "Birthday": {
+      "$date": "1970-07-30T00:00:00Z"
+    }
+  },
+  "Genre": {
+    "Name": "Sci-Fi",
+    "Description": "Science fiction movies are defined by a mixture of speculation and science. While fantasy will explain through or make use of magic and mysticism, science fiction will use the changes and trajectory of technology and science. Science fiction will often incorporate space, biology, energy, time, and any other observable science."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2014-10-26T00:00:00Z"
+  },
+  "Featured": false
+},{
+  "_id": {
+    "$oid": "600c8b2c5b2be629ae3d7893"
+  },
+  "Title": "Ocean's Eleven",
+  "Description": "Danny Ocean and his ten accomplices plan to rob three Las Vegas casinos simultaneously.",
+  "Director": {
+    "Name": "Steven Soderbergh",
+    "Bio": "Steven Andrew Soderbergh was born on January 14, 1963 in Atlanta, Georgia, USA, the second of six children of Mary Ann (Bernard) and Peter Soderbergh. His father was of Swedish and Irish descent, and his mother was of Italian ancestry. While he was still at a very young age, his family moved to Baton Rouge, Louisiana, where his father was a professor and the dean of the College of Education at Louisiana State University. While still in high school, around the age of 15, Soderbergh enrolled in the university's film animation class and began making short 16-millimeter films with second-hand equipment, one of which was the short film Janitor. After graduating high school, he went to Hollywood, where he worked as a freelance editor. His time there was brief and, shortly after, he returned home and continued making short films and writing scripts.",
+    "Birthday": {
+      "$date": {
+        "$numberLong": "-219801600000"
+      }
+    }
+  },
+  "Genre": {
+    "Name": "Thriller",
+    "Description": "A thriller story is mostly about the emotional purpose, which is to elicit strong emotions, mostly dealing with generating suspense and anxiety. No matter what the specific plot, the best thrillers get your heart racing."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BYzVmYzVkMmUtOGRhMi00MTNmLThlMmUtZTljYjlkMjNkMjJkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2001-12-05T00:00:00Z"
+  },
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "600c8c1b5b2be629ae3d7894"
+  },
+  "Title": "Monsters Inc.",
+  "Description": "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, 2 monsters realize things may not be what they think.",
+  "Director": {
+    "Name": "Pete Docter",
+    "Bio": "Peter Hans Docter (born October 9, 1968) is an American animator, film director, screenwriter, producer, voice actor, and chief creative officer of Pixar. He is best known for directing the Pixar animated feature films Monsters, Inc. (2001), Up (2009), Inside Out (2015), and Soul (2020), and as a key figure and collaborator at Pixar. He has been nominated for eight Oscars (winning two, Best Animated Feature – for Up and Inside Out), seven Annie Awards (winning five), a BAFTA Children's Film Award and a Hochi Film Award.",
+    "Birthday": {
+      "$date": {
+        "$numberLong": "-38793600000"
+      }
+    }
+  },
+  "Genre": {
+    "Name": "Animation",
+    "Description": "The animation genre is defined by inanimate objects being manipulated to appear as though they are living. This can be done in many different ways and can incorporate any other genre and sub-genre on this list. For more info on animation, you can dive deeper on the types of animation or see our list of the best animated movies of all time."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2001-10-28T00:00:00Z"
+  },
+  "Featured": false
+},{
+  "_id": {
+    "$oid": "600c8cfa5b2be629ae3d7895"
+  },
+  "Title": "Soul",
+  "Description": "After landing the gig of a lifetime, a New York jazz pianist suddenly finds himself trapped in a strange land between Earth and the afterlife.",
+  "Director": {
+    "Name": "Pete Docter",
+    "Bio": "Peter Hans Docter (born October 9, 1968) is an American animator, film director, screenwriter, producer, voice actor, and chief creative officer of Pixar. He is best known for directing the Pixar animated feature films Monsters, Inc. (2001), Up (2009), Inside Out (2015), and Soul (2020), and as a key figure and collaborator at Pixar. He has been nominated for eight Oscars (winning two, Best Animated Feature – for Up and Inside Out), seven Annie Awards (winning five), a BAFTA Children's Film Award and a Hochi Film Award. He has described himself as a geeky kid from Minnesota who likes to draw cartoons.",
+    "Birthday": {
+      "$date": {
+        "$numberLong": "-38793600000"
+      }
+    }
+  },
+  "Genre": {
+    "Name": "Animation",
+    "Description": "The animation genre is defined by inanimate objects being manipulated to appear as though they are living. This can be done in many different ways and can incorporate any other genre and sub-genre on this list. For more info on animation, you can dive deeper on the types of animation or see our list of the best animated movies of all time."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BZGE1MDg5M2MtNTkyZS00MTY5LTg1YzUtZTlhZmM1Y2EwNmFmXkEyXkFqcGdeQXVyNjA3OTI0MDc@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2020-12-25T00:00:00Z"
+  },
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "600c8df25b2be629ae3d7896"
+  },
+  "Title": "I Am Legend",
+  "Description": "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.",
+  "Director": {
+    "Name": "Francis Lawrence",
+    "Bio": "Francis Lawrence (born March 26, 1971) is an Austrian-born American filmmaker and producer. After establishing himself as a director of music videos and commercials, Lawrence made his feature-length directorial debut with the supernatural thriller Constantine (2005) and has since directed the postapocalyptic horror film I Am Legend (2007), the romantic drama Water for Elephants (2011), three of the four films in the Hunger Games film series, and the spy thriller Red Sparrow (2018).",
+    "Birthday": {
+      "$date": "1971-03-26T00:00:00Z"
+    }
+  },
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. While many movies may feature an action sequence, to be appropriately categorized inside the action genre, the bulk of the content must be action-oriented, including fight scenes, stunts, car chases, and general danger."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BYTE1ZTBlYzgtNmMyNS00ZTQ2LWE4NjEtZjUxNDJkNTg2MzlhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2007-12-07T00:00:00Z"
+  },
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "600c8eaa5b2be629ae3d7897"
+  },
+  "Title": "SAW",
+  "Description": "Two strangers awaken in a room with no recollection of how they got there, and soon discover they're pawns in a deadly game perpetrated by a notorious serial killer.",
+  "Director": {
+    "Name": "James Wan",
+    "Bio": "James Wan is a Malaysian-born Australian film director, screenwriter, film producer and comic book writer who has primarily worked in the horror genre as the co-creator of the Saw and Insidious franchises and the creator of The Conjuring Universe. The lattermost is the second highest-grossing horror franchise at $1.9 billion. Wan is also the founder of Atomic Monster Productions, which has produced film and television projects.",
+    "Birthday": {
+      "$date": "1977-02-26T00:00:00Z"
+    }
+  },
+  "Genre": {
+    "Name": "Horror",
+    "Description": "The horror genre is centered upon depicting terrifying or macabre events for the sake of entertainment. A thriller might tease the possibility of a terrible event, whereas a horror film will deliver all throughout the film. The best horror movies are designed to get the heart pumping and to show us a glimpse of the unknown."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BMzQ2ZTBhNmEtZDBmYi00ODU0LTgzZmQtNmMxM2M4NzM1ZjE4XkEyXkFqcGdeQXVyNjE5MjUyOTM@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2004-01-19T00:00:00Z"
+  },
+  "Featured": false
+},{
+  "_id": {
+    "$oid": "600c8f895b2be629ae3d7898"
+  },
+  "Title": "Paranormal Activity",
+  "Description": "After moving into a suburban home, a couple becomes increasingly disturbed by a nightly demonic presence.",
+  "Director": {
+    "Name": "Oren Peli",
+    "Bio": "Oren Peli moved to the United States from Israel when he was 19. An intensive studier of animation and graphic design, he worked on video games to pay the bills, but really wanted to direct and edit feature films, so he made it happen.",
+    "Birthday": {
+      "$date": "1970-01-21T00:00:00Z"
+    }
+  },
+  "Genre": {
+    "Name": "Horror",
+    "Description": "The horror genre is centered upon depicting terrifying or macabre events for the sake of entertainment. A thriller might tease the possibility of a terrible event, whereas a horror film will deliver all throughout the film. The best horror movies are designed to get the heart pumping and to show us a glimpse of the unknown."
+  },
+  "ImageURL": "https://m.media-amazon.com/images/M/MV5BMjY1NjcxODQ4MV5BMl5BanBnXkFtZTcwMzUxNjM4Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "ReleaseDate": {
+    "$date": "2009-10-16T00:00:00Z"
+  },
+  "Featured": true
+}]

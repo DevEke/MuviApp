@@ -1,5 +1,44 @@
-.search-input {
-    display: block;
-    width: 300px;
-    margin: 10px auto;
+@import '../../root.scss';
+
+
+.search__container {
+    position: relative;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: calc(50% - 250px);
+
+    img {
+        position: absolute;
+        left: 20px;
+        top: 15px;
+    }
+
+    .search-input {
+        @include input;
+        width: 500px;
+        margin: 0 auto;
+        padding-left: 56px;
+        
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+    .search__container {
+        top: 50px;
+        right: 0;
+        width: 100%;
+        box-shadow: 0px 2px 5px 0 $accent-dark-color;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .search__container {
+        right: calc(50% - 200px);
+
+        .search-input {
+            width: 400px;
+        }
+    }
 }

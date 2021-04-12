@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './profileview.scss';
 import back from '../../img/back.svg';
-import user from '../../img/user100.svg';
+import update from '../../img/update-account.svg';
+import remove from '../../img/delete-account.svg';
 import close from '../../img/close.svg';
 import '../MovieCard/moviecard.scss';
 
@@ -89,15 +90,24 @@ class ProfileView extends Component {
                     <Link className="flex-start-btn" to="/">
                         <button className="profile-view-back-btn">
                             <img src={back} alt="back icon"/>
+                            <p>Back</p>
                         </button>
                     </Link>
-                    <img className="profile-image" src={user}/>
-                    <h1>{username}</h1>
-                    <Link to={`/update/${username}`}><button className="profile-update-account-btn" type="button">Update Account</button></Link>
-                    <button className="delete-account-btn" onClick={() => this.unRegister()}>Delete Account</button>
+                    <div className="profile-btns">
+                        <Link style={{textDecoration: "none"}}to={`/update/${username}`}>
+                            <button className="profile-update-account-btn" type="button">
+                                <img src={update}/>
+                                <p>Edit Account</p>
+                            </button>
+                        </Link>
+                        <button className="delete-account-btn" onClick={() => this.unRegister()}>
+                            <img src={remove}/>
+                            <p>Delete Account</p>
+                        </button>
+                    </div>
                 </div>
                 <div className="favorite-movie-container">
-                    <h2 className="favorite-movie-title">Favorite Movies</h2>
+                    <h2 className="favorite-movie-title">{username}'s Favorite Movies</h2>
                     <div className="movie-grid">
                     {favMovies.map((movie) => {
                         return (
@@ -108,8 +118,7 @@ class ProfileView extends Component {
                                 <img className="img-sizer" src={movie.ImageURL} />
                                 <div className="movie-overlay">
                                     <h2 className="movie-card-title">{movie.Title}</h2>
-                                    <small className="movie-card-genre">{movie.Genre.Name}</small>
-                                    <p className="movie-card-description">{movie.Description}</p>
+                                    <p className="movie-card-genre">{new Date(movie.ReleaseDate).getFullYear()} - {movie.Genre.Name}</p>
                                 </div>
                             </div> 
                         )
@@ -128,6 +137,7 @@ ProfileView.propTypes = {
             Title: PropTypes.string.isRequired,
             Description: PropTypes.string.isRequired,
             ImageURL: PropTypes.string.isRequired,
+            BackdropImage: PropTypes.string.isRequired,
             Director: PropTypes.shape({
                 Name: PropTypes.string.isRequired,
                 Bio: PropTypes.string,

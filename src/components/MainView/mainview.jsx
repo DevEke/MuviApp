@@ -13,6 +13,8 @@ import GenreView from '../GenreView/genreview';
 import ProfileView from '../ProfileView/profileview';
 import UpdateView from '../UpdateView/updateview';
 import profile from '../../img/user.svg';
+import out from '../../img/out.svg';
+import logo from '../../img/logo.svg';
 import './mainview.scss';
 
 
@@ -61,16 +63,17 @@ class MainView extends Component {
 
         return (
             <Router>
-                <div className="main-view">
+                <div className="main-view">            
                     <div className="nav">
-                        <h1>MUVI</h1>
-                        <div className="nav-button-flex">
-                            <Link to="/users/:userId">
-                                <button className="account-btn">
+                        <img src={logo}/>
+                        <div className="nav-button-flex"> 
+                            <Link className="account-btn" to="/users/:userId">
                                     <img src={profile} alt="profile icon"/>
-                                </button>
                             </Link>
-                            <Link to="/"><button onClick={() => this.onSignOut()} className="signout-btn">Sign Out</button></Link>
+                            <Link className="sign-out-btn" to="/">
+                                <button onClick={() => this.onSignOut()} className="signout-btn">Sign Out</button>
+                                <img src={out}/>
+                            </Link>
                         </div>
                     </div>
                     <div className="movie-grid">
@@ -116,6 +119,7 @@ MainView.propTypes = {
             Title: PropTypes.string.isRequired,
             Description: PropTypes.string.isRequired,
             ImageURL: PropTypes.string.isRequired,
+            BackdropImage: PropTypes.string.isRequired,
             Director: PropTypes.shape({
                 Name: PropTypes.string.isRequired,
                 Bio: PropTypes.string,

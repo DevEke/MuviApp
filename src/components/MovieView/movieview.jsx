@@ -32,21 +32,25 @@ class MovieView extends Component {
         if (!movie) return null;
 
         return (
-            <div className="movie-view">
-                <Link to="/" className="movie-view-flex-start-btn">
-                    <button className="movie-view-back-btn">
-                        <img src={back} alt="back icon"/>
-                    </button>
-                </Link>
-                <img className="movie-poster" src={movie.ImageURL}/>
-                <div className="movie-info">
-                    <h1 className="movie-view-title">{movie.Title}</h1>
-                    <Link to={`/directors/${movie.Director.Name}`} className="text-link"><h2 className="movie-view-director">Directed By {movie.Director.Name}</h2></Link>
-                    <Link to={`/genres/${movie.Genre.Name}`} className="text-link"><small className="movie-view-genre">{movie.Genre.Name}</small></Link>
-                    <p className="movie-view-description">{movie.Description}</p>
-                    <button onClick={() => this.addtoFavorites(movie)} className="favorite-btn">
-                        <img src={heart} alt="fav icon"/>
-                    </button>
+            <div className="movie-view"
+            style={{backgroundImage: `url(${movie.BackdropImage})`}}>
+                <div className="movie__info-container">
+                    <Link to="/" className="movie-view-flex-start-btn">
+                        <button className="movie-view-back-btn">
+                            <img src={back} alt="back icon"/>
+                            <p>back</p>
+                        </button>
+                    </Link>
+                    <div className="movie-info">
+                        <h1 className="movie-view-title">{movie.Title}</h1>
+                        <p>{new Date(movie.ReleaseDate).getFullYear()} - <Link className="genre-link" to={`/genres/${movie.Genre.Name}`} > {movie.Genre.Name}</Link></p>
+                        <Link to={`/directors/${movie.Director.Name}`} className="text-link"><h2 className="movie-view-director">{movie.Director.Name}</h2></Link>
+                        <p className="movie-view-description">{movie.Description}</p>
+                        <button onClick={() => this.addtoFavorites(movie)} className="favorite-btn">
+                            <img src={heart} alt="fav icon"/>
+                            <p>Add to favorites</p>
+                        </button>
+                    </div>
                 </div>
             </div>
         )
@@ -58,6 +62,7 @@ MovieView.propTypes = {
         Title: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
         ImageURL: PropTypes.string.isRequired,
+        BackdropImage: PropTypes.string.isRequired,
         Director: PropTypes.shape({
             Name: PropTypes.string.isRequired,
             Bio: PropTypes.string,
