@@ -24,14 +24,6 @@
 
 }
 
-@media only screen and (max-width: 425px) {
-    .search__container {
-        top: 50px;
-        right: 0;
-        width: 100%;
-        box-shadow: 0px 2px 5px 0 $accent-dark-color;
-    }
-}
 
 @media only screen and (max-width: 768px) {
     .search__container {
@@ -39,6 +31,20 @@
 
         .search-input {
             width: 400px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+    .search__container {
+        top: 50px;
+        right: 0;
+        width: 100%;
+        box-shadow: 0px 2px 5px 0 $accent-dark-color;
+
+        .search-input {
+            width: 100%;
         }
     }
 }

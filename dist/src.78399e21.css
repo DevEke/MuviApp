@@ -112,6 +112,14 @@ body {
   outline: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .search__container {
+    right: calc(50% - 200px);
+  }
+  .search__container .search-input {
+    width: 400px;
+  }
+}
 @media only screen and (max-width: 425px) {
   .search__container {
     top: 50px;
@@ -119,13 +127,8 @@ body {
     width: 100%;
     box-shadow: 0px 2px 5px 0 #111518;
   }
-}
-@media only screen and (max-width: 768px) {
-  .search__container {
-    right: calc(50% - 200px);
-  }
   .search__container .search-input {
-    width: 400px;
+    width: 100%;
   }
 }
 * {
