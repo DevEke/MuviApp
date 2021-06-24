@@ -117,114 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/@babel/runtime/helpers/classCallCheck.js":[function(require,module,exports) {
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck;
-},{}],"../node_modules/@babel/runtime/helpers/createClass.js":[function(require,module,exports) {
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-module.exports = _createClass;
-},{}],"../node_modules/@babel/runtime/helpers/setPrototypeOf.js":[function(require,module,exports) {
-function _setPrototypeOf(o, p) {
-  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-module.exports = _setPrototypeOf;
-},{}],"../node_modules/@babel/runtime/helpers/inherits.js":[function(require,module,exports) {
-var setPrototypeOf = require("./setPrototypeOf");
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) setPrototypeOf(subClass, superClass);
-}
-
-module.exports = _inherits;
-},{"./setPrototypeOf":"../node_modules/@babel/runtime/helpers/setPrototypeOf.js"}],"../node_modules/@babel/runtime/helpers/typeof.js":[function(require,module,exports) {
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    module.exports = _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-module.exports = _typeof;
-},{}],"../node_modules/@babel/runtime/helpers/assertThisInitialized.js":[function(require,module,exports) {
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-module.exports = _assertThisInitialized;
-},{}],"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js":[function(require,module,exports) {
-var _typeof = require("@babel/runtime/helpers/typeof");
-
-var assertThisInitialized = require("./assertThisInitialized");
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return assertThisInitialized(self);
-}
-
-module.exports = _possibleConstructorReturn;
-},{"@babel/runtime/helpers/typeof":"../node_modules/@babel/runtime/helpers/typeof.js","./assertThisInitialized":"../node_modules/@babel/runtime/helpers/assertThisInitialized.js"}],"../node_modules/@babel/runtime/helpers/getPrototypeOf.js":[function(require,module,exports) {
-function _getPrototypeOf(o) {
-  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-module.exports = _getPrototypeOf;
-},{}],"../node_modules/object-assign/index.js":[function(require,module,exports) {
+})({"../node_modules/object-assign/index.js":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -38224,909 +38117,59 @@ module.exports.default = axios;
 
 },{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js","./helpers/isAxiosError":"../node_modules/axios/lib/helpers/isAxiosError.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
-var define;
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var runtime = (function (exports) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
-  }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  exports.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
-        return this._invoke(method, arg);
-      });
-    });
-  }
-
-  exports.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  exports.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  exports.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return PromiseImpl.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return PromiseImpl.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new PromiseImpl(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  exports.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    if (PromiseImpl === void 0) PromiseImpl = Promise;
-
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList),
-      PromiseImpl
-    );
-
-    return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  define(Gp, toStringTagSymbol, "Generator");
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  exports.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  exports.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-  typeof module === "object" ? module.exports : {}
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  Function("r", "regeneratorRuntime = r")(runtime);
-}
-
-},{}],"../node_modules/@babel/runtime/regenerator/index.js":[function(require,module,exports) {
-module.exports = require("regenerator-runtime");
-
-},{"regenerator-runtime":"../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js"}],"../node_modules/@babel/runtime/helpers/asyncToGenerator.js":[function(require,module,exports) {
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
-module.exports = _asyncToGenerator;
-},{}],"actions/actions.js":[function(require,module,exports) {
+},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"actions/actions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.setUser = exports.setFilter = exports.setMovies = exports.SET_USER_FAVORITES = exports.SET_USER_EMAIL = exports.SET_USER_PASSWORD = exports.SET_USER_USERNAME = exports.SET_USER = exports.SET_FILTER = exports.SET_MOVIES = void 0;
-
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
-
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 //Action Types
-var SET_MOVIES = 'SET_MOVIES';
+const SET_MOVIES = 'SET_MOVIES';
 exports.SET_MOVIES = SET_MOVIES;
-var SET_FILTER = 'SET_FILTER';
+const SET_FILTER = 'SET_FILTER';
 exports.SET_FILTER = SET_FILTER;
-var SET_USER = 'SET_USER';
+const SET_USER = 'SET_USER';
 exports.SET_USER = SET_USER;
-var SET_USER_USERNAME = 'SET_USER_USERNAME';
+const SET_USER_USERNAME = 'SET_USER_USERNAME';
 exports.SET_USER_USERNAME = SET_USER_USERNAME;
-var SET_USER_PASSWORD = 'SET_USER_PASSWORD';
+const SET_USER_PASSWORD = 'SET_USER_PASSWORD';
 exports.SET_USER_PASSWORD = SET_USER_PASSWORD;
-var SET_USER_EMAIL = 'SET_USER_EMAIL';
+const SET_USER_EMAIL = 'SET_USER_EMAIL';
 exports.SET_USER_EMAIL = SET_USER_EMAIL;
-var SET_USER_FAVORITES = 'SET_USER_FAVORITES'; //Action Creators
+const SET_USER_FAVORITES = 'SET_USER_FAVORITES'; //Action Creators
 
 exports.SET_USER_FAVORITES = SET_USER_FAVORITES;
 
-var setMovies = function setMovies(value) {
-  return /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(dispatch, getState) {
-      return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              dispatch({
-                type: SET_MOVIES,
-                value: value
-              });
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x, _x2) {
-      return _ref.apply(this, arguments);
-    };
-  }();
+const setMovies = value => {
+  return async function (dispatch, getState) {
+    dispatch({
+      type: SET_MOVIES,
+      value
+    });
+  };
 };
 
 exports.setMovies = setMovies;
 
-var setFilter = function setFilter(value) {
-  return /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(dispatch, getState) {
-      return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              dispatch({
-                type: SET_FILTER,
-                value: value
-              });
-
-            case 1:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function (_x3, _x4) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
+const setFilter = value => {
+  return async function (dispatch, getState) {
+    dispatch({
+      type: SET_FILTER,
+      value
+    });
+  };
 };
 
 exports.setFilter = setFilter;
 
-var setUser = function setUser(value) {
-  return /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(dispatch, getState) {
-      return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              dispatch({
-                type: SET_USER,
-                value: value
-              });
-
-            case 1:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function (_x5, _x6) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
+const setUser = value => {
+  return async function (dispatch, getState) {
+    dispatch({
+      type: SET_USER,
+      value
+    });
+  };
 }; // export const setUserUsername = (value) => {
 //     return async function(dispatch, getState) {
 //         dispatch({
@@ -39162,7 +38205,7 @@ var setUser = function setUser(value) {
 
 
 exports.setUser = setUser;
-},{"@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js"}],"img/search.svg":[function(require,module,exports) {
+},{}],"img/search.svg":[function(require,module,exports) {
 module.exports = "/search.1e31d98f.svg";
 },{}],"components/MovieSearch/moviesearch.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
@@ -39199,9 +38242,7 @@ function MovieSearch(props) {
   }), /*#__PURE__*/_react.default.createElement("input", {
     className: "search-input",
     type: "text",
-    onChange: function onChange(e) {
-      return props.setFilter(e.target.value);
-    },
+    onChange: e => props.setFilter(e.target.value),
     value: props.movieFilter,
     placeholder: "Filter Movies"
   }));
@@ -39229,16 +38270,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
@@ -39247,49 +38278,35 @@ require("./moviecard.scss");
 
 var _reactRouterDom = require("react-router-dom");
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var MovieCard = /*#__PURE__*/function (_Component) {
-  (0, _inherits2.default)(MovieCard, _Component);
-
-  var _super = _createSuper(MovieCard);
-
-  function MovieCard() {
-    (0, _classCallCheck2.default)(this, MovieCard);
-    return _super.apply(this, arguments);
+class MovieCard extends _react.Component {
+  render() {
+    const {
+      movie
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      className: "movie-card-link",
+      to: "/movies/".concat(movie._id)
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie-card"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      className: "img-sizer",
+      src: movie.ImageURL
+    }), /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie-overlay"
+    }, /*#__PURE__*/_react.default.createElement("h1", {
+      className: "movie-card-title"
+    }, movie.Title), /*#__PURE__*/_react.default.createElement("p", {
+      className: "movie-card-director"
+    }, new Date(movie.ReleaseDate).getFullYear(), " - ", movie.Genre.Name))));
   }
 
-  (0, _createClass2.default)(MovieCard, [{
-    key: "render",
-    value: function render() {
-      var movie = this.props.movie;
-      return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        className: "movie-card-link",
-        to: "/movies/".concat(movie._id)
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-card"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        className: "img-sizer",
-        src: movie.ImageURL
-      }), /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-overlay"
-      }, /*#__PURE__*/_react.default.createElement("h1", {
-        className: "movie-card-title"
-      }, movie.Title), /*#__PURE__*/_react.default.createElement("p", {
-        className: "movie-card-director"
-      }, new Date(movie.ReleaseDate).getFullYear(), " - ", movie.Genre.Name))));
-    }
-  }]);
-  return MovieCard;
-}(_react.Component);
+}
 
 MovieCard.propTypes = {
   movie: _propTypes.default.shape({
@@ -39309,7 +38326,7 @@ MovieCard.propTypes = {
 };
 var _default = MovieCard;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./moviecard.scss":"components/MovieCard/moviecard.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/MoviesList/movieslist.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./moviecard.scss":"components/MovieCard/moviecard.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/MoviesList/movieslist.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39336,22 +38353,24 @@ require("./movieslist.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(state) {
-  var movieFilter = state.movieFilter;
+const mapStateToProps = state => {
+  const {
+    movieFilter
+  } = state;
   return {
-    movieFilter: movieFilter
+    movieFilter
   };
 };
 
 function MoviesList(props) {
-  var movies = props.movies,
-      movieFilter = props.movieFilter;
-  var filteredMovies = movies;
+  const {
+    movies,
+    movieFilter
+  } = props;
+  let filteredMovies = movies;
 
   if (movieFilter !== '') {
-    filteredMovies = movies.filter(function (movie) {
-      return movie.Title.includes(movieFilter);
-    });
+    filteredMovies = movies.filter(movie => movie.Title.includes(movieFilter));
   }
 
   if (!movies) return null;
@@ -39361,12 +38380,10 @@ function MoviesList(props) {
     movieFilter: movieFilter
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "movie-layout"
-  }, filteredMovies.map(function (movie) {
-    return /*#__PURE__*/_react.default.createElement(_moviecard.default, {
-      key: movie._id,
-      movie: movie
-    });
-  })));
+  }, filteredMovies.map(movie => /*#__PURE__*/_react.default.createElement(_moviecard.default, {
+    key: movie._id,
+    movie: movie
+  }))));
 }
 
 MoviesList.propTypes = {
@@ -39407,16 +38424,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
@@ -39431,93 +38438,78 @@ var _heart = _interopRequireDefault(require("../../img/heart.svg"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var MovieView = /*#__PURE__*/function (_Component) {
-  (0, _inherits2.default)(MovieView, _Component);
-
-  var _super = _createSuper(MovieView);
-
-  function MovieView() {
-    (0, _classCallCheck2.default)(this, MovieView);
-    return _super.call(this);
+class MovieView extends _react.Component {
+  constructor() {
+    super();
   }
 
-  (0, _createClass2.default)(MovieView, [{
-    key: "addtoFavorites",
-    value: function addtoFavorites(movie) {
-      var token = localStorage.getItem('token');
+  addtoFavorites(movie) {
+    let token = localStorage.getItem('token');
 
-      var url = "https://muvi-app.herokuapp.com/users/" + localStorage.getItem('user') + "/favorites/" + movie._id;
+    let url = "https://muvi-app.herokuapp.com/users/" + localStorage.getItem('user') + "/favorites/" + movie._id;
 
-      _axios.default.post(url, "", {
-        headers: {
-          Authorization: "Bearer ".concat(token)
-        }
-      }).then(function (response) {
-        console.log(response);
-        alert("Movie added to favorites. Check your profile.");
-      }).catch(function (error) {
-        console.log('Error Adding movie to favorites.');
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this = this;
+    _axios.default.post(url, "", {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    }).then(response => {
+      console.log(response);
+      alert("Movie added to favorites. Check your profile.");
+    }).catch(error => {
+      console.log('Error Adding movie to favorites.');
+    });
+  }
 
-      var movie = this.props.movie;
-      if (!movie) return null;
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-view",
-        style: {
-          backgroundImage: "url(".concat(movie.BackdropImage, ")")
-        }
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie__info-container"
-      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        to: "/",
-        className: "movie-view-flex-start-btn"
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        className: "movie-view-back-btn"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _back.default,
-        alt: "back icon"
-      }), /*#__PURE__*/_react.default.createElement("p", null, "back"))), /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-info"
-      }, /*#__PURE__*/_react.default.createElement("h1", {
-        className: "movie-view-title"
-      }, movie.Title), /*#__PURE__*/_react.default.createElement("p", null, new Date(movie.ReleaseDate).getFullYear(), " - ", /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        className: "genre-link",
-        to: "/genres/".concat(movie.Genre.Name)
-      }, " ", movie.Genre.Name)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        to: "/directors/".concat(movie.Director.Name),
-        className: "text-link"
-      }, /*#__PURE__*/_react.default.createElement("h2", {
-        className: "movie-view-director"
-      }, movie.Director.Name)), /*#__PURE__*/_react.default.createElement("p", {
-        className: "movie-view-description"
-      }, movie.Description), /*#__PURE__*/_react.default.createElement("button", {
-        onClick: function onClick() {
-          return _this.addtoFavorites(movie);
-        },
-        className: "favorite-btn"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _heart.default,
-        alt: "fav icon"
-      }), /*#__PURE__*/_react.default.createElement("p", null, "Add to favorites")))));
-    }
-  }]);
-  return MovieView;
-}(_react.Component);
+  render() {
+    const {
+      movie
+    } = this.props;
+    if (!movie) return null;
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie-view",
+      style: {
+        backgroundImage: "url(".concat(movie.BackdropImage, ")")
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie__info-container"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/",
+      className: "movie-view-flex-start-btn"
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      className: "movie-view-back-btn"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _back.default,
+      alt: "back icon"
+    }), /*#__PURE__*/_react.default.createElement("p", null, "back"))), /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie-info"
+    }, /*#__PURE__*/_react.default.createElement("h1", {
+      className: "movie-view-title"
+    }, movie.Title), /*#__PURE__*/_react.default.createElement("p", null, new Date(movie.ReleaseDate).getFullYear(), " - ", /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      className: "genre-link",
+      to: "/genres/".concat(movie.Genre.Name)
+    }, " ", movie.Genre.Name)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/directors/".concat(movie.Director.Name),
+      className: "text-link"
+    }, /*#__PURE__*/_react.default.createElement("h2", {
+      className: "movie-view-director"
+    }, movie.Director.Name)), /*#__PURE__*/_react.default.createElement("p", {
+      className: "movie-view-description"
+    }, movie.Description), /*#__PURE__*/_react.default.createElement("button", {
+      onClick: () => this.addtoFavorites(movie),
+      className: "favorite-btn"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _heart.default,
+      alt: "fav icon"
+    }), /*#__PURE__*/_react.default.createElement("p", null, "Add to favorites")))));
+  }
+
+}
 
 MovieView.propTypes = {
   movie: _propTypes.default.shape({
@@ -39537,87 +38529,7 @@ MovieView.propTypes = {
 };
 var _default = MovieView;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movieview.scss":"components/MovieView/movieview.scss","../../img/back.svg":"img/back.svg","../../img/heart.svg":"img/heart.svg","axios":"../node_modules/axios/index.js"}],"../node_modules/@babel/runtime/helpers/arrayWithHoles.js":[function(require,module,exports) {
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-module.exports = _arrayWithHoles;
-},{}],"../node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":[function(require,module,exports) {
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-module.exports = _iterableToArrayLimit;
-},{}],"../node_modules/@babel/runtime/helpers/arrayLikeToArray.js":[function(require,module,exports) {
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-module.exports = _arrayLikeToArray;
-},{}],"../node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":[function(require,module,exports) {
-var arrayLikeToArray = require("./arrayLikeToArray");
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-
-module.exports = _unsupportedIterableToArray;
-},{"./arrayLikeToArray":"../node_modules/@babel/runtime/helpers/arrayLikeToArray.js"}],"../node_modules/@babel/runtime/helpers/nonIterableRest.js":[function(require,module,exports) {
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableRest;
-},{}],"../node_modules/@babel/runtime/helpers/slicedToArray.js":[function(require,module,exports) {
-var arrayWithHoles = require("./arrayWithHoles");
-
-var iterableToArrayLimit = require("./iterableToArrayLimit");
-
-var unsupportedIterableToArray = require("./unsupportedIterableToArray");
-
-var nonIterableRest = require("./nonIterableRest");
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-
-module.exports = _slicedToArray;
-},{"./arrayWithHoles":"../node_modules/@babel/runtime/helpers/arrayWithHoles.js","./iterableToArrayLimit":"../node_modules/@babel/runtime/helpers/iterableToArrayLimit.js","./unsupportedIterableToArray":"../node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js","./nonIterableRest":"../node_modules/@babel/runtime/helpers/nonIterableRest.js"}],"components/LoginView/loginview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movieview.scss":"components/MovieView/movieview.scss","../../img/back.svg":"img/back.svg","../../img/heart.svg":"img/heart.svg","axios":"../node_modules/axios/index.js"}],"components/LoginView/loginview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39636,8 +38548,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
-
 var _react = _interopRequireWildcard(require("react"));
 
 var _axios = _interopRequireDefault(require("axios"));
@@ -39654,62 +38564,39 @@ var _logo = _interopRequireDefault(require("../../img/logo.svg"));
 
 var _arrow = _interopRequireDefault(require("../../img/arrow.svg"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function LoginView(props) {
-  var _useState = (0, _react.useState)(''),
-      _useState2 = (0, _slicedToArray2.default)(_useState, 2),
-      username = _useState2[0],
-      setUsername = _useState2[1];
+  const [username, setUsername] = (0, _react.useState)('');
+  const [password, setPassword] = (0, _react.useState)('');
+  const [usernameValidation, checkUsernameValidation] = (0, _react.useState)({});
+  const [passwordValidation, checkPasswordValidation] = (0, _react.useState)({});
+  const [errorUsername, addErrorClassUsername] = (0, _react.useState)("false");
+  const [errorPassword, addErrorClassPassword] = (0, _react.useState)("false");
 
-  var _useState3 = (0, _react.useState)(''),
-      _useState4 = (0, _slicedToArray2.default)(_useState3, 2),
-      password = _useState4[0],
-      setPassword = _useState4[1];
-
-  var _useState5 = (0, _react.useState)({}),
-      _useState6 = (0, _slicedToArray2.default)(_useState5, 2),
-      usernameValidation = _useState6[0],
-      checkUsernameValidation = _useState6[1];
-
-  var _useState7 = (0, _react.useState)({}),
-      _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
-      passwordValidation = _useState8[0],
-      checkPasswordValidation = _useState8[1];
-
-  var _useState9 = (0, _react.useState)("false"),
-      _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
-      errorUsername = _useState10[0],
-      addErrorClassUsername = _useState10[1];
-
-  var _useState11 = (0, _react.useState)("false"),
-      _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
-      errorPassword = _useState12[0],
-      addErrorClassPassword = _useState12[1];
-
-  var attemptLogin = function attemptLogin(e) {
+  const attemptLogin = e => {
     e.preventDefault();
-    var isValid = loginValidation();
+    const isValid = loginValidation();
     console.log(username, password);
 
     _axios.default.post('https://muvi-app.herokuapp.com/login', {
       Username: username,
       Password: password
-    }).then(function (response) {
-      var data = response.data;
+    }).then(response => {
+      const data = response.data;
       props.onLoggedIn(data);
-    }).catch(function (error) {// console.log('Username or Password is incorrect.')
+    }).catch(error => {// console.log('Username or Password is incorrect.')
     });
   };
 
-  var loginValidation = function loginValidation() {
-    var usernameValidation = {};
-    var passwordValidation = {};
-    var isValid = true;
+  const loginValidation = () => {
+    const usernameValidation = {};
+    const passwordValidation = {};
+    let isValid = true;
 
     if (username.trim().length < 1) {
       usernameValidation.usernameMissing = "Please enter a username.";
@@ -39743,10 +38630,8 @@ function LoginView(props) {
     placeholder: "Username",
     type: "text",
     value: username,
-    onChange: function onChange(e) {
-      return setUsername(e.target.value);
-    }
-  }), Object.keys(usernameValidation).map(function (key) {
+    onChange: e => setUsername(e.target.value)
+  }), Object.keys(usernameValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -39764,10 +38649,8 @@ function LoginView(props) {
     placeholder: "Password",
     type: "password",
     value: password,
-    onChange: function onChange(e) {
-      return setPassword(e.target.value);
-    }
-  }), Object.keys(passwordValidation).map(function (key) {
+    onChange: e => setPassword(e.target.value)
+  }), Object.keys(passwordValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -39797,7 +38680,7 @@ LoginView.propTypes = {
 };
 var _default = LoginView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/alert.svg":"img/alert.svg","../../img/logo.svg":"img/logo.svg","../../img/arrow.svg":"img/arrow.svg"}],"components/RegisterView/registerview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","./loginview.scss":"components/LoginView/loginview.scss","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/alert.svg":"img/alert.svg","../../img/logo.svg":"img/logo.svg","../../img/arrow.svg":"img/arrow.svg"}],"components/RegisterView/registerview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -39809,8 +38692,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -39832,59 +38713,36 @@ require("./registerview.scss");
 
 var _alert = _interopRequireDefault(require("../../img/alert.svg"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function RegisterView(props) {
-  var _useState = (0, _react.useState)(''),
-      _useState2 = (0, _slicedToArray2.default)(_useState, 2),
-      username = _useState2[0],
-      setUsername = _useState2[1];
+  const [username, setUsername] = (0, _react.useState)('');
+  const [password, setPassword] = (0, _react.useState)('');
+  const [email, setEmail] = (0, _react.useState)('');
+  const [usernameValidation, checkUsernameValidation] = (0, _react.useState)({});
+  const [passwordValidation, checkPasswordValidation] = (0, _react.useState)({});
+  const [emailValidation, checkEmailValidation] = (0, _react.useState)({});
 
-  var _useState3 = (0, _react.useState)(''),
-      _useState4 = (0, _slicedToArray2.default)(_useState3, 2),
-      password = _useState4[0],
-      setPassword = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(''),
-      _useState6 = (0, _slicedToArray2.default)(_useState5, 2),
-      email = _useState6[0],
-      setEmail = _useState6[1];
-
-  var _useState7 = (0, _react.useState)({}),
-      _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
-      usernameValidation = _useState8[0],
-      checkUsernameValidation = _useState8[1];
-
-  var _useState9 = (0, _react.useState)({}),
-      _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
-      passwordValidation = _useState10[0],
-      checkPasswordValidation = _useState10[1];
-
-  var _useState11 = (0, _react.useState)({}),
-      _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
-      emailValidation = _useState12[0],
-      checkEmailValidation = _useState12[1];
-
-  var attemptRegister = function attemptRegister(e) {
+  const attemptRegister = e => {
     e.preventDefault();
-    var isValid = registerValidation();
+    const isValid = registerValidation();
     console.log(username, password, email);
 
     _axios.default.post('https://muvi-app.herokuapp.com/users', {
       Username: username,
       Password: password,
       Email: email
-    }).then(function (response) {
-      var data = response.data;
+    }).then(response => {
+      const data = response.data;
       props.setUser(data.Username);
       console.log(data.Username);
       alert('Account Created. Login at the login screen');
       window.open('/', '_self');
-    }).catch(function (error) {
+    }).catch(error => {
       console.log(error); // console.log('Error with Registration')
     });
   }; // const loginUser = (data) => {
@@ -39901,11 +38759,11 @@ function RegisterView(props) {
   // };
 
 
-  var registerValidation = function registerValidation() {
-    var usernameValidation = {};
-    var passwordValidation = {};
-    var emailValidation = {};
-    var isValid = true;
+  const registerValidation = () => {
+    const usernameValidation = {};
+    const passwordValidation = {};
+    const emailValidation = {};
+    let isValid = true;
 
     if (username.trim().length < 5) {
       usernameValidation.usernameShort = "Username must be at least 5 characters long.";
@@ -39942,10 +38800,8 @@ function RegisterView(props) {
     placeholder: "Username",
     type: "text",
     value: username,
-    onChange: function onChange(e) {
-      return setUsername(e.target.value);
-    }
-  }), Object.keys(usernameValidation).map(function (key) {
+    onChange: e => setUsername(e.target.value)
+  }), Object.keys(usernameValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -39962,10 +38818,8 @@ function RegisterView(props) {
     placeholder: "Password",
     type: "password",
     value: password,
-    onChange: function onChange(e) {
-      return setPassword(e.target.value);
-    }
-  }), Object.keys(passwordValidation).map(function (key) {
+    onChange: e => setPassword(e.target.value)
+  }), Object.keys(passwordValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -39982,10 +38836,8 @@ function RegisterView(props) {
     placeholder: "Email",
     type: "email",
     value: email,
-    onChange: function onChange(e) {
-      return setEmail(e.target.value);
-    }
-  }), Object.keys(emailValidation).map(function (key) {
+    onChange: e => setEmail(e.target.value)
+  }), Object.keys(emailValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -40009,7 +38861,7 @@ function RegisterView(props) {
   }, "Already have an account?"))));
 }
 
-var mapStateToProps = function mapStateToProps(state) {
+let mapStateToProps = state => {
   return {
     user: state.user
   };
@@ -40025,7 +38877,7 @@ var _default = (0, _reactRedux.connect)(mapStateToProps, {
 })(RegisterView);
 
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/logo.svg":"img/logo.svg","../../img/arrow.svg":"img/arrow.svg","./registerview.scss":"components/RegisterView/registerview.scss","../../img/alert.svg":"img/alert.svg"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../img/logo.svg":"img/logo.svg","../../img/arrow.svg":"img/arrow.svg","./registerview.scss":"components/RegisterView/registerview.scss","../../img/alert.svg":"img/alert.svg"}],"components/DirectorView/directorview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40037,16 +38889,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -40060,78 +38902,67 @@ var _back = _interopRequireDefault(require("../../img/back.svg"));
 
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var DirectorView = /*#__PURE__*/function (_Component) {
-  (0, _inherits2.default)(DirectorView, _Component);
-
-  var _super = _createSuper(DirectorView);
-
-  function DirectorView() {
-    (0, _classCallCheck2.default)(this, DirectorView);
-    return _super.call(this);
+class DirectorView extends _react.Component {
+  constructor() {
+    super();
   }
 
-  (0, _createClass2.default)(DirectorView, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          movies = _this$props.movies,
-          director = _this$props.director;
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: "director-view-container"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "director-view"
-      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        to: "/",
-        className: "director-view-flex-start-btn"
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        className: "director-view-back-btn"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _back.default,
-        alt: "back icon"
-      }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("img", {
-        className: "director-image",
-        src: director.Director.ImageURL
-      }), /*#__PURE__*/_react.default.createElement("div", {
-        className: "director-container"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "director-info"
-      }, /*#__PURE__*/_react.default.createElement("h1", {
-        className: "director-view-director"
-      }, director.Director.Name), /*#__PURE__*/_react.default.createElement("small", {
-        className: "director-view-birthday"
-      }, new Date(director.Director.Birthday).toLocaleDateString('en-gb', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        timeZone: 'utc'
-      })), /*#__PURE__*/_react.default.createElement("p", {
-        className: "director-view-bio"
-      }, director.Director.Bio)))), /*#__PURE__*/_react.default.createElement("h2", {
-        className: "director-title"
-      }, "Movies by ", director.Director.Name), /*#__PURE__*/_react.default.createElement("div", {
-        className: "director-view-movies-flex"
-      }, movies.map(function (movie) {
-        if (movie.Director.Name === director.Director.Name) {
-          return /*#__PURE__*/_react.default.createElement(_moviecard.default, {
-            key: movie._id,
-            movie: movie
-          });
-        }
-      })));
-    }
-  }]);
-  return DirectorView;
-}(_react.Component);
+  render() {
+    const {
+      movies,
+      director
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "director-view-container"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "director-view"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/",
+      className: "director-view-flex-start-btn"
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      className: "director-view-back-btn"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _back.default,
+      alt: "back icon"
+    }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("img", {
+      className: "director-image",
+      src: director.Director.ImageURL
+    }), /*#__PURE__*/_react.default.createElement("div", {
+      className: "director-container"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "director-info"
+    }, /*#__PURE__*/_react.default.createElement("h1", {
+      className: "director-view-director"
+    }, director.Director.Name), /*#__PURE__*/_react.default.createElement("small", {
+      className: "director-view-birthday"
+    }, new Date(director.Director.Birthday).toLocaleDateString('en-gb', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'utc'
+    })), /*#__PURE__*/_react.default.createElement("p", {
+      className: "director-view-bio"
+    }, director.Director.Bio)))), /*#__PURE__*/_react.default.createElement("h2", {
+      className: "director-title"
+    }, "Movies by ", director.Director.Name), /*#__PURE__*/_react.default.createElement("div", {
+      className: "director-view-movies-flex"
+    }, movies.map(movie => {
+      if (movie.Director.Name === director.Director.Name) {
+        return /*#__PURE__*/_react.default.createElement(_moviecard.default, {
+          key: movie._id,
+          movie: movie
+        });
+      }
+    })));
+  }
+
+}
 
 DirectorView.propTypes = {
   movies: _propTypes.default.arrayOf(_propTypes.default.shape({
@@ -40151,7 +38982,7 @@ DirectorView.propTypes = {
 };
 var _default = DirectorView;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./directorview.scss":"components/DirectorView/directorview.scss","../../img/back.svg":"img/back.svg","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/GenreView/genreview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./directorview.scss":"components/DirectorView/directorview.scss","../../img/back.svg":"img/back.svg","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/GenreView/genreview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40163,16 +38994,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -40186,69 +39007,58 @@ var _back = _interopRequireDefault(require("../../img/back.svg"));
 
 var _moviecard = _interopRequireDefault(require("../MovieCard/moviecard"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var GenreView = /*#__PURE__*/function (_Component) {
-  (0, _inherits2.default)(GenreView, _Component);
-
-  var _super = _createSuper(GenreView);
-
-  function GenreView() {
-    (0, _classCallCheck2.default)(this, GenreView);
-    return _super.call(this);
+class GenreView extends _react.Component {
+  constructor() {
+    super();
   }
 
-  (0, _createClass2.default)(GenreView, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          movies = _this$props.movies,
-          genre = _this$props.genre;
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: "genre-container"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "genre-view"
-      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        className: "genre-flex-start-btn",
-        to: "/"
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        className: "genre-view-back-btn"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _back.default,
-        alt: "back icon"
-      }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("div", {
-        className: "genre-info-container"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "genre-info"
-      }, /*#__PURE__*/_react.default.createElement("h1", {
-        className: "genre-view-name"
-      }, genre.Genre.Name), /*#__PURE__*/_react.default.createElement("p", {
-        className: "genre-view-description"
-      }, genre.Genre.Description)))), /*#__PURE__*/_react.default.createElement("h2", {
-        className: "genre-title"
-      }, "More ", genre.Genre.Name, " movies"), /*#__PURE__*/_react.default.createElement("div", {
-        className: "genre-movies-flex"
-      }, movies.map(function (movie) {
-        if (movie.Genre.Name === genre.Genre.Name) {
-          return /*#__PURE__*/_react.default.createElement(_moviecard.default, {
-            className: "moviecard",
-            key: movie._id,
-            movie: movie
-          });
-        }
-      })));
-    }
-  }]);
-  return GenreView;
-}(_react.Component);
+  render() {
+    const {
+      movies,
+      genre
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "genre-container"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "genre-view"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      className: "genre-flex-start-btn",
+      to: "/"
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      className: "genre-view-back-btn"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _back.default,
+      alt: "back icon"
+    }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("div", {
+      className: "genre-info-container"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "genre-info"
+    }, /*#__PURE__*/_react.default.createElement("h1", {
+      className: "genre-view-name"
+    }, genre.Genre.Name), /*#__PURE__*/_react.default.createElement("p", {
+      className: "genre-view-description"
+    }, genre.Genre.Description)))), /*#__PURE__*/_react.default.createElement("h2", {
+      className: "genre-title"
+    }, "More ", genre.Genre.Name, " movies"), /*#__PURE__*/_react.default.createElement("div", {
+      className: "genre-movies-flex"
+    }, movies.map(movie => {
+      if (movie.Genre.Name === genre.Genre.Name) {
+        return /*#__PURE__*/_react.default.createElement(_moviecard.default, {
+          className: "moviecard",
+          key: movie._id,
+          movie: movie
+        });
+      }
+    })));
+  }
+
+}
 
 GenreView.propTypes = {
   movies: _propTypes.default.arrayOf(_propTypes.default.shape({
@@ -40268,7 +39078,7 @@ GenreView.propTypes = {
 };
 var _default = GenreView;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./genreview.scss":"components/GenreView/genreview.scss","../../img/back.svg":"img/back.svg","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/ProfileView/profileview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./genreview.scss":"components/GenreView/genreview.scss","../../img/back.svg":"img/back.svg","../MovieCard/moviecard":"components/MovieCard/moviecard.jsx"}],"components/ProfileView/profileview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40286,16 +39096,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -40317,184 +39117,155 @@ var _close = _interopRequireDefault(require("../../img/close.svg"));
 
 require("../MovieCard/moviecard.scss");
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var ProfileView = /*#__PURE__*/function (_Component) {
-  (0, _inherits2.default)(ProfileView, _Component);
-
-  var _super = _createSuper(ProfileView);
-
-  function ProfileView(props) {
-    var _this;
-
-    (0, _classCallCheck2.default)(this, ProfileView);
-    _this = _super.call(this, props);
-    _this.state = {
+class ProfileView extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       username: "",
       password: "",
       email: "",
       favoriteMovies: []
     };
-    return _this;
   }
 
-  (0, _createClass2.default)(ProfileView, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var accessToken = localStorage.getItem('token');
-      this.getUser(accessToken);
-    }
-  }, {
-    key: "getUser",
-    value: function getUser(token) {
-      var _this2 = this;
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    this.getUser(accessToken);
+  }
 
-      var user = localStorage.getItem("user");
-      var url = "https://muvi-app.herokuapp.com/users/" + user;
+  getUser(token) {
+    let user = localStorage.getItem("user");
+    let url = "https://muvi-app.herokuapp.com/users/" + user;
 
-      _axios.default.get(url, {
-        headers: {
-          Authorization: "Bearer ".concat(token)
-        }
-      }).then(function (response) {
-        _this2.setState({
-          username: response.data.Username,
-          password: response.data.Password,
-          email: response.data.Email,
-          favoriteMovies: response.data.FavoriteMovies
-        });
+    _axios.default.get(url, {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    }).then(response => {
+      this.setState({
+        username: response.data.Username,
+        password: response.data.Password,
+        email: response.data.Email,
+        favoriteMovies: response.data.FavoriteMovies
       });
-    }
-  }, {
-    key: "unRegister",
-    value: function unRegister() {
-      var token = localStorage.getItem("token");
-      var user = localStorage.getItem("user");
-      var url = "https://muvi-app.herokuapp.com/users/" + user;
+    });
+  }
 
-      _axios.default.delete(url, {
-        headers: {
-          Authorization: "Bearer ".concat(token)
-        }
-      }).then(function (response) {
-        localStorage.clear();
-        window.location.pathname = "/";
-        alert("Account successfully unregistered. Returning to Login Screen.");
-      }).catch(function (error) {
-        console.log("Account could not be deleted");
+  unRegister() {
+    let token = localStorage.getItem("token");
+    let user = localStorage.getItem("user");
+    let url = "https://muvi-app.herokuapp.com/users/" + user;
+
+    _axios.default.delete(url, {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    }).then(response => {
+      localStorage.clear();
+      window.location.pathname = "/";
+      alert("Account successfully unregistered. Returning to Login Screen.");
+    }).catch(error => {
+      console.log("Account could not be deleted");
+    });
+  }
+
+  removeFavorite(movie) {
+    let token = localStorage.getItem('token');
+    let user = localStorage.getItem('user');
+    let url = "https://muvi-app.herokuapp.com/users/" + user + "/favorites/" + movie._id;
+
+    _axios.default.delete(url, {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    }).then(response => {
+      let data = response.data;
+      this.setState({
+        favoriteMovies: data.FavoriteMovies
       });
-    }
-  }, {
-    key: "removeFavorite",
-    value: function removeFavorite(movie) {
-      var _this3 = this;
+      console.log(this.state.favoriteMovies);
+      alert("Movie successfully removed from favorites list.");
+      this.componentDidMount();
+    }).catch(error => {
+      console.log('Error removing movie from favorites');
+    });
+  }
 
-      var token = localStorage.getItem('token');
-      var user = localStorage.getItem('user');
-      var url = "https://muvi-app.herokuapp.com/users/" + user + "/favorites/" + movie._id;
-
-      _axios.default.delete(url, {
-        headers: {
-          Authorization: "Bearer ".concat(token)
-        }
-      }).then(function (response) {
-        var data = response.data;
-
-        _this3.setState({
-          favoriteMovies: data.FavoriteMovies
-        });
-
-        console.log(_this3.state.favoriteMovies);
-        alert("Movie successfully removed from favorites list.");
-
-        _this3.componentDidMount();
-      }).catch(function (error) {
-        console.log('Error removing movie from favorites');
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this4 = this;
-
-      var _this$state = this.state,
-          username = _this$state.username,
-          favoriteMovies = _this$state.favoriteMovies;
-      var movies = this.props.movies;
-      var favMovies = movies.filter(function (movie) {
-        return favoriteMovies.includes(movie._id);
-      });
+  render() {
+    const {
+      username,
+      favoriteMovies
+    } = this.state;
+    const {
+      movies
+    } = this.props;
+    const favMovies = movies.filter(movie => {
+      return favoriteMovies.includes(movie._id);
+    });
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "profile-container"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "profile-info"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      className: "flex-start-btn",
+      to: "/"
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      className: "profile-view-back-btn"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _back.default,
+      alt: "back icon"
+    }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("div", {
+      className: "profile-btns"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      style: {
+        textDecoration: "none"
+      },
+      to: "/update/".concat(username)
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      className: "profile-update-account-btn",
+      type: "button"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _updateAccount.default
+    }), /*#__PURE__*/_react.default.createElement("p", null, "Edit Account"))), /*#__PURE__*/_react.default.createElement("button", {
+      className: "delete-account-btn",
+      onClick: () => this.unRegister()
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _deleteAccount.default
+    }), /*#__PURE__*/_react.default.createElement("p", null, "Delete Account")))), /*#__PURE__*/_react.default.createElement("div", {
+      className: "favorite-movie-container"
+    }, /*#__PURE__*/_react.default.createElement("h2", {
+      className: "favorite-movie-title"
+    }, username, "'s Favorite Movies"), /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie-grid"
+    }, favMovies.map(movie => {
       return /*#__PURE__*/_react.default.createElement("div", {
-        className: "profile-container"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "profile-info"
-      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        className: "flex-start-btn",
-        to: "/"
+        key: movie._id,
+        className: "movie-card"
       }, /*#__PURE__*/_react.default.createElement("button", {
-        className: "profile-view-back-btn"
+        onClick: () => this.removeFavorite(movie),
+        className: "remove-favorite-btn"
       }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _back.default,
-        alt: "back icon"
-      }), /*#__PURE__*/_react.default.createElement("p", null, "Back"))), /*#__PURE__*/_react.default.createElement("div", {
-        className: "profile-btns"
-      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        style: {
-          textDecoration: "none"
-        },
-        to: "/update/".concat(username)
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        className: "profile-update-account-btn",
-        type: "button"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _updateAccount.default
-      }), /*#__PURE__*/_react.default.createElement("p", null, "Edit Account"))), /*#__PURE__*/_react.default.createElement("button", {
-        className: "delete-account-btn",
-        onClick: function onClick() {
-          return _this4.unRegister();
-        }
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _deleteAccount.default
-      }), /*#__PURE__*/_react.default.createElement("p", null, "Delete Account")))), /*#__PURE__*/_react.default.createElement("div", {
-        className: "favorite-movie-container"
+        src: _close.default
+      })), /*#__PURE__*/_react.default.createElement("img", {
+        className: "img-sizer",
+        src: movie.ImageURL
+      }), /*#__PURE__*/_react.default.createElement("div", {
+        className: "movie-overlay"
       }, /*#__PURE__*/_react.default.createElement("h2", {
-        className: "favorite-movie-title"
-      }, username, "'s Favorite Movies"), /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-grid"
-      }, favMovies.map(function (movie) {
-        return /*#__PURE__*/_react.default.createElement("div", {
-          key: movie._id,
-          className: "movie-card"
-        }, /*#__PURE__*/_react.default.createElement("button", {
-          onClick: function onClick() {
-            return _this4.removeFavorite(movie);
-          },
-          className: "remove-favorite-btn"
-        }, /*#__PURE__*/_react.default.createElement("img", {
-          src: _close.default
-        })), /*#__PURE__*/_react.default.createElement("img", {
-          className: "img-sizer",
-          src: movie.ImageURL
-        }), /*#__PURE__*/_react.default.createElement("div", {
-          className: "movie-overlay"
-        }, /*#__PURE__*/_react.default.createElement("h2", {
-          className: "movie-card-title"
-        }, movie.Title), /*#__PURE__*/_react.default.createElement("p", {
-          className: "movie-card-genre"
-        }, new Date(movie.ReleaseDate).getFullYear(), " - ", movie.Genre.Name)));
-      }))));
-    }
-  }]);
-  return ProfileView;
-}(_react.Component);
+        className: "movie-card-title"
+      }, movie.Title), /*#__PURE__*/_react.default.createElement("p", {
+        className: "movie-card-genre"
+      }, new Date(movie.ReleaseDate).getFullYear(), " - ", movie.Genre.Name)));
+    }))));
+  }
+
+}
 
 ProfileView.propTypes = {
   movies: _propTypes.default.arrayOf(_propTypes.default.shape({
@@ -40514,7 +39285,7 @@ ProfileView.propTypes = {
 };
 var _default = ProfileView;
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./profileview.scss":"components/ProfileView/profileview.scss","../../img/back.svg":"img/back.svg","../../img/update-account.svg":"img/update-account.svg","../../img/delete-account.svg":"img/delete-account.svg","../../img/close.svg":"img/close.svg","../MovieCard/moviecard.scss":"components/MovieCard/moviecard.scss"}],"components/UpdateView/updateview.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./profileview.scss":"components/ProfileView/profileview.scss","../../img/back.svg":"img/back.svg","../../img/update-account.svg":"img/update-account.svg","../../img/delete-account.svg":"img/delete-account.svg","../../img/close.svg":"img/close.svg","../MovieCard/moviecard.scss":"components/MovieCard/moviecard.scss"}],"components/UpdateView/updateview.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -40528,8 +39299,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -40545,47 +39314,24 @@ var _check = _interopRequireDefault(require("../../img/check.svg"));
 
 var _alert = _interopRequireDefault(require("../../img/alert.svg"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function UpdateView(props) {
-  var _useState = (0, _react.useState)(''),
-      _useState2 = (0, _slicedToArray2.default)(_useState, 2),
-      username = _useState2[0],
-      changeUsername = _useState2[1];
+  const [username, changeUsername] = (0, _react.useState)('');
+  const [password, changePassword] = (0, _react.useState)('');
+  const [email, changeEmail] = (0, _react.useState)('');
+  const [usernameValidation, checkUsernameValidation] = (0, _react.useState)({});
+  const [passwordValidation, checkPasswordValidation] = (0, _react.useState)({});
+  const [emailValidation, checkEmailValidation] = (0, _react.useState)({});
 
-  var _useState3 = (0, _react.useState)(''),
-      _useState4 = (0, _slicedToArray2.default)(_useState3, 2),
-      password = _useState4[0],
-      changePassword = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(''),
-      _useState6 = (0, _slicedToArray2.default)(_useState5, 2),
-      email = _useState6[0],
-      changeEmail = _useState6[1];
-
-  var _useState7 = (0, _react.useState)({}),
-      _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
-      usernameValidation = _useState8[0],
-      checkUsernameValidation = _useState8[1];
-
-  var _useState9 = (0, _react.useState)({}),
-      _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
-      passwordValidation = _useState10[0],
-      checkPasswordValidation = _useState10[1];
-
-  var _useState11 = (0, _react.useState)({}),
-      _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
-      emailValidation = _useState12[0],
-      checkEmailValidation = _useState12[1];
-
-  var updateAccount = function updateAccount(e) {
+  const updateAccount = e => {
     e.preventDefault();
-    var isValid = formValidation();
-    var url = 'https://muvi-app.herokuapp.com/users/' + localStorage.getItem("users");
+    const isValid = formValidation();
+    const url = 'https://muvi-app.herokuapp.com/users/' + localStorage.getItem("users");
 
     if (isValid) {
       _axios.default.put(url, {
@@ -40596,22 +39342,22 @@ function UpdateView(props) {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token")
         }
-      }).then(function (response) {
-        var data = response.data;
+      }).then(response => {
+        const data = response.data;
         localStorage.setItem("user", data.Username);
         window.open("/", "_self");
         alert('Account successfully updated.');
-      }).catch(function (error) {
+      }).catch(error => {
         console.log(error);
       });
     }
   };
 
-  var formValidation = function formValidation() {
-    var usernameValidation = {};
-    var passwordValidation = {};
-    var emailValidation = {};
-    var isValid = true;
+  const formValidation = () => {
+    const usernameValidation = {};
+    const passwordValidation = {};
+    const emailValidation = {};
+    let isValid = true;
 
     if (username.trim().length < 5) {
       usernameValidation.usernameShort = "Username must be at least 5 characters long.";
@@ -40646,10 +39392,8 @@ function UpdateView(props) {
     placeholder: "Enter New or Current Username",
     type: "text",
     value: username,
-    onChange: function onChange(e) {
-      return changeUsername(e.target.value);
-    }
-  }), Object.keys(usernameValidation).map(function (key) {
+    onChange: e => changeUsername(e.target.value)
+  }), Object.keys(usernameValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -40666,10 +39410,8 @@ function UpdateView(props) {
     placeholder: "Enter New or Current Password",
     type: "password",
     value: password,
-    onChange: function onChange(e) {
-      return changePassword(e.target.value);
-    }
-  }), Object.keys(passwordValidation).map(function (key) {
+    onChange: e => changePassword(e.target.value)
+  }), Object.keys(passwordValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -40686,10 +39428,8 @@ function UpdateView(props) {
     placeholder: "Enter New or Current Email",
     type: "email",
     value: email,
-    onChange: function onChange(e) {
-      return changeEmail(e.target.value);
-    }
-  }), Object.keys(emailValidation).map(function (key) {
+    onChange: e => changeEmail(e.target.value)
+  }), Object.keys(emailValidation).map(key => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "validation-error",
       key: key
@@ -40718,7 +39458,7 @@ UpdateView.propTypes = {
 };
 var _default = UpdateView;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/check.svg":"img/check.svg","../../img/alert.svg":"img/alert.svg"}],"img/user.svg":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","./updateview.scss":"components/UpdateView/updateview.scss","../../img/check.svg":"img/check.svg","../../img/alert.svg":"img/alert.svg"}],"img/user.svg":[function(require,module,exports) {
 module.exports = "/user.6b500eaa.svg";
 },{}],"img/out.svg":[function(require,module,exports) {
 module.exports = "/out.ab99c714.svg";
@@ -40734,16 +39474,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -40781,181 +39511,149 @@ var _logo = _interopRequireDefault(require("../../img/logo.svg"));
 
 require("./mainview.scss");
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var MainView = /*#__PURE__*/function (_Component) {
-  (0, _inherits2.default)(MainView, _Component);
-
-  var _super = _createSuper(MainView);
-
-  function MainView() {
-    (0, _classCallCheck2.default)(this, MainView);
-    return _super.call(this);
+class MainView extends _react.Component {
+  constructor() {
+    super();
   }
 
-  (0, _createClass2.default)(MainView, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var accessToken = localStorage.getItem('token');
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
 
-      if (accessToken !== null) {
-        this.props.setUser(localStorage.getItem('user'));
-        this.getMovies(accessToken);
+    if (accessToken !== null) {
+      this.props.setUser(localStorage.getItem('user'));
+      this.getMovies(accessToken);
+    }
+  }
+
+  onLoggedIn(authData) {
+    console.log(authData);
+    this.props.setUser(authData.user.Username);
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
+  }
+
+  getMovies(token) {
+    _axios.default.get('https://muvi-app.herokuapp.com/movies', {
+      headers: {
+        Authorization: "Bearer ".concat(token)
       }
-    }
-  }, {
-    key: "onLoggedIn",
-    value: function onLoggedIn(authData) {
-      console.log(authData);
-      this.props.setUser(authData.user.Username);
-      localStorage.setItem('token', authData.token);
-      localStorage.setItem('user', authData.user.Username);
-      this.getMovies(authData.token);
-    }
-  }, {
-    key: "getMovies",
-    value: function getMovies(token) {
-      var _this = this;
+    }).then(response => {
+      this.props.setMovies(response.data);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
 
-      _axios.default.get('https://muvi-app.herokuapp.com/movies', {
-        headers: {
-          Authorization: "Bearer ".concat(token)
-        }
-      }).then(function (response) {
-        _this.props.setMovies(response.data);
-      }).catch(function (error) {
-        console.log(error);
-      });
-    }
-  }, {
-    key: "onSignOut",
-    value: function onSignOut() {
-      localStorage.clear();
-      this.props.setUser(null);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
+  onSignOut() {
+    localStorage.clear();
+    this.props.setUser(null);
+  }
 
-      var _this$props = this.props,
-          movie = _this$props.movie,
-          movies = _this$props.movies,
-          user = _this$props.user;
-      return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", {
-        className: "main-view"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "nav"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _logo.default
-      }), /*#__PURE__*/_react.default.createElement("div", {
-        className: "nav-button-flex"
-      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        className: "account-btn",
-        to: "/users/:userId"
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: _user.default,
-        alt: "profile icon"
-      })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        className: "sign-out-btn",
-        to: "/"
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        onClick: function onClick() {
-          return _this2.onSignOut();
-        },
-        className: "signout-btn"
-      }, "Sign Out"), /*#__PURE__*/_react.default.createElement("img", {
-        src: _out.default
-      })))), /*#__PURE__*/_react.default.createElement("div", {
-        className: "movie-grid"
-      }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        exact: true,
-        path: "/",
-        render: function render() {
-          if (!user) return /*#__PURE__*/_react.default.createElement(_loginview.default, {
-            onLoggedIn: function onLoggedIn(user) {
-              return _this2.onLoggedIn(user);
-            }
-          });
-          return /*#__PURE__*/_react.default.createElement(_movieslist.default, {
-            movies: movies
-          });
-        }
-      }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        path: "/movies/:movieId",
-        render: function render(_ref) {
-          var match = _ref.match;
-          return /*#__PURE__*/_react.default.createElement(_movieview.default, {
-            movie: movies.find(function (movie) {
-              return movie._id === match.params.movieId;
-            })
-          });
-        }
-      }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        path: "/register",
-        render: function render() {
-          return /*#__PURE__*/_react.default.createElement(_registerview.default, {
-            onLoggedIn: function onLoggedIn(user) {
-              return _this2.onLoggedIn(user);
-            }
-          });
-        }
-      }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        path: "/directors/:name",
-        render: function render(_ref2) {
-          var match = _ref2.match;
-          if (!movies) return /*#__PURE__*/_react.default.createElement("div", {
-            className: "main-view"
-          });
-          return /*#__PURE__*/_react.default.createElement(_directorview.default, {
-            director: movies.find(function (movie) {
-              return movie.Director.Name === match.params.name;
-            }),
-            movies: movies
-          });
-        }
-      }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        path: "/genres/:name",
-        render: function render(_ref3) {
-          var match = _ref3.match;
-          if (!movies) return /*#__PURE__*/_react.default.createElement("div", {
-            className: "main-view"
-          });
-          return /*#__PURE__*/_react.default.createElement(_genreview.default, {
-            genre: movies.find(function (movie) {
-              return movie.Genre.Name === match.params.name;
-            }),
-            movies: movies
-          });
-        }
-      }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        path: "/users/:userId",
-        render: function render() {
-          return /*#__PURE__*/_react.default.createElement(_profileview.default, {
-            movies: movies,
-            movie: movie
-          });
-        }
-      }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        path: "/update/:userId",
-        render: function render() {
-          return /*#__PURE__*/_react.default.createElement(_updateview.default, null);
-        }
-      }))));
-    }
-  }]);
-  return MainView;
-}(_react.Component);
+  render() {
+    const {
+      movie,
+      movies,
+      user
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "main-view"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "nav"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _logo.default
+    }), /*#__PURE__*/_react.default.createElement("div", {
+      className: "nav-button-flex"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      className: "account-btn",
+      to: "/users/:userId"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _user.default,
+      alt: "profile icon"
+    })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      className: "sign-out-btn",
+      to: "/"
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      onClick: () => this.onSignOut(),
+      className: "signout-btn"
+    }, "Sign Out"), /*#__PURE__*/_react.default.createElement("img", {
+      src: _out.default
+    })))), /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie-grid"
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      exact: true,
+      path: "/",
+      render: () => {
+        if (!user) return /*#__PURE__*/_react.default.createElement(_loginview.default, {
+          onLoggedIn: user => this.onLoggedIn(user)
+        });
+        return /*#__PURE__*/_react.default.createElement(_movieslist.default, {
+          movies: movies
+        });
+      }
+    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      path: "/movies/:movieId",
+      render: ({
+        match
+      }) => /*#__PURE__*/_react.default.createElement(_movieview.default, {
+        movie: movies.find(movie => movie._id === match.params.movieId)
+      })
+    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      path: "/register",
+      render: () => /*#__PURE__*/_react.default.createElement(_registerview.default, {
+        onLoggedIn: user => this.onLoggedIn(user)
+      })
+    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      path: "/directors/:name",
+      render: ({
+        match
+      }) => {
+        if (!movies) return /*#__PURE__*/_react.default.createElement("div", {
+          className: "main-view"
+        });
+        return /*#__PURE__*/_react.default.createElement(_directorview.default, {
+          director: movies.find(movie => movie.Director.Name === match.params.name),
+          movies: movies
+        });
+      }
+    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      path: "/genres/:name",
+      render: ({
+        match
+      }) => {
+        if (!movies) return /*#__PURE__*/_react.default.createElement("div", {
+          className: "main-view"
+        });
+        return /*#__PURE__*/_react.default.createElement(_genreview.default, {
+          genre: movies.find(movie => movie.Genre.Name === match.params.name),
+          movies: movies
+        });
+      }
+    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      path: "/users/:userId",
+      render: () => {
+        return /*#__PURE__*/_react.default.createElement(_profileview.default, {
+          movies: movies,
+          movie: movie
+        });
+      }
+    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      path: "/update/:userId",
+      render: () => {
+        return /*#__PURE__*/_react.default.createElement(_updateview.default, null);
+      }
+    }))));
+  }
 
-var mapStateToProps = function mapStateToProps(state) {
+}
+
+let mapStateToProps = state => {
   return {
     movies: state.movies,
     user: state.user
@@ -40999,7 +39697,7 @@ var _default = (0, _reactRedux.connect)(mapStateToProps, {
 })(MainView);
 
 exports.default = _default;
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MoviesList/movieslist":"components/MoviesList/movieslist.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","../../img/out.svg":"img/out.svg","../../img/logo.svg":"img/logo.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../MoviesList/movieslist":"components/MoviesList/movieslist.jsx","../MovieView/movieview":"components/MovieView/movieview.jsx","../LoginView/loginview":"components/LoginView/loginview.jsx","../RegisterView/registerview":"components/RegisterView/registerview.jsx","../DirectorView/directorview":"components/DirectorView/directorview.jsx","../GenreView/genreview":"components/GenreView/genreview.jsx","../ProfileView/profileview":"components/ProfileView/profileview.jsx","../UpdateView/updateview":"components/UpdateView/updateview.jsx","../../img/user.svg":"img/user.svg","../../img/out.svg":"img/out.svg","../../img/logo.svg":"img/logo.svg","./mainview.scss":"components/MainView/mainview.scss"}],"reducers/reducers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41011,10 +39709,7 @@ var _redux = require("redux");
 
 var _actions = require("../actions/actions.js");
 
-function movieFilter() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
+function movieFilter(state = '', action) {
   switch (action.type) {
     case _actions.SET_FILTER:
       return action.value;
@@ -41024,10 +39719,7 @@ function movieFilter() {
   }
 }
 
-function movies() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
+function movies(state = [], action) {
   switch (action.type) {
     case _actions.SET_MOVIES:
       return action.value;
@@ -41037,10 +39729,7 @@ function movies() {
   }
 }
 
-function user() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
+function user(state = '', action) {
   switch (action.type) {
     case _actions.SET_USER:
       return action.value;
@@ -41082,10 +39771,10 @@ function user() {
 // }
 
 
-var muviApp = (0, _redux.combineReducers)({
-  movieFilter: movieFilter,
-  movies: movies,
-  user: user // userUsername,
+const muviApp = (0, _redux.combineReducers)({
+  movieFilter,
+  movies,
+  user // userUsername,
   // userPassword,
   // userEmail,
   // userFavorites
@@ -41095,16 +39784,6 @@ var _default = muviApp;
 exports.default = _default;
 },{"redux":"../node_modules/redux/es/redux.js","../actions/actions.js":"actions/actions.js"}],"index.jsx":[function(require,module,exports) {
 "use strict";
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -41122,43 +39801,27 @@ var _mainview = _interopRequireDefault(require("./components/MainView/mainview")
 
 var _reducers = _interopRequireDefault(require("./reducers/reducers"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const store = (0, _redux.createStore)(_reducers.default, (0, _redux.applyMiddleware)(_reduxThunk.default));
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var store = (0, _redux.createStore)(_reducers.default, (0, _redux.applyMiddleware)(_reduxThunk.default));
-
-var MuviApp = /*#__PURE__*/function (_Component) {
-  (0, _inherits2.default)(MuviApp, _Component);
-
-  var _super = _createSuper(MuviApp);
-
-  function MuviApp() {
-    (0, _classCallCheck2.default)(this, MuviApp);
-    return _super.apply(this, arguments);
+class MuviApp extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(_reactRedux.Provider, {
+      store: store
+    }, /*#__PURE__*/_react.default.createElement(_mainview.default, null));
   }
 
-  (0, _createClass2.default)(MuviApp, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_reactRedux.Provider, {
-        store: store
-      }, /*#__PURE__*/_react.default.createElement(_mainview.default, null));
-    }
-  }]);
-  return MuviApp;
-}(_react.Component);
+}
 
-var container = document.getElementsByClassName('app-container')[0];
+const container = document.getElementsByClassName('app-container')[0];
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(MuviApp), container);
-},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"../node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","redux":"../node_modules/redux/es/redux.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","react-redux":"../node_modules/react-redux/es/index.js","./index.scss":"index.scss","./components/MainView/mainview":"components/MainView/mainview.jsx","./reducers/reducers":"reducers/reducers.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","redux":"../node_modules/redux/es/redux.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","react-redux":"../node_modules/react-redux/es/index.js","./index.scss":"index.scss","./components/MainView/mainview":"components/MainView/mainview.jsx","./reducers/reducers":"reducers/reducers.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -41186,7 +39849,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55172" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65244" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
